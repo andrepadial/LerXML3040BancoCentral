@@ -1,0 +1,12 @@
+C:\Users\andre\source\repos\LerXML3040BancoCentral\LerXML3040BancoCentral\Read3040Bacen\bin\Debug\net9.0\Read3040Bacen.deps.json
+C:\Users\andre\source\repos\LerXML3040BancoCentral\LerXML3040BancoCentral\Read3040Bacen\bin\Debug\net9.0\Read3040Bacen.dll
+C:\Users\andre\source\repos\LerXML3040BancoCentral\LerXML3040BancoCentral\Read3040Bacen\bin\Debug\net9.0\Read3040Bacen.pdb
+C:\Users\andre\source\repos\LerXML3040BancoCentral\LerXML3040BancoCentral\Read3040Bacen\obj\Debug\net9.0\Read3040Bacen.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\andre\source\repos\LerXML3040BancoCentral\LerXML3040BancoCentral\Read3040Bacen\obj\Debug\net9.0\Read3040Bacen.AssemblyInfoInputs.cache
+C:\Users\andre\source\repos\LerXML3040BancoCentral\LerXML3040BancoCentral\Read3040Bacen\obj\Debug\net9.0\Read3040Bacen.AssemblyInfo.cs
+C:\Users\andre\source\repos\LerXML3040BancoCentral\LerXML3040BancoCentral\Read3040Bacen\obj\Debug\net9.0\Read3040Bacen.csproj.CoreCompileInputs.cache
+C:\Users\andre\source\repos\LerXML3040BancoCentral\LerXML3040BancoCentral\Read3040Bacen\obj\Debug\net9.0\Read3040Bacen.sourcelink.json
+C:\Users\andre\source\repos\LerXML3040BancoCentral\LerXML3040BancoCentral\Read3040Bacen\obj\Debug\net9.0\Read3040Bacen.dll
+C:\Users\andre\source\repos\LerXML3040BancoCentral\LerXML3040BancoCentral\Read3040Bacen\obj\Debug\net9.0\refint\Read3040Bacen.dll
+C:\Users\andre\source\repos\LerXML3040BancoCentral\LerXML3040BancoCentral\Read3040Bacen\obj\Debug\net9.0\Read3040Bacen.pdb
+C:\Users\andre\source\repos\LerXML3040BancoCentral\LerXML3040BancoCentral\Read3040Bacen\obj\Debug\net9.0\ref\Read3040Bacen.dll

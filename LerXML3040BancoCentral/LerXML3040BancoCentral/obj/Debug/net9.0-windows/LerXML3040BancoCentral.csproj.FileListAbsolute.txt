@@ -1,0 +1,17 @@
+C:\Users\andre\source\repos\LerXML3040BancoCentral\LerXML3040BancoCentral\LerXML3040BancoCentral\bin\Debug\net9.0-windows\LerXML3040BancoCentral.exe
+C:\Users\andre\source\repos\LerXML3040BancoCentral\LerXML3040BancoCentral\LerXML3040BancoCentral\bin\Debug\net9.0-windows\LerXML3040BancoCentral.deps.json
+C:\Users\andre\source\repos\LerXML3040BancoCentral\LerXML3040BancoCentral\LerXML3040BancoCentral\bin\Debug\net9.0-windows\LerXML3040BancoCentral.runtimeconfig.json
+C:\Users\andre\source\repos\LerXML3040BancoCentral\LerXML3040BancoCentral\LerXML3040BancoCentral\bin\Debug\net9.0-windows\LerXML3040BancoCentral.dll
+C:\Users\andre\source\repos\LerXML3040BancoCentral\LerXML3040BancoCentral\LerXML3040BancoCentral\bin\Debug\net9.0-windows\LerXML3040BancoCentral.pdb
+C:\Users\andre\source\repos\LerXML3040BancoCentral\LerXML3040BancoCentral\LerXML3040BancoCentral\obj\Debug\net9.0-windows\LerXML3040BancoCentral.Form1.resources
+C:\Users\andre\source\repos\LerXML3040BancoCentral\LerXML3040BancoCentral\LerXML3040BancoCentral\obj\Debug\net9.0-windows\LerXML3040BancoCentral.csproj.GenerateResource.cache
+C:\Users\andre\source\repos\LerXML3040BancoCentral\LerXML3040BancoCentral\LerXML3040BancoCentral\obj\Debug\net9.0-windows\LerXML3040BancoCentral.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\andre\source\repos\LerXML3040BancoCentral\LerXML3040BancoCentral\LerXML3040BancoCentral\obj\Debug\net9.0-windows\LerXML3040BancoCentral.AssemblyInfoInputs.cache
+C:\Users\andre\source\repos\LerXML3040BancoCentral\LerXML3040BancoCentral\LerXML3040BancoCentral\obj\Debug\net9.0-windows\LerXML3040BancoCentral.AssemblyInfo.cs
+C:\Users\andre\source\repos\LerXML3040BancoCentral\LerXML3040BancoCentral\LerXML3040BancoCentral\obj\Debug\net9.0-windows\LerXML3040BancoCentral.csproj.CoreCompileInputs.cache
+C:\Users\andre\source\repos\LerXML3040BancoCentral\LerXML3040BancoCentral\LerXML3040BancoCentral\obj\Debug\net9.0-windows\LerXML3040BancoCentral.sourcelink.json
+C:\Users\andre\source\repos\LerXML3040BancoCentral\LerXML3040BancoCentral\LerXML3040BancoCentral\obj\Debug\net9.0-windows\LerXML3040BancoCentral.dll
+C:\Users\andre\source\repos\LerXML3040BancoCentral\LerXML3040BancoCentral\LerXML3040BancoCentral\obj\Debug\net9.0-windows\refint\LerXML3040BancoCentral.dll
+C:\Users\andre\source\repos\LerXML3040BancoCentral\LerXML3040BancoCentral\LerXML3040BancoCentral\obj\Debug\net9.0-windows\LerXML3040BancoCentral.pdb
+C:\Users\andre\source\repos\LerXML3040BancoCentral\LerXML3040BancoCentral\LerXML3040BancoCentral\obj\Debug\net9.0-windows\LerXML3040BancoCentral.genruntimeconfig.cache
+C:\Users\andre\source\repos\LerXML3040BancoCentral\LerXML3040BancoCentral\LerXML3040BancoCentral\obj\Debug\net9.0-windows\ref\LerXML3040BancoCentral.dll

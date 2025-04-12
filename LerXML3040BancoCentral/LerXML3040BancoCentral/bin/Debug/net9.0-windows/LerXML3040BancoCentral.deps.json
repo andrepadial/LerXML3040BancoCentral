@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v9.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v9.0": {
+      "LerXML3040BancoCentral/1.0.0": {
+        "runtime": {
+          "LerXML3040BancoCentral.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "LerXML3040BancoCentral/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
