@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\andre\\source\\repos\\LerXML3040BancoCentral\\LerXML3040BancoCentral\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A3E0BE3E-B5D1-49F0-B247-3CC0471EDED5}|Read3040Bacen\\Read3040Bacen.csproj|c:\\users\\andre\\source\\repos\\lerxml3040bancocentral\\lerxml3040bancocentral\\read3040bacen\\agregacao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A3E0BE3E-B5D1-49F0-B247-3CC0471EDED5}|Read3040Bacen\\Read3040Bacen.csproj|solutionrelative:read3040bacen\\agregacao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1CFFC465-33C0-4080-B8E2-94BC5B7CC7BF}|LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj|c:\\users\\andre\\source\\repos\\lerxml3040bancocentral\\lerxml3040bancocentral\\lerxml3040bancocentral\\model\\tipocontrole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1CFFC465-33C0-4080-B8E2-94BC5B7CC7BF}|LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj|solutionrelative:lerxml3040bancocentral\\model\\tipocontrole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -19,14 +19,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Agregacao.cs",
-              "DocumentMoniker": "C:\\Users\\andre\\source\\repos\\LerXML3040BancoCentral\\LerXML3040BancoCentral\\Read3040Bacen\\Agregacao.cs",
-              "RelativeDocumentMoniker": "Read3040Bacen\\Agregacao.cs",
-              "ToolTip": "C:\\Users\\andre\\source\\repos\\LerXML3040BancoCentral\\LerXML3040BancoCentral\\Read3040Bacen\\Agregacao.cs",
-              "RelativeToolTip": "Read3040Bacen\\Agregacao.cs",
-              "ViewState": "AgIAACkAAAAAAAAAAAAiwDAAAAAAAAAAAAAAAA==",
+              "Title": "TipoControle.cs",
+              "DocumentMoniker": "C:\\Users\\andre\\source\\repos\\LerXML3040BancoCentral\\LerXML3040BancoCentral\\LerXML3040BancoCentral\\Model\\TipoControle.cs",
+              "RelativeDocumentMoniker": "LerXML3040BancoCentral\\Model\\TipoControle.cs",
+              "ToolTip": "C:\\Users\\andre\\source\\repos\\LerXML3040BancoCentral\\LerXML3040BancoCentral\\LerXML3040BancoCentral\\Model\\TipoControle.cs",
+              "RelativeToolTip": "LerXML3040BancoCentral\\Model\\TipoControle.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAxwAsAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-12T16:39:33.353Z",
+              "WhenOpened": "2025-04-22T16:49:53.313Z",
               "EditorCaption": ""
             }
           ]

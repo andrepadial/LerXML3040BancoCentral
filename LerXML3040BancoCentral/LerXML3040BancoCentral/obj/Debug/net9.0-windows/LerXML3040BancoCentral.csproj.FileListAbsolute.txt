@@ -1,4 +1,5 @@
 C:\Users\andre\source\repos\LerXML3040BancoCentral\LerXML3040BancoCentral\LerXML3040BancoCentral\bin\Debug\net9.0-windows\LerXML3040BancoCentral.exe
+C:\Users\andre\source\repos\LerXML3040BancoCentral\LerXML3040BancoCentral\LerXML3040BancoCentral\bin\Debug\net9.0-windows\LerXML3040BancoCentral.dll.config
 C:\Users\andre\source\repos\LerXML3040BancoCentral\LerXML3040BancoCentral\LerXML3040BancoCentral\bin\Debug\net9.0-windows\LerXML3040BancoCentral.deps.json
 C:\Users\andre\source\repos\LerXML3040BancoCentral\LerXML3040BancoCentral\LerXML3040BancoCentral\bin\Debug\net9.0-windows\LerXML3040BancoCentral.runtimeconfig.json
 C:\Users\andre\source\repos\LerXML3040BancoCentral\LerXML3040BancoCentral\LerXML3040BancoCentral\bin\Debug\net9.0-windows\LerXML3040BancoCentral.dll

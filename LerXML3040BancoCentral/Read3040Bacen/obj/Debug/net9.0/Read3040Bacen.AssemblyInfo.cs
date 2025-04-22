@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Read3040Bacen")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d4d9e6dedf87d7b6e723004dd97fea387f648ebe")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+63215bc6283ed6a40bba53a77a15efb917f1f4b2")]
 [assembly: System.Reflection.AssemblyProductAttribute("Read3040Bacen")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Read3040Bacen")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
