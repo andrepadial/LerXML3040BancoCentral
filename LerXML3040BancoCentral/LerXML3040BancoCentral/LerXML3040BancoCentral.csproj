@@ -8,4 +8,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Read3040Bacen\Read3040Bacen.csproj" />
+  </ItemGroup>
+
 </Project>

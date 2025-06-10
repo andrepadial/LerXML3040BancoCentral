@@ -78,7 +78,7 @@ namespace Read3040Bacen
         public string QtdParcelas;
 
         [XmlElement("Venc")]
-        public List<Vencimento> vencimentos;
+        public Vencimento vencimentos;
 
         [XmlElement("Gar")]
         public List<Garantia> garantias;

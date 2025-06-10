@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    "net9.0-windows7.0": {}
+    "net9.0-windows7.0": {
+      "Read3040Bacen/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v9.0",
+        "compile": {
+          "bin/placeholder/Read3040Bacen.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Read3040Bacen.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "Read3040Bacen/1.0.0": {
+      "type": "project",
+      "path": "../Read3040Bacen/Read3040Bacen.csproj",
+      "msbuildProject": "../Read3040Bacen/Read3040Bacen.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net9.0-windows7.0": []
+    "net9.0-windows7.0": [
+      "Read3040Bacen >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\andre\\.nuget\\packages\\": {},
@@ -38,7 +57,11 @@
       "frameworks": {
         "net9.0-windows7.0": {
           "targetAlias": "net9.0-windows",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\andre\\source\\repos\\LerXML3040BancoCentral\\LerXML3040BancoCentral\\Read3040Bacen\\Read3040Bacen.csproj": {
+              "projectPath": "C:\\Users\\andre\\source\\repos\\LerXML3040BancoCentral\\LerXML3040BancoCentral\\Read3040Bacen\\Read3040Bacen.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

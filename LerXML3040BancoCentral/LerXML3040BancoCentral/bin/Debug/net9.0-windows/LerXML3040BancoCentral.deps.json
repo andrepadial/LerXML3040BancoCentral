@@ -7,14 +7,30 @@
   "targets": {
     ".NETCoreApp,Version=v9.0": {
       "LerXML3040BancoCentral/1.0.0": {
+        "dependencies": {
+          "Read3040Bacen": "1.0.0"
+        },
         "runtime": {
           "LerXML3040BancoCentral.dll": {}
+        }
+      },
+      "Read3040Bacen/1.0.0": {
+        "runtime": {
+          "Read3040Bacen.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       }
     }
   },
   "libraries": {
     "LerXML3040BancoCentral/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Read3040Bacen/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
