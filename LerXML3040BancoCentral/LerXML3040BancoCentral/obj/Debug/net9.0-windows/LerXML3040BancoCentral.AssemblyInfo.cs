@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LerXML3040BancoCentral")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b8649069aaa78a28f3f185134f14f03ca598a7d4")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+94a876f9d667bd3d0651d099695064065be5b398")]
 [assembly: System.Reflection.AssemblyProductAttribute("LerXML3040BancoCentral")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LerXML3040BancoCentral")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

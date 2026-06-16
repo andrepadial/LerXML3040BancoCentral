@@ -47,3 +47,4 @@ C:\Users\andre\source\repos\LerXML3040BancoCentral\LerXML3040BancoCentral\LerXML
 C:\Users\andre\source\repos\LerXML3040BancoCentral\LerXML3040BancoCentral\LerXML3040BancoCentral\bin\Debug\net9.0-windows\runtimes\win-x86\native\sni.dll
 C:\Users\andre\source\repos\LerXML3040BancoCentral\LerXML3040BancoCentral\LerXML3040BancoCentral\bin\Debug\net9.0-windows\runtimes\unix\lib\net8.0\System.Data.SqlClient.dll
 C:\Users\andre\source\repos\LerXML3040BancoCentral\LerXML3040BancoCentral\LerXML3040BancoCentral\bin\Debug\net9.0-windows\runtimes\win\lib\net8.0\System.Data.SqlClient.dll
+C:\Users\andre\source\repos\LerXML3040BancoCentral\LerXML3040BancoCentral\LerXML3040BancoCentral\obj\Debug\net9.0-windows\LerXML3040BancoCentral.frmExport3040Excel.resources
