@@ -1,0 +1,103 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\andre\\source\\repos\\LerXML3040BancoCentral\\LerXML3040BancoCentral\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A3E0BE3E-B5D1-49F0-B247-3CC0471EDED5}|Read3040Bacen\\Read3040Bacen.csproj|c:\\users\\andre\\source\\repos\\lerxml3040bancocentral\\lerxml3040bancocentral\\read3040bacen\\tratamento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A3E0BE3E-B5D1-49F0-B247-3CC0471EDED5}|Read3040Bacen\\Read3040Bacen.csproj|solutionrelative:read3040bacen\\tratamento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1CFFC465-33C0-4080-B8E2-94BC5B7CC7BF}|LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj|c:\\users\\andre\\source\\repos\\lerxml3040bancocentral\\lerxml3040bancocentral\\lerxml3040bancocentral\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1CFFC465-33C0-4080-B8E2-94BC5B7CC7BF}|LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj|solutionrelative:lerxml3040bancocentral\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1CFFC465-33C0-4080-B8E2-94BC5B7CC7BF}|LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj|C:\\Users\\andre\\source\\repos\\LerXML3040BancoCentral\\LerXML3040BancoCentral\\lerxml3040bancocentral\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{1CFFC465-33C0-4080-B8E2-94BC5B7CC7BF}|LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj|solutionrelative:lerxml3040bancocentral\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1CFFC465-33C0-4080-B8E2-94BC5B7CC7BF}|LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj|c:\\users\\andre\\source\\repos\\lerxml3040bancocentral\\lerxml3040bancocentral\\lerxml3040bancocentral\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1CFFC465-33C0-4080-B8E2-94BC5B7CC7BF}|LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj|solutionrelative:lerxml3040bancocentral\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{c6f34f0d-7ae5-4f3a-be61-fe0c21ae9eb8}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Form1.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\andre\\source\\repos\\LerXML3040BancoCentral\\LerXML3040BancoCentral\\LerXML3040BancoCentral\\Form1.Designer.cs",
+              "RelativeDocumentMoniker": "LerXML3040BancoCentral\\Form1.Designer.cs",
+              "ToolTip": "C:\\Users\\andre\\source\\repos\\LerXML3040BancoCentral\\LerXML3040BancoCentral\\LerXML3040BancoCentral\\Form1.Designer.cs",
+              "RelativeToolTip": "LerXML3040BancoCentral\\Form1.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-02T15:21:06.025Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Tratamento.cs",
+              "DocumentMoniker": "C:\\Users\\andre\\source\\repos\\LerXML3040BancoCentral\\LerXML3040BancoCentral\\Read3040Bacen\\Tratamento.cs",
+              "RelativeDocumentMoniker": "Read3040Bacen\\Tratamento.cs",
+              "ToolTip": "C:\\Users\\andre\\source\\repos\\LerXML3040BancoCentral\\LerXML3040BancoCentral\\Read3040Bacen\\Tratamento.cs",
+              "RelativeToolTip": "Read3040Bacen\\Tratamento.cs",
+              "ViewState": "AgIAAHITAAAAAAAAAAAmwGAKAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-02T15:10:18.965Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Form1.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\andre\\source\\repos\\LerXML3040BancoCentral\\LerXML3040BancoCentral\\LerXML3040BancoCentral\\Form1.cs",
+              "RelativeDocumentMoniker": "LerXML3040BancoCentral\\Form1.cs",
+              "ToolTip": "C:\\Users\\andre\\source\\repos\\LerXML3040BancoCentral\\LerXML3040BancoCentral\\LerXML3040BancoCentral\\Form1.cs [Design]",
+              "RelativeToolTip": "LerXML3040BancoCentral\\Form1.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-02T15:07:09.712Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "C:\\Users\\andre\\source\\repos\\LerXML3040BancoCentral\\LerXML3040BancoCentral\\LerXML3040BancoCentral\\Form1.cs",
+              "RelativeDocumentMoniker": "LerXML3040BancoCentral\\Form1.cs",
+              "ToolTip": "C:\\Users\\andre\\source\\repos\\LerXML3040BancoCentral\\LerXML3040BancoCentral\\LerXML3040BancoCentral\\Form1.cs",
+              "RelativeToolTip": "LerXML3040BancoCentral\\Form1.cs",
+              "ViewState": "AgIAAB0BAAAAAAAAAAAgwCwBAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-02T15:07:09.975Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

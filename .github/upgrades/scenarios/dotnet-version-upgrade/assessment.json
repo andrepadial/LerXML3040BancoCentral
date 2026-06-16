@@ -1,0 +1,3690 @@
+{
+  "settings": {
+    "components": {
+      "code": true,
+      "binaries": false
+    },
+    "targetId": "net10.0",
+    "targetDisplayName": ".NETCoreApp,Version=v10.0"
+  },
+  "analysisStartTime": "2026-06-02T15:56:33.423442Z",
+  "analysisEndTime": "2026-06-02T15:56:34.6024844Z",
+  "privacyModeHelpUrl": "https://go.microsoft.com/fwlink/?linkid=2270980",
+  "stats": {
+    "summary": {
+      "projects": 2,
+      "issues": 5,
+      "incidents": 166,
+      "effort": 166
+    },
+    "charts": {
+      "severity": {
+        "Mandatory": 161,
+        "Optional": 0,
+        "Potential": 5,
+        "Information": 0
+      },
+      "category": {
+        "Project": 2,
+        "Api": 164
+      }
+    }
+  },
+  "projects": [
+    {
+      "path": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+      "startingProject": true,
+      "issues": 4,
+      "storyPoints": 164,
+      "properties": {
+        "appName": "LerXML3040BancoCentral",
+        "projectKind": "WinForms",
+        "frameworks": [
+          "net9.0-windows"
+        ],
+        "languages": [
+          "C#"
+        ],
+        "tools": [
+          "MSBuild"
+        ],
+        "isSdkStyle": true,
+        "numberOfFiles": 22,
+        "numberOfCodeFiles": 21,
+        "linesTotal": 1496,
+        "linesOfCode": 1370,
+        "totalApiScanned": 2298,
+        "minLinesOfCodeToChange": 163,
+        "maxLinesOfCodeToChange": 163
+      },
+      "ruleInstances": [
+        {
+          "incidentId": "1d582539-3f48-49fb-9b90-d233e3836a34",
+          "ruleId": "Project.0002",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Current target framework: net9.0-windows\nRecommended target framework: net10.0-windows",
+              "protected": "Current target framework: net9.0-windows\nRecommended target framework: net10.0-windows"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+            "snippet": "Current target framework: net9.0-windows\nRecommended target framework: net10.0-windows",
+            "protectedSnippet": "Current target framework: net9.0-windows\nRecommended target framework: net10.0-windows",
+            "properties": {
+              "CurrentTargetFramework": "net9.0-windows",
+              "RecommendedTargetFramework": "net10.0-windows"
+            }
+          }
+        },
+        {
+          "incidentId": "2eab64c6-b73b-4635-801e-29862295af44",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "global::System.Windows.Forms.Application.SetHighDpiMode(HighDpiMode.SystemAware);",
+              "protected": "T:System.Windows.Forms.HighDpiMode"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\obj\\Debug\\net9.0-windows\\System.Windows.Forms.Analyzers.CSharp\\System.Windows.Forms.CSharp.Generators.ApplicationConfiguration.ApplicationConfigurationGenerator\\ApplicationConfiguration.g.cs",
+            "snippet": "global::System.Windows.Forms.Application.SetHighDpiMode(HighDpiMode.SystemAware);",
+            "protectedSnippet": "T:System.Windows.Forms.HighDpiMode",
+            "label": "T:System.Windows.Forms.HighDpiMode",
+            "line": 26,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "70e81e85-05f5-4d9e-94a3-b386c0827eba",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "global::System.Windows.Forms.Application.SetHighDpiMode(HighDpiMode.SystemAware);",
+              "protected": "T:System.Windows.Forms.HighDpiMode"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\obj\\Debug\\net9.0-windows\\System.Windows.Forms.Analyzers.CSharp\\System.Windows.Forms.CSharp.Generators.ApplicationConfiguration.ApplicationConfigurationGenerator\\ApplicationConfiguration.g.cs",
+            "snippet": "global::System.Windows.Forms.Application.SetHighDpiMode(HighDpiMode.SystemAware);",
+            "protectedSnippet": "T:System.Windows.Forms.HighDpiMode",
+            "label": "T:System.Windows.Forms.HighDpiMode",
+            "line": 26,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "45d7622c-1caf-412d-a2a8-2eb4921e21d2",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "global::System.Windows.Forms.Application.SetHighDpiMode(HighDpiMode.SystemAware);",
+              "protected": "F:System.Windows.Forms.HighDpiMode.SystemAware"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\obj\\Debug\\net9.0-windows\\System.Windows.Forms.Analyzers.CSharp\\System.Windows.Forms.CSharp.Generators.ApplicationConfiguration.ApplicationConfigurationGenerator\\ApplicationConfiguration.g.cs",
+            "snippet": "global::System.Windows.Forms.Application.SetHighDpiMode(HighDpiMode.SystemAware);",
+            "protectedSnippet": "F:System.Windows.Forms.HighDpiMode.SystemAware",
+            "label": "F:System.Windows.Forms.HighDpiMode.SystemAware",
+            "line": 26,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "d1676865-5492-4119-a5a0-af1e3f6f348c",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "global::System.Windows.Forms.Application.SetHighDpiMode(HighDpiMode.SystemAware);",
+              "protected": "T:System.Windows.Forms.Application"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\obj\\Debug\\net9.0-windows\\System.Windows.Forms.Analyzers.CSharp\\System.Windows.Forms.CSharp.Generators.ApplicationConfiguration.ApplicationConfigurationGenerator\\ApplicationConfiguration.g.cs",
+            "snippet": "global::System.Windows.Forms.Application.SetHighDpiMode(HighDpiMode.SystemAware);",
+            "protectedSnippet": "T:System.Windows.Forms.Application",
+            "label": "T:System.Windows.Forms.Application",
+            "line": 26,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "e9f86588-c891-42ba-9857-f80506852b32",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "global::System.Windows.Forms.Application.SetHighDpiMode(HighDpiMode.SystemAware);",
+              "protected": "M:System.Windows.Forms.Application.SetHighDpiMode(System.Windows.Forms.HighDpiMode)"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\obj\\Debug\\net9.0-windows\\System.Windows.Forms.Analyzers.CSharp\\System.Windows.Forms.CSharp.Generators.ApplicationConfiguration.ApplicationConfigurationGenerator\\ApplicationConfiguration.g.cs",
+            "snippet": "global::System.Windows.Forms.Application.SetHighDpiMode(HighDpiMode.SystemAware);",
+            "protectedSnippet": "M:System.Windows.Forms.Application.SetHighDpiMode(System.Windows.Forms.HighDpiMode)",
+            "label": "M:System.Windows.Forms.Application.SetHighDpiMode(System.Windows.Forms.HighDpiMode)",
+            "line": 26,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "b493a373-61fb-4bb5-872b-f14f9db2224d",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "global::System.Windows.Forms.Application.SetCompatibleTextRenderingDefault(false);",
+              "protected": "T:System.Windows.Forms.Application"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\obj\\Debug\\net9.0-windows\\System.Windows.Forms.Analyzers.CSharp\\System.Windows.Forms.CSharp.Generators.ApplicationConfiguration.ApplicationConfigurationGenerator\\ApplicationConfiguration.g.cs",
+            "snippet": "global::System.Windows.Forms.Application.SetCompatibleTextRenderingDefault(false);",
+            "protectedSnippet": "T:System.Windows.Forms.Application",
+            "label": "T:System.Windows.Forms.Application",
+            "line": 25,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "92f42712-7753-4dcf-ab23-710b7664e7e7",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "global::System.Windows.Forms.Application.SetCompatibleTextRenderingDefault(false);",
+              "protected": "M:System.Windows.Forms.Application.SetCompatibleTextRenderingDefault(System.Boolean)"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\obj\\Debug\\net9.0-windows\\System.Windows.Forms.Analyzers.CSharp\\System.Windows.Forms.CSharp.Generators.ApplicationConfiguration.ApplicationConfigurationGenerator\\ApplicationConfiguration.g.cs",
+            "snippet": "global::System.Windows.Forms.Application.SetCompatibleTextRenderingDefault(false);",
+            "protectedSnippet": "M:System.Windows.Forms.Application.SetCompatibleTextRenderingDefault(System.Boolean)",
+            "label": "M:System.Windows.Forms.Application.SetCompatibleTextRenderingDefault(System.Boolean)",
+            "line": 25,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "faa8b062-53ae-48c9-8b44-f4fe25cb9959",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "global::System.Windows.Forms.Application.EnableVisualStyles();",
+              "protected": "T:System.Windows.Forms.Application"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\obj\\Debug\\net9.0-windows\\System.Windows.Forms.Analyzers.CSharp\\System.Windows.Forms.CSharp.Generators.ApplicationConfiguration.ApplicationConfigurationGenerator\\ApplicationConfiguration.g.cs",
+            "snippet": "global::System.Windows.Forms.Application.EnableVisualStyles();",
+            "protectedSnippet": "T:System.Windows.Forms.Application",
+            "label": "T:System.Windows.Forms.Application",
+            "line": 24,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "396f8e0e-69b9-4151-84c9-5e2aef28e934",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "global::System.Windows.Forms.Application.EnableVisualStyles();",
+              "protected": "M:System.Windows.Forms.Application.EnableVisualStyles"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\obj\\Debug\\net9.0-windows\\System.Windows.Forms.Analyzers.CSharp\\System.Windows.Forms.CSharp.Generators.ApplicationConfiguration.ApplicationConfigurationGenerator\\ApplicationConfiguration.g.cs",
+            "snippet": "global::System.Windows.Forms.Application.EnableVisualStyles();",
+            "protectedSnippet": "M:System.Windows.Forms.Application.EnableVisualStyles",
+            "label": "M:System.Windows.Forms.Application.EnableVisualStyles",
+            "line": 24,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "b45a2014-cce0-45f8-bf2b-b4effa824688",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Application.Run(new Form1());",
+              "protected": "T:System.Windows.Forms.Application"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Program.cs",
+            "snippet": "Application.Run(new Form1());",
+            "protectedSnippet": "T:System.Windows.Forms.Application",
+            "label": "T:System.Windows.Forms.Application",
+            "line": 13,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "45473ac5-a6d1-4b33-82fb-b04ac346e872",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Application.Run(new Form1());",
+              "protected": "M:System.Windows.Forms.Application.Run(System.Windows.Forms.Form)"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Program.cs",
+            "snippet": "Application.Run(new Form1());",
+            "protectedSnippet": "M:System.Windows.Forms.Application.Run(System.Windows.Forms.Form)",
+            "label": "M:System.Windows.Forms.Application.Run(System.Windows.Forms.Form)",
+            "line": 13,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "837cf0b9-d80e-4119-8911-00b8955eb537",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "checkBox1",
+              "protected": "T:System.Windows.Forms.CheckBox"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "checkBox1",
+            "protectedSnippet": "T:System.Windows.Forms.CheckBox",
+            "label": "T:System.Windows.Forms.CheckBox",
+            "line": 108,
+            "column": 25
+          }
+        },
+        {
+          "incidentId": "7a75c952-3022-4a35-80d5-7b954dea625a",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "button1",
+              "protected": "T:System.Windows.Forms.Button"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "button1",
+            "protectedSnippet": "T:System.Windows.Forms.Button",
+            "label": "T:System.Windows.Forms.Button",
+            "line": 107,
+            "column": 23
+          }
+        },
+        {
+          "incidentId": "c1583de2-dc65-466b-b93f-1bce2bcb3e12",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "textBox1",
+              "protected": "T:System.Windows.Forms.TextBox"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "textBox1",
+            "protectedSnippet": "T:System.Windows.Forms.TextBox",
+            "label": "T:System.Windows.Forms.TextBox",
+            "line": 106,
+            "column": 24
+          }
+        },
+        {
+          "incidentId": "7a146671-6518-4506-b13d-a0ecb3b1c0f3",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "openFileDialog2",
+              "protected": "T:System.Windows.Forms.OpenFileDialog"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "openFileDialog2",
+            "protectedSnippet": "T:System.Windows.Forms.OpenFileDialog",
+            "label": "T:System.Windows.Forms.OpenFileDialog",
+            "line": 105,
+            "column": 31
+          }
+        },
+        {
+          "incidentId": "f125c2a7-067b-4338-8213-ac5ef5f90d90",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "label1",
+              "protected": "T:System.Windows.Forms.Label"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "label1",
+            "protectedSnippet": "T:System.Windows.Forms.Label",
+            "label": "T:System.Windows.Forms.Label",
+            "line": 104,
+            "column": 22
+          }
+        },
+        {
+          "incidentId": "87d176ac-935a-4f8c-abc9-ad8a333ff1f5",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "openFileDialog1",
+              "protected": "T:System.Windows.Forms.OpenFileDialog"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "openFileDialog1",
+            "protectedSnippet": "T:System.Windows.Forms.OpenFileDialog",
+            "label": "T:System.Windows.Forms.OpenFileDialog",
+            "line": 103,
+            "column": 31
+          }
+        },
+        {
+          "incidentId": "d3953706-1542-46bb-b121-98e5b9b82734",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "PerformLayout();",
+              "protected": "M:System.Windows.Forms.Control.PerformLayout"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "PerformLayout();",
+            "protectedSnippet": "M:System.Windows.Forms.Control.PerformLayout",
+            "label": "M:System.Windows.Forms.Control.PerformLayout",
+            "line": 98,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "728feeff-3144-4110-882b-0080a584a5af",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "ResumeLayout(false);",
+              "protected": "M:System.Windows.Forms.Control.ResumeLayout(System.Boolean)"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "ResumeLayout(false);",
+            "protectedSnippet": "M:System.Windows.Forms.Control.ResumeLayout(System.Boolean)",
+            "label": "M:System.Windows.Forms.Control.ResumeLayout(System.Boolean)",
+            "line": 97,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "609fee53-e546-411f-90c2-3396d662af93",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Text = \u00224966 - Ajuste de XML\u0022;",
+              "protected": "P:System.Windows.Forms.Form.Text"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "Text = \u00224966 - Ajuste de XML\u0022;",
+            "protectedSnippet": "P:System.Windows.Forms.Form.Text",
+            "label": "P:System.Windows.Forms.Form.Text",
+            "line": 96,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "e7434c8a-1549-45e3-8174-0c05c67b5407",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Name = \u0022Form1\u0022;",
+              "protected": "P:System.Windows.Forms.Control.Name"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "Name = \u0022Form1\u0022;",
+            "protectedSnippet": "P:System.Windows.Forms.Control.Name",
+            "label": "P:System.Windows.Forms.Control.Name",
+            "line": 95,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "bd844a95-a116-48de-9cb4-d801effc0030",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Margin = new Padding(6);",
+              "protected": "T:System.Windows.Forms.Padding"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "Margin = new Padding(6);",
+            "protectedSnippet": "T:System.Windows.Forms.Padding",
+            "label": "T:System.Windows.Forms.Padding",
+            "line": 94,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "2dac830c-0b5a-4e4c-9e55-0b971199b7ea",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Margin = new Padding(6);",
+              "protected": "M:System.Windows.Forms.Padding.#ctor(System.Int32)"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "Margin = new Padding(6);",
+            "protectedSnippet": "M:System.Windows.Forms.Padding.#ctor(System.Int32)",
+            "label": "M:System.Windows.Forms.Padding.#ctor(System.Int32)",
+            "line": 94,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "5d7799b3-32ec-4da9-885b-2015193ca9a0",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Margin = new Padding(6);",
+              "protected": "T:System.Windows.Forms.Padding"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "Margin = new Padding(6);",
+            "protectedSnippet": "T:System.Windows.Forms.Padding",
+            "label": "T:System.Windows.Forms.Padding",
+            "line": 94,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "44346342-1957-4e87-8e99-3ab1ba965e31",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Margin = new Padding(6);",
+              "protected": "P:System.Windows.Forms.Form.Margin"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "Margin = new Padding(6);",
+            "protectedSnippet": "P:System.Windows.Forms.Form.Margin",
+            "label": "P:System.Windows.Forms.Form.Margin",
+            "line": 94,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "da9daa54-005d-4211-8420-d55ae03a5ed2",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Controls.Add(label1);",
+              "protected": "T:System.Windows.Forms.Label"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "Controls.Add(label1);",
+            "protectedSnippet": "T:System.Windows.Forms.Label",
+            "label": "T:System.Windows.Forms.Label",
+            "line": 93,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "e9d8498f-3998-406a-acd4-c91c0facef67",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Controls.Add(label1);",
+              "protected": "T:System.Windows.Forms.Control.ControlCollection"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "Controls.Add(label1);",
+            "protectedSnippet": "T:System.Windows.Forms.Control.ControlCollection",
+            "label": "T:System.Windows.Forms.Control.ControlCollection",
+            "line": 93,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "2b175731-c579-4ea5-b8e9-3f86bb1ebb05",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Controls.Add(label1);",
+              "protected": "P:System.Windows.Forms.Control.Controls"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "Controls.Add(label1);",
+            "protectedSnippet": "P:System.Windows.Forms.Control.Controls",
+            "label": "P:System.Windows.Forms.Control.Controls",
+            "line": 93,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "bc398aa7-d5de-4b0e-bfee-5e360284004e",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Controls.Add(label1);",
+              "protected": "M:System.Windows.Forms.Control.ControlCollection.Add(System.Windows.Forms.Control)"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "Controls.Add(label1);",
+            "protectedSnippet": "M:System.Windows.Forms.Control.ControlCollection.Add(System.Windows.Forms.Control)",
+            "label": "M:System.Windows.Forms.Control.ControlCollection.Add(System.Windows.Forms.Control)",
+            "line": 93,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "585ef6cb-4f45-44ac-a9cf-c6e6c5fe8cf0",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Controls.Add(textBox1);",
+              "protected": "T:System.Windows.Forms.TextBox"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "Controls.Add(textBox1);",
+            "protectedSnippet": "T:System.Windows.Forms.TextBox",
+            "label": "T:System.Windows.Forms.TextBox",
+            "line": 92,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "6d7c69bd-6871-4d4e-abb6-1b029df5546d",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Controls.Add(textBox1);",
+              "protected": "T:System.Windows.Forms.Control.ControlCollection"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "Controls.Add(textBox1);",
+            "protectedSnippet": "T:System.Windows.Forms.Control.ControlCollection",
+            "label": "T:System.Windows.Forms.Control.ControlCollection",
+            "line": 92,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "8ea76f02-c088-4b4c-9fc6-9e63612673ce",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Controls.Add(textBox1);",
+              "protected": "P:System.Windows.Forms.Control.Controls"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "Controls.Add(textBox1);",
+            "protectedSnippet": "P:System.Windows.Forms.Control.Controls",
+            "label": "P:System.Windows.Forms.Control.Controls",
+            "line": 92,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "a78569d0-8602-4f02-b673-fd9227f5d2c9",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Controls.Add(textBox1);",
+              "protected": "M:System.Windows.Forms.Control.ControlCollection.Add(System.Windows.Forms.Control)"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "Controls.Add(textBox1);",
+            "protectedSnippet": "M:System.Windows.Forms.Control.ControlCollection.Add(System.Windows.Forms.Control)",
+            "label": "M:System.Windows.Forms.Control.ControlCollection.Add(System.Windows.Forms.Control)",
+            "line": 92,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "22cabbb9-f9d7-4ea0-b4c3-ac0d265384ae",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Controls.Add(button1);",
+              "protected": "T:System.Windows.Forms.Button"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "Controls.Add(button1);",
+            "protectedSnippet": "T:System.Windows.Forms.Button",
+            "label": "T:System.Windows.Forms.Button",
+            "line": 91,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "fa54df71-3fe6-4976-9fa2-a869c9346d0d",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Controls.Add(button1);",
+              "protected": "T:System.Windows.Forms.Control.ControlCollection"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "Controls.Add(button1);",
+            "protectedSnippet": "T:System.Windows.Forms.Control.ControlCollection",
+            "label": "T:System.Windows.Forms.Control.ControlCollection",
+            "line": 91,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "020668a7-0ab8-4e61-898f-087bab251b89",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Controls.Add(button1);",
+              "protected": "P:System.Windows.Forms.Control.Controls"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "Controls.Add(button1);",
+            "protectedSnippet": "P:System.Windows.Forms.Control.Controls",
+            "label": "P:System.Windows.Forms.Control.Controls",
+            "line": 91,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "c5ce8403-3d09-4378-bd14-00bde3206df2",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Controls.Add(button1);",
+              "protected": "M:System.Windows.Forms.Control.ControlCollection.Add(System.Windows.Forms.Control)"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "Controls.Add(button1);",
+            "protectedSnippet": "M:System.Windows.Forms.Control.ControlCollection.Add(System.Windows.Forms.Control)",
+            "label": "M:System.Windows.Forms.Control.ControlCollection.Add(System.Windows.Forms.Control)",
+            "line": 91,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "f0396db1-7e99-4346-b80a-2a251e5162b8",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Controls.Add(checkBox1);",
+              "protected": "T:System.Windows.Forms.CheckBox"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "Controls.Add(checkBox1);",
+            "protectedSnippet": "T:System.Windows.Forms.CheckBox",
+            "label": "T:System.Windows.Forms.CheckBox",
+            "line": 90,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "aad5339b-f103-4dbf-908c-89effaea15da",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Controls.Add(checkBox1);",
+              "protected": "T:System.Windows.Forms.Control.ControlCollection"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "Controls.Add(checkBox1);",
+            "protectedSnippet": "T:System.Windows.Forms.Control.ControlCollection",
+            "label": "T:System.Windows.Forms.Control.ControlCollection",
+            "line": 90,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "e28f3551-1589-45c3-9477-7d881630c9de",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Controls.Add(checkBox1);",
+              "protected": "P:System.Windows.Forms.Control.Controls"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "Controls.Add(checkBox1);",
+            "protectedSnippet": "P:System.Windows.Forms.Control.Controls",
+            "label": "P:System.Windows.Forms.Control.Controls",
+            "line": 90,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "040edbea-08bf-4c1d-84bd-ee430b9c9491",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Controls.Add(checkBox1);",
+              "protected": "M:System.Windows.Forms.Control.ControlCollection.Add(System.Windows.Forms.Control)"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "Controls.Add(checkBox1);",
+            "protectedSnippet": "M:System.Windows.Forms.Control.ControlCollection.Add(System.Windows.Forms.Control)",
+            "label": "M:System.Windows.Forms.Control.ControlCollection.Add(System.Windows.Forms.Control)",
+            "line": 90,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "da2f450b-7199-4577-ae7a-9e2ad18b0df0",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "ClientSize = new Size(1600, 864);",
+              "protected": "P:System.Windows.Forms.Form.ClientSize"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "ClientSize = new Size(1600, 864);",
+            "protectedSnippet": "P:System.Windows.Forms.Form.ClientSize",
+            "label": "P:System.Windows.Forms.Form.ClientSize",
+            "line": 89,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "33d48f6b-1286-4946-b157-603f18124f2a",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "AutoScaleMode = AutoScaleMode.Font;",
+              "protected": "T:System.Windows.Forms.AutoScaleMode"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "AutoScaleMode = AutoScaleMode.Font;",
+            "protectedSnippet": "T:System.Windows.Forms.AutoScaleMode",
+            "label": "T:System.Windows.Forms.AutoScaleMode",
+            "line": 88,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "b4892c3a-c468-459c-9518-578ec29c54f6",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "AutoScaleMode = AutoScaleMode.Font;",
+              "protected": "T:System.Windows.Forms.AutoScaleMode"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "AutoScaleMode = AutoScaleMode.Font;",
+            "protectedSnippet": "T:System.Windows.Forms.AutoScaleMode",
+            "label": "T:System.Windows.Forms.AutoScaleMode",
+            "line": 88,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "5c42bd77-a126-4141-bee3-e859f8c82390",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "AutoScaleMode = AutoScaleMode.Font;",
+              "protected": "F:System.Windows.Forms.AutoScaleMode.Font"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "AutoScaleMode = AutoScaleMode.Font;",
+            "protectedSnippet": "F:System.Windows.Forms.AutoScaleMode.Font",
+            "label": "F:System.Windows.Forms.AutoScaleMode.Font",
+            "line": 88,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "3a3b3fd5-a0bc-4614-a91f-c714b9219814",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "AutoScaleMode = AutoScaleMode.Font;",
+              "protected": "T:System.Windows.Forms.AutoScaleMode"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "AutoScaleMode = AutoScaleMode.Font;",
+            "protectedSnippet": "T:System.Windows.Forms.AutoScaleMode",
+            "label": "T:System.Windows.Forms.AutoScaleMode",
+            "line": 88,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "8b9f3f7e-b5d7-4bcc-834f-235e4e2fa96a",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "AutoScaleMode = AutoScaleMode.Font;",
+              "protected": "P:System.Windows.Forms.ContainerControl.AutoScaleMode"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "AutoScaleMode = AutoScaleMode.Font;",
+            "protectedSnippet": "P:System.Windows.Forms.ContainerControl.AutoScaleMode",
+            "label": "P:System.Windows.Forms.ContainerControl.AutoScaleMode",
+            "line": 88,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "475092a8-2adc-42aa-932c-5fcf575922f0",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "AutoScaleDimensions = new SizeF(20F, 48F);",
+              "protected": "P:System.Windows.Forms.ContainerControl.AutoScaleDimensions"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "AutoScaleDimensions = new SizeF(20F, 48F);",
+            "protectedSnippet": "P:System.Windows.Forms.ContainerControl.AutoScaleDimensions",
+            "label": "P:System.Windows.Forms.ContainerControl.AutoScaleDimensions",
+            "line": 87,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "1f78ca6c-fb6c-457e-8b3f-a838707c7d9f",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "checkBox1.UseVisualStyleBackColor = true;",
+              "protected": "T:System.Windows.Forms.CheckBox"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "checkBox1.UseVisualStyleBackColor = true;",
+            "protectedSnippet": "T:System.Windows.Forms.CheckBox",
+            "label": "T:System.Windows.Forms.CheckBox",
+            "line": 83,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "756d9d4a-211c-4b9c-90d7-4047c71d2ca7",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "checkBox1.UseVisualStyleBackColor = true;",
+              "protected": "P:System.Windows.Forms.ButtonBase.UseVisualStyleBackColor"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "checkBox1.UseVisualStyleBackColor = true;",
+            "protectedSnippet": "P:System.Windows.Forms.ButtonBase.UseVisualStyleBackColor",
+            "label": "P:System.Windows.Forms.ButtonBase.UseVisualStyleBackColor",
+            "line": 83,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "d67465fe-ef37-4026-912e-eb0d38d021a1",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "checkBox1.Text = \u0022Suprimir Aloca\u00E7\u00E3o de est\u00E1gio\u0022;",
+              "protected": "T:System.Windows.Forms.CheckBox"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "checkBox1.Text = \u0022Suprimir Aloca\u00E7\u00E3o de est\u00E1gio\u0022;",
+            "protectedSnippet": "T:System.Windows.Forms.CheckBox",
+            "label": "T:System.Windows.Forms.CheckBox",
+            "line": 82,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "1230f0a0-7125-415f-b3e8-7ec4da7f496c",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "checkBox1.Text = \u0022Suprimir Aloca\u00E7\u00E3o de est\u00E1gio\u0022;",
+              "protected": "P:System.Windows.Forms.ButtonBase.Text"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "checkBox1.Text = \u0022Suprimir Aloca\u00E7\u00E3o de est\u00E1gio\u0022;",
+            "protectedSnippet": "P:System.Windows.Forms.ButtonBase.Text",
+            "label": "P:System.Windows.Forms.ButtonBase.Text",
+            "line": 82,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "925bbd3f-ad58-4092-a10b-27953f95f46c",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "checkBox1.TabIndex = 3;",
+              "protected": "T:System.Windows.Forms.CheckBox"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "checkBox1.TabIndex = 3;",
+            "protectedSnippet": "T:System.Windows.Forms.CheckBox",
+            "label": "T:System.Windows.Forms.CheckBox",
+            "line": 81,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "fa82013f-e1ae-4c3a-a25b-bed10d7eced4",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "checkBox1.TabIndex = 3;",
+              "protected": "P:System.Windows.Forms.Control.TabIndex"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "checkBox1.TabIndex = 3;",
+            "protectedSnippet": "P:System.Windows.Forms.Control.TabIndex",
+            "label": "P:System.Windows.Forms.Control.TabIndex",
+            "line": 81,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "611558da-4e89-4d67-a8bd-e4914543a11c",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "checkBox1.Size = new Size(530, 52);",
+              "protected": "T:System.Windows.Forms.CheckBox"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "checkBox1.Size = new Size(530, 52);",
+            "protectedSnippet": "T:System.Windows.Forms.CheckBox",
+            "label": "T:System.Windows.Forms.CheckBox",
+            "line": 80,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "ed83f28c-8089-4b6b-be57-67162d191e88",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "checkBox1.Size = new Size(530, 52);",
+              "protected": "P:System.Windows.Forms.Control.Size"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "checkBox1.Size = new Size(530, 52);",
+            "protectedSnippet": "P:System.Windows.Forms.Control.Size",
+            "label": "P:System.Windows.Forms.Control.Size",
+            "line": 80,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "b78ca088-ba26-43e3-884d-355d5b08281f",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "checkBox1.Name = \u0022checkBox1\u0022;",
+              "protected": "T:System.Windows.Forms.CheckBox"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "checkBox1.Name = \u0022checkBox1\u0022;",
+            "protectedSnippet": "T:System.Windows.Forms.CheckBox",
+            "label": "T:System.Windows.Forms.CheckBox",
+            "line": 79,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "fd9aa2ed-46e0-4219-b1b5-31dfbb1688ff",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "checkBox1.Name = \u0022checkBox1\u0022;",
+              "protected": "P:System.Windows.Forms.Control.Name"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "checkBox1.Name = \u0022checkBox1\u0022;",
+            "protectedSnippet": "P:System.Windows.Forms.Control.Name",
+            "label": "P:System.Windows.Forms.Control.Name",
+            "line": 79,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "288c5bf9-b8d5-4174-820f-cc670c4616f2",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "checkBox1.Location = new Point(997, 78);",
+              "protected": "T:System.Windows.Forms.CheckBox"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "checkBox1.Location = new Point(997, 78);",
+            "protectedSnippet": "T:System.Windows.Forms.CheckBox",
+            "label": "T:System.Windows.Forms.CheckBox",
+            "line": 78,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "c729c8e3-1550-4fd7-bd1b-9948a2a2f890",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "checkBox1.Location = new Point(997, 78);",
+              "protected": "P:System.Windows.Forms.Control.Location"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "checkBox1.Location = new Point(997, 78);",
+            "protectedSnippet": "P:System.Windows.Forms.Control.Location",
+            "label": "P:System.Windows.Forms.Control.Location",
+            "line": 78,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "2a978b7e-46e6-4a4c-b2b9-9c369525b6f3",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "checkBox1.CheckState = CheckState.Checked;",
+              "protected": "T:System.Windows.Forms.CheckState"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "checkBox1.CheckState = CheckState.Checked;",
+            "protectedSnippet": "T:System.Windows.Forms.CheckState",
+            "label": "T:System.Windows.Forms.CheckState",
+            "line": 77,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "6ab985d2-78f8-425c-ae15-4694804f16d3",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "checkBox1.CheckState = CheckState.Checked;",
+              "protected": "T:System.Windows.Forms.CheckState"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "checkBox1.CheckState = CheckState.Checked;",
+            "protectedSnippet": "T:System.Windows.Forms.CheckState",
+            "label": "T:System.Windows.Forms.CheckState",
+            "line": 77,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "a303533e-eaed-427a-a48b-36bda3a53b91",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "checkBox1.CheckState = CheckState.Checked;",
+              "protected": "F:System.Windows.Forms.CheckState.Checked"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "checkBox1.CheckState = CheckState.Checked;",
+            "protectedSnippet": "F:System.Windows.Forms.CheckState.Checked",
+            "label": "F:System.Windows.Forms.CheckState.Checked",
+            "line": 77,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "620642a4-d7dd-4a04-a170-f1ea70ccc110",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "checkBox1.CheckState = CheckState.Checked;",
+              "protected": "T:System.Windows.Forms.CheckBox"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "checkBox1.CheckState = CheckState.Checked;",
+            "protectedSnippet": "T:System.Windows.Forms.CheckBox",
+            "label": "T:System.Windows.Forms.CheckBox",
+            "line": 77,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "de69b6f0-1fcb-43bb-89c6-bf3d87371c4b",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "checkBox1.CheckState = CheckState.Checked;",
+              "protected": "T:System.Windows.Forms.CheckState"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "checkBox1.CheckState = CheckState.Checked;",
+            "protectedSnippet": "T:System.Windows.Forms.CheckState",
+            "label": "T:System.Windows.Forms.CheckState",
+            "line": 77,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "f15467e1-926a-4c45-b962-6f1efde738a3",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "checkBox1.CheckState = CheckState.Checked;",
+              "protected": "P:System.Windows.Forms.CheckBox.CheckState"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "checkBox1.CheckState = CheckState.Checked;",
+            "protectedSnippet": "P:System.Windows.Forms.CheckBox.CheckState",
+            "label": "P:System.Windows.Forms.CheckBox.CheckState",
+            "line": 77,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "2960bdd7-d8f2-4e8b-9893-2a2e048dde54",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "checkBox1.Checked = true;",
+              "protected": "T:System.Windows.Forms.CheckBox"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "checkBox1.Checked = true;",
+            "protectedSnippet": "T:System.Windows.Forms.CheckBox",
+            "label": "T:System.Windows.Forms.CheckBox",
+            "line": 76,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "d0ea056a-15b0-4a21-8815-4e64be93c466",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "checkBox1.Checked = true;",
+              "protected": "P:System.Windows.Forms.CheckBox.Checked"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "checkBox1.Checked = true;",
+            "protectedSnippet": "P:System.Windows.Forms.CheckBox.Checked",
+            "label": "P:System.Windows.Forms.CheckBox.Checked",
+            "line": 76,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "e10417b3-9a2b-4e7c-8d6d-d5cd1ab66275",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "checkBox1.AutoSize = true;",
+              "protected": "T:System.Windows.Forms.CheckBox"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "checkBox1.AutoSize = true;",
+            "protectedSnippet": "T:System.Windows.Forms.CheckBox",
+            "label": "T:System.Windows.Forms.CheckBox",
+            "line": 75,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "97966efb-813d-4f3a-8443-af4696c872cd",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "checkBox1.AutoSize = true;",
+              "protected": "P:System.Windows.Forms.ButtonBase.AutoSize"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "checkBox1.AutoSize = true;",
+            "protectedSnippet": "P:System.Windows.Forms.ButtonBase.AutoSize",
+            "label": "P:System.Windows.Forms.ButtonBase.AutoSize",
+            "line": 75,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "a40699b4-18b7-4182-bd51-55100effff80",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "button1.Click \u002B= button1_Click;",
+              "protected": "T:System.Windows.Forms.Button"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "button1.Click \u002B= button1_Click;",
+            "protectedSnippet": "T:System.Windows.Forms.Button",
+            "label": "T:System.Windows.Forms.Button",
+            "line": 71,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "78bd39f4-c2f4-4b1b-9e29-143ec6edf546",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "button1.Click \u002B= button1_Click;",
+              "protected": "E:System.Windows.Forms.Control.Click"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "button1.Click \u002B= button1_Click;",
+            "protectedSnippet": "E:System.Windows.Forms.Control.Click",
+            "label": "E:System.Windows.Forms.Control.Click",
+            "line": 71,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "e3afe2a6-cb96-41ca-8982-c4c091ad0547",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "button1.UseVisualStyleBackColor = true;",
+              "protected": "T:System.Windows.Forms.Button"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "button1.UseVisualStyleBackColor = true;",
+            "protectedSnippet": "T:System.Windows.Forms.Button",
+            "label": "T:System.Windows.Forms.Button",
+            "line": 70,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "a1948b4e-df9d-46b0-a3bf-203f28cef6de",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "button1.UseVisualStyleBackColor = true;",
+              "protected": "P:System.Windows.Forms.ButtonBase.UseVisualStyleBackColor"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "button1.UseVisualStyleBackColor = true;",
+            "protectedSnippet": "P:System.Windows.Forms.ButtonBase.UseVisualStyleBackColor",
+            "label": "P:System.Windows.Forms.ButtonBase.UseVisualStyleBackColor",
+            "line": 70,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "3879a294-39e8-426f-9857-7d8adaba9fb6",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "button1.Text = \u0022...\u0022;",
+              "protected": "T:System.Windows.Forms.Button"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "button1.Text = \u0022...\u0022;",
+            "protectedSnippet": "T:System.Windows.Forms.Button",
+            "label": "T:System.Windows.Forms.Button",
+            "line": 69,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "78627caf-f027-4ee2-9d2f-3c8fd49a66ef",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "button1.Text = \u0022...\u0022;",
+              "protected": "P:System.Windows.Forms.ButtonBase.Text"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "button1.Text = \u0022...\u0022;",
+            "protectedSnippet": "P:System.Windows.Forms.ButtonBase.Text",
+            "label": "P:System.Windows.Forms.ButtonBase.Text",
+            "line": 69,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "4f28f94b-31c3-44db-b103-a62a94f8a605",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "button1.TabIndex = 2;",
+              "protected": "T:System.Windows.Forms.Button"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "button1.TabIndex = 2;",
+            "protectedSnippet": "T:System.Windows.Forms.Button",
+            "label": "T:System.Windows.Forms.Button",
+            "line": 68,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "4af2ac82-f8f9-48f7-a50d-655c29db481f",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "button1.TabIndex = 2;",
+              "protected": "P:System.Windows.Forms.Control.TabIndex"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "button1.TabIndex = 2;",
+            "protectedSnippet": "P:System.Windows.Forms.Control.TabIndex",
+            "label": "P:System.Windows.Forms.Control.TabIndex",
+            "line": 68,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "f76c74e6-5374-4102-8947-8bf8c09ed0fb",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "button1.Size = new Size(104, 55);",
+              "protected": "T:System.Windows.Forms.Button"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "button1.Size = new Size(104, 55);",
+            "protectedSnippet": "T:System.Windows.Forms.Button",
+            "label": "T:System.Windows.Forms.Button",
+            "line": 67,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "e5e9d659-6ba2-4501-85d1-eea7cb4faab1",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "button1.Size = new Size(104, 55);",
+              "protected": "P:System.Windows.Forms.Control.Size"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "button1.Size = new Size(104, 55);",
+            "protectedSnippet": "P:System.Windows.Forms.Control.Size",
+            "label": "P:System.Windows.Forms.Control.Size",
+            "line": 67,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "9327d59e-c378-4d51-bada-70d69c2a3654",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "button1.Name = \u0022button1\u0022;",
+              "protected": "T:System.Windows.Forms.Button"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "button1.Name = \u0022button1\u0022;",
+            "protectedSnippet": "T:System.Windows.Forms.Button",
+            "label": "T:System.Windows.Forms.Button",
+            "line": 66,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "ff66d144-b99a-47f4-9a22-88ae06d2141a",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "button1.Name = \u0022button1\u0022;",
+              "protected": "P:System.Windows.Forms.Control.Name"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "button1.Name = \u0022button1\u0022;",
+            "protectedSnippet": "P:System.Windows.Forms.Control.Name",
+            "label": "P:System.Windows.Forms.Control.Name",
+            "line": 66,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "935a9c5d-2bee-4d4b-b560-ed3a0bb025fc",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "button1.Location = new Point(869, 78);",
+              "protected": "T:System.Windows.Forms.Button"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "button1.Location = new Point(869, 78);",
+            "protectedSnippet": "T:System.Windows.Forms.Button",
+            "label": "T:System.Windows.Forms.Button",
+            "line": 65,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "5909a477-9c4d-4b44-9171-0373ee7a7667",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "button1.Location = new Point(869, 78);",
+              "protected": "P:System.Windows.Forms.Control.Location"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "button1.Location = new Point(869, 78);",
+            "protectedSnippet": "P:System.Windows.Forms.Control.Location",
+            "label": "P:System.Windows.Forms.Control.Location",
+            "line": 65,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "b60f53a5-bc09-4eb6-ac85-39f039de7d91",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "textBox1.TabIndex = 1;",
+              "protected": "T:System.Windows.Forms.TextBox"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "textBox1.TabIndex = 1;",
+            "protectedSnippet": "T:System.Windows.Forms.TextBox",
+            "label": "T:System.Windows.Forms.TextBox",
+            "line": 61,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "c65e38e0-d8f9-4bbe-a523-35c27de33393",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "textBox1.TabIndex = 1;",
+              "protected": "P:System.Windows.Forms.Control.TabIndex"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "textBox1.TabIndex = 1;",
+            "protectedSnippet": "P:System.Windows.Forms.Control.TabIndex",
+            "label": "P:System.Windows.Forms.Control.TabIndex",
+            "line": 61,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "aa0e64da-2918-4cf9-9552-0a0fb0aa95d7",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "textBox1.Size = new Size(825, 55);",
+              "protected": "T:System.Windows.Forms.TextBox"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "textBox1.Size = new Size(825, 55);",
+            "protectedSnippet": "T:System.Windows.Forms.TextBox",
+            "label": "T:System.Windows.Forms.TextBox",
+            "line": 60,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "a94ec7a3-7d23-4271-bdf6-fdad46373039",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "textBox1.Size = new Size(825, 55);",
+              "protected": "P:System.Windows.Forms.Control.Size"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "textBox1.Size = new Size(825, 55);",
+            "protectedSnippet": "P:System.Windows.Forms.Control.Size",
+            "label": "P:System.Windows.Forms.Control.Size",
+            "line": 60,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "6d994712-9d8b-444e-b9da-2e95829c6666",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "textBox1.ReadOnly = true;",
+              "protected": "T:System.Windows.Forms.TextBox"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "textBox1.ReadOnly = true;",
+            "protectedSnippet": "T:System.Windows.Forms.TextBox",
+            "label": "T:System.Windows.Forms.TextBox",
+            "line": 59,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "09d38b15-25e3-45c6-8d61-1ba0527343ce",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "textBox1.ReadOnly = true;",
+              "protected": "P:System.Windows.Forms.TextBoxBase.ReadOnly"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "textBox1.ReadOnly = true;",
+            "protectedSnippet": "P:System.Windows.Forms.TextBoxBase.ReadOnly",
+            "label": "P:System.Windows.Forms.TextBoxBase.ReadOnly",
+            "line": 59,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "77592f5c-77da-4dae-8567-4ea3443f7ee5",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "textBox1.Name = \u0022textBox1\u0022;",
+              "protected": "T:System.Windows.Forms.TextBox"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "textBox1.Name = \u0022textBox1\u0022;",
+            "protectedSnippet": "T:System.Windows.Forms.TextBox",
+            "label": "T:System.Windows.Forms.TextBox",
+            "line": 58,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "bd2462ac-daaf-487b-9b8d-c377c90cba0e",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "textBox1.Name = \u0022textBox1\u0022;",
+              "protected": "P:System.Windows.Forms.Control.Name"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "textBox1.Name = \u0022textBox1\u0022;",
+            "protectedSnippet": "P:System.Windows.Forms.Control.Name",
+            "label": "P:System.Windows.Forms.Control.Name",
+            "line": 58,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "73803de5-6617-4e33-b425-6c1518b82f7f",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "textBox1.Location = new Point(22, 78);",
+              "protected": "T:System.Windows.Forms.TextBox"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "textBox1.Location = new Point(22, 78);",
+            "protectedSnippet": "T:System.Windows.Forms.TextBox",
+            "label": "T:System.Windows.Forms.TextBox",
+            "line": 57,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "1ce7f88a-5476-41ee-a67b-7891a96c91c2",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "textBox1.Location = new Point(22, 78);",
+              "protected": "P:System.Windows.Forms.Control.Location"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "textBox1.Location = new Point(22, 78);",
+            "protectedSnippet": "P:System.Windows.Forms.Control.Location",
+            "label": "P:System.Windows.Forms.Control.Location",
+            "line": 57,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "38c9fce7-cc33-48e1-a8b2-aafc89b668a6",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "openFileDialog2.FileName = \u0022openFileDialog2\u0022;",
+              "protected": "T:System.Windows.Forms.OpenFileDialog"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "openFileDialog2.FileName = \u0022openFileDialog2\u0022;",
+            "protectedSnippet": "T:System.Windows.Forms.OpenFileDialog",
+            "label": "T:System.Windows.Forms.OpenFileDialog",
+            "line": 53,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "52db6b0b-368b-4785-a166-cf40b4daffa7",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "openFileDialog2.FileName = \u0022openFileDialog2\u0022;",
+              "protected": "P:System.Windows.Forms.FileDialog.FileName"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "openFileDialog2.FileName = \u0022openFileDialog2\u0022;",
+            "protectedSnippet": "P:System.Windows.Forms.FileDialog.FileName",
+            "label": "P:System.Windows.Forms.FileDialog.FileName",
+            "line": 53,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "94be46fd-5e24-4fcf-b53b-3ce32fa0648f",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "label1.Text = \u0022Diret\u00F3rio XML\u0022;",
+              "protected": "T:System.Windows.Forms.Label"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "label1.Text = \u0022Diret\u00F3rio XML\u0022;",
+            "protectedSnippet": "T:System.Windows.Forms.Label",
+            "label": "T:System.Windows.Forms.Label",
+            "line": 49,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "4a032904-a712-4ee5-ae69-d058a67341f3",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "label1.Text = \u0022Diret\u00F3rio XML\u0022;",
+              "protected": "P:System.Windows.Forms.Label.Text"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "label1.Text = \u0022Diret\u00F3rio XML\u0022;",
+            "protectedSnippet": "P:System.Windows.Forms.Label.Text",
+            "label": "P:System.Windows.Forms.Label.Text",
+            "line": 49,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "52d56038-b20f-4c49-aac3-52822c301129",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "label1.TabIndex = 0;",
+              "protected": "T:System.Windows.Forms.Label"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "label1.TabIndex = 0;",
+            "protectedSnippet": "T:System.Windows.Forms.Label",
+            "label": "T:System.Windows.Forms.Label",
+            "line": 48,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "b4447a84-0c75-4710-b596-e6776dced7d5",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "label1.TabIndex = 0;",
+              "protected": "P:System.Windows.Forms.Control.TabIndex"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "label1.TabIndex = 0;",
+            "protectedSnippet": "P:System.Windows.Forms.Control.TabIndex",
+            "label": "P:System.Windows.Forms.Control.TabIndex",
+            "line": 48,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "7cb8881e-c395-432d-b995-c7ea981ce798",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "label1.Size = new Size(242, 48);",
+              "protected": "T:System.Windows.Forms.Label"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "label1.Size = new Size(242, 48);",
+            "protectedSnippet": "T:System.Windows.Forms.Label",
+            "label": "T:System.Windows.Forms.Label",
+            "line": 47,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "353e357a-188c-402a-bbae-6423a489ee19",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "label1.Size = new Size(242, 48);",
+              "protected": "P:System.Windows.Forms.Control.Size"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "label1.Size = new Size(242, 48);",
+            "protectedSnippet": "P:System.Windows.Forms.Control.Size",
+            "label": "P:System.Windows.Forms.Control.Size",
+            "line": 47,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "b462d820-dec5-442d-9d78-40681d3bcdb5",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "label1.Name = \u0022label1\u0022;",
+              "protected": "T:System.Windows.Forms.Label"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "label1.Name = \u0022label1\u0022;",
+            "protectedSnippet": "T:System.Windows.Forms.Label",
+            "label": "T:System.Windows.Forms.Label",
+            "line": 46,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "674a318d-4363-4c0d-ac38-18fc1c0e17de",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "label1.Name = \u0022label1\u0022;",
+              "protected": "P:System.Windows.Forms.Control.Name"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "label1.Name = \u0022label1\u0022;",
+            "protectedSnippet": "P:System.Windows.Forms.Control.Name",
+            "label": "P:System.Windows.Forms.Control.Name",
+            "line": 46,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "c37a2d1b-8a27-49d8-a3be-b730d6c21255",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "label1.Location = new Point(22, 18);",
+              "protected": "T:System.Windows.Forms.Label"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "label1.Location = new Point(22, 18);",
+            "protectedSnippet": "T:System.Windows.Forms.Label",
+            "label": "T:System.Windows.Forms.Label",
+            "line": 45,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "7baec614-be9e-4382-9541-623e72a18137",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "label1.Location = new Point(22, 18);",
+              "protected": "P:System.Windows.Forms.Control.Location"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "label1.Location = new Point(22, 18);",
+            "protectedSnippet": "P:System.Windows.Forms.Control.Location",
+            "label": "P:System.Windows.Forms.Control.Location",
+            "line": 45,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "37716e4f-b4e7-478d-a580-0af07a122f0b",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "label1.AutoSize = true;",
+              "protected": "T:System.Windows.Forms.Label"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "label1.AutoSize = true;",
+            "protectedSnippet": "T:System.Windows.Forms.Label",
+            "label": "T:System.Windows.Forms.Label",
+            "line": 44,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "f4cede91-b23b-402d-a8da-71297a4a9468",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "label1.AutoSize = true;",
+              "protected": "P:System.Windows.Forms.Label.AutoSize"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "label1.AutoSize = true;",
+            "protectedSnippet": "P:System.Windows.Forms.Label.AutoSize",
+            "label": "P:System.Windows.Forms.Label.AutoSize",
+            "line": 44,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "a48f8902-50da-4830-812a-ee4d430cfd43",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "openFileDialog1.FileName = \u0022openFileDialog1\u0022;",
+              "protected": "T:System.Windows.Forms.OpenFileDialog"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "openFileDialog1.FileName = \u0022openFileDialog1\u0022;",
+            "protectedSnippet": "T:System.Windows.Forms.OpenFileDialog",
+            "label": "T:System.Windows.Forms.OpenFileDialog",
+            "line": 40,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "ecfe9be7-43eb-4926-94e2-fa45c32a932c",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "openFileDialog1.FileName = \u0022openFileDialog1\u0022;",
+              "protected": "P:System.Windows.Forms.FileDialog.FileName"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "openFileDialog1.FileName = \u0022openFileDialog1\u0022;",
+            "protectedSnippet": "P:System.Windows.Forms.FileDialog.FileName",
+            "label": "P:System.Windows.Forms.FileDialog.FileName",
+            "line": 40,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "e919a9c6-d6b6-4736-9848-dbd6b8fc5b6b",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "SuspendLayout();",
+              "protected": "M:System.Windows.Forms.Control.SuspendLayout"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "SuspendLayout();",
+            "protectedSnippet": "M:System.Windows.Forms.Control.SuspendLayout",
+            "label": "M:System.Windows.Forms.Control.SuspendLayout",
+            "line": 36,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "42f34664-6972-4d20-a0d4-9aa6e1da1fc8",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "checkBox1 = new CheckBox();",
+              "protected": "T:System.Windows.Forms.CheckBox"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "checkBox1 = new CheckBox();",
+            "protectedSnippet": "T:System.Windows.Forms.CheckBox",
+            "label": "T:System.Windows.Forms.CheckBox",
+            "line": 35,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "fd83e443-2af4-45a5-b508-95d25b6512a9",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "checkBox1 = new CheckBox();",
+              "protected": "M:System.Windows.Forms.CheckBox.#ctor"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "checkBox1 = new CheckBox();",
+            "protectedSnippet": "M:System.Windows.Forms.CheckBox.#ctor",
+            "label": "M:System.Windows.Forms.CheckBox.#ctor",
+            "line": 35,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "10c3bff6-ba31-4403-875c-5e3973235b8e",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "checkBox1 = new CheckBox();",
+              "protected": "T:System.Windows.Forms.CheckBox"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "checkBox1 = new CheckBox();",
+            "protectedSnippet": "T:System.Windows.Forms.CheckBox",
+            "label": "T:System.Windows.Forms.CheckBox",
+            "line": 35,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "23e23724-cfda-4adf-8e68-e030e8d6f082",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "button1 = new Button();",
+              "protected": "T:System.Windows.Forms.Button"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "button1 = new Button();",
+            "protectedSnippet": "T:System.Windows.Forms.Button",
+            "label": "T:System.Windows.Forms.Button",
+            "line": 34,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "26566e69-34ec-43c3-859f-b51a8c6db1e0",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "button1 = new Button();",
+              "protected": "M:System.Windows.Forms.Button.#ctor"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "button1 = new Button();",
+            "protectedSnippet": "M:System.Windows.Forms.Button.#ctor",
+            "label": "M:System.Windows.Forms.Button.#ctor",
+            "line": 34,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "d289cd36-618c-4749-9416-4b20580b0012",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "button1 = new Button();",
+              "protected": "T:System.Windows.Forms.Button"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "button1 = new Button();",
+            "protectedSnippet": "T:System.Windows.Forms.Button",
+            "label": "T:System.Windows.Forms.Button",
+            "line": 34,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "d476e0d5-0315-4eca-91b6-08a846277c3a",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "textBox1 = new TextBox();",
+              "protected": "T:System.Windows.Forms.TextBox"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "textBox1 = new TextBox();",
+            "protectedSnippet": "T:System.Windows.Forms.TextBox",
+            "label": "T:System.Windows.Forms.TextBox",
+            "line": 33,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "04fd1604-5c89-42a9-8f0a-79ee89f8c9f8",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "textBox1 = new TextBox();",
+              "protected": "M:System.Windows.Forms.TextBox.#ctor"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "textBox1 = new TextBox();",
+            "protectedSnippet": "M:System.Windows.Forms.TextBox.#ctor",
+            "label": "M:System.Windows.Forms.TextBox.#ctor",
+            "line": 33,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "acc4b3ec-8fe3-4b63-a647-4427a2b8093b",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "textBox1 = new TextBox();",
+              "protected": "T:System.Windows.Forms.TextBox"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "textBox1 = new TextBox();",
+            "protectedSnippet": "T:System.Windows.Forms.TextBox",
+            "label": "T:System.Windows.Forms.TextBox",
+            "line": 33,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "fbd67e0c-d781-4d6a-b553-e5c8a35d2254",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "openFileDialog2 = new OpenFileDialog();",
+              "protected": "T:System.Windows.Forms.OpenFileDialog"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "openFileDialog2 = new OpenFileDialog();",
+            "protectedSnippet": "T:System.Windows.Forms.OpenFileDialog",
+            "label": "T:System.Windows.Forms.OpenFileDialog",
+            "line": 32,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "7bf54fae-9e3a-44ab-8b3b-b0eb5167eb86",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "openFileDialog2 = new OpenFileDialog();",
+              "protected": "M:System.Windows.Forms.OpenFileDialog.#ctor"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "openFileDialog2 = new OpenFileDialog();",
+            "protectedSnippet": "M:System.Windows.Forms.OpenFileDialog.#ctor",
+            "label": "M:System.Windows.Forms.OpenFileDialog.#ctor",
+            "line": 32,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "a3f8b839-aed1-427f-9e42-c07ab04be178",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "openFileDialog2 = new OpenFileDialog();",
+              "protected": "T:System.Windows.Forms.OpenFileDialog"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "openFileDialog2 = new OpenFileDialog();",
+            "protectedSnippet": "T:System.Windows.Forms.OpenFileDialog",
+            "label": "T:System.Windows.Forms.OpenFileDialog",
+            "line": 32,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "1a51bb75-4cc2-49d3-bfab-6287615846e4",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "label1 = new Label();",
+              "protected": "T:System.Windows.Forms.Label"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "label1 = new Label();",
+            "protectedSnippet": "T:System.Windows.Forms.Label",
+            "label": "T:System.Windows.Forms.Label",
+            "line": 31,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "e54f494f-c7cc-4d7f-b049-4f1b7706b4e9",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "label1 = new Label();",
+              "protected": "M:System.Windows.Forms.Label.#ctor"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "label1 = new Label();",
+            "protectedSnippet": "M:System.Windows.Forms.Label.#ctor",
+            "label": "M:System.Windows.Forms.Label.#ctor",
+            "line": 31,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "5ac9c3b0-411f-4b82-908a-272e71d59bb6",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "label1 = new Label();",
+              "protected": "T:System.Windows.Forms.Label"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "label1 = new Label();",
+            "protectedSnippet": "T:System.Windows.Forms.Label",
+            "label": "T:System.Windows.Forms.Label",
+            "line": 31,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "aafeceb0-4947-4885-b3df-efd38d38c002",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "openFileDialog1 = new OpenFileDialog();",
+              "protected": "T:System.Windows.Forms.OpenFileDialog"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "openFileDialog1 = new OpenFileDialog();",
+            "protectedSnippet": "T:System.Windows.Forms.OpenFileDialog",
+            "label": "T:System.Windows.Forms.OpenFileDialog",
+            "line": 30,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "32010d2a-9c6a-428f-a1b4-258df2182adb",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "openFileDialog1 = new OpenFileDialog();",
+              "protected": "M:System.Windows.Forms.OpenFileDialog.#ctor"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "openFileDialog1 = new OpenFileDialog();",
+            "protectedSnippet": "M:System.Windows.Forms.OpenFileDialog.#ctor",
+            "label": "M:System.Windows.Forms.OpenFileDialog.#ctor",
+            "line": 30,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "654b0ae0-cfa5-4c3c-b6f3-adfd02f5defe",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "openFileDialog1 = new OpenFileDialog();",
+              "protected": "T:System.Windows.Forms.OpenFileDialog"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "openFileDialog1 = new OpenFileDialog();",
+            "protectedSnippet": "T:System.Windows.Forms.OpenFileDialog",
+            "label": "T:System.Windows.Forms.OpenFileDialog",
+            "line": 30,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "159a29b9-fee3-4f68-ae1f-ee57d293e1e0",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "base.Dispose(disposing);",
+              "protected": "M:System.Windows.Forms.Form.Dispose(System.Boolean)"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.Designer.cs",
+            "snippet": "base.Dispose(disposing);",
+            "protectedSnippet": "M:System.Windows.Forms.Form.Dispose(System.Boolean)",
+            "label": "M:System.Windows.Forms.Form.Dispose(System.Boolean)",
+            "line": 19,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "8e4d0116-fc0e-43d0-9912-19dd3c735f09",
+          "ruleId": "Api.0003",
+          "description": "Breaking change: XmlSerializer no longer ignores properties marked with ObsoleteAttribute ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "XmlSerializer serializer = new XmlSerializer(typeof(Doc3040));",
+              "protected": "T:System.Xml.Serialization.XmlSerializer"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.cs",
+            "snippet": "XmlSerializer serializer = new XmlSerializer(typeof(Doc3040));",
+            "protectedSnippet": "T:System.Xml.Serialization.XmlSerializer",
+            "label": "T:System.Xml.Serialization.XmlSerializer",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/serialization/10/xmlserializer-obsolete-properties.md",
+                "isCustom": false
+              }
+            ],
+            "line": 293,
+            "column": 16
+          }
+        },
+        {
+          "incidentId": "847fc226-c2bf-4685-b4af-8c069f8a806a",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "MessageBox.Show(\u0022Erro cliente:\u0022 \u002B cliente.Cd);",
+              "protected": "T:System.Windows.Forms.MessageBox"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.cs",
+            "snippet": "MessageBox.Show(\u0022Erro cliente:\u0022 \u002B cliente.Cd);",
+            "protectedSnippet": "T:System.Windows.Forms.MessageBox",
+            "label": "T:System.Windows.Forms.MessageBox",
+            "line": 279,
+            "column": 20
+          }
+        },
+        {
+          "incidentId": "e315e79b-724e-4ab9-b47f-48a0851f74cd",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "MessageBox.Show(\u0022Erro cliente:\u0022 \u002B cliente.Cd);",
+              "protected": "T:System.Windows.Forms.DialogResult"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.cs",
+            "snippet": "MessageBox.Show(\u0022Erro cliente:\u0022 \u002B cliente.Cd);",
+            "protectedSnippet": "T:System.Windows.Forms.DialogResult",
+            "label": "T:System.Windows.Forms.DialogResult",
+            "line": 279,
+            "column": 20
+          }
+        },
+        {
+          "incidentId": "e0ea7eeb-7a11-4166-9b8b-aed45879d91e",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "MessageBox.Show(\u0022Erro cliente:\u0022 \u002B cliente.Cd);",
+              "protected": "M:System.Windows.Forms.MessageBox.Show(System.String)"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.cs",
+            "snippet": "MessageBox.Show(\u0022Erro cliente:\u0022 \u002B cliente.Cd);",
+            "protectedSnippet": "M:System.Windows.Forms.MessageBox.Show(System.String)",
+            "label": "M:System.Windows.Forms.MessageBox.Show(System.String)",
+            "line": 279,
+            "column": 20
+          }
+        },
+        {
+          "incidentId": "9e3d7e7a-31c5-4b8d-ac08-bea311042c78",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "MessageBox.Show(\u0022Erro cliente:\u0022 \u002B cliente.Cd \u002B ex.Message.ToString());",
+              "protected": "T:System.Windows.Forms.MessageBox"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.cs",
+            "snippet": "MessageBox.Show(\u0022Erro cliente:\u0022 \u002B cliente.Cd \u002B ex.Message.ToString());",
+            "protectedSnippet": "T:System.Windows.Forms.MessageBox",
+            "label": "T:System.Windows.Forms.MessageBox",
+            "line": 200,
+            "column": 20
+          }
+        },
+        {
+          "incidentId": "bd3b9932-0d38-485e-825f-423ddcbdfadd",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "MessageBox.Show(\u0022Erro cliente:\u0022 \u002B cliente.Cd \u002B ex.Message.ToString());",
+              "protected": "T:System.Windows.Forms.DialogResult"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.cs",
+            "snippet": "MessageBox.Show(\u0022Erro cliente:\u0022 \u002B cliente.Cd \u002B ex.Message.ToString());",
+            "protectedSnippet": "T:System.Windows.Forms.DialogResult",
+            "label": "T:System.Windows.Forms.DialogResult",
+            "line": 200,
+            "column": 20
+          }
+        },
+        {
+          "incidentId": "c6502390-4237-4ebf-8f30-f3c61efed0e4",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "MessageBox.Show(\u0022Erro cliente:\u0022 \u002B cliente.Cd \u002B ex.Message.ToString());",
+              "protected": "M:System.Windows.Forms.MessageBox.Show(System.String)"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.cs",
+            "snippet": "MessageBox.Show(\u0022Erro cliente:\u0022 \u002B cliente.Cd \u002B ex.Message.ToString());",
+            "protectedSnippet": "M:System.Windows.Forms.MessageBox.Show(System.String)",
+            "label": "M:System.Windows.Forms.MessageBox.Show(System.String)",
+            "line": 200,
+            "column": 20
+          }
+        },
+        {
+          "incidentId": "bdfe0f3f-bd2f-48f5-a8df-121529f79222",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "if (checkBox1.Checked)\r\n                            cliente.operacoes = Tratamento.suprimirMotivoAlocacaoEstagio(cliente.operacoes);\r\n                        else\r\n                            cliente.operacoes = Tratamento.tratarMotivoAlocacaoEstagio(cliente.operacoes);",
+              "protected": "T:System.Windows.Forms.CheckBox"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.cs",
+            "snippet": "if (checkBox1.Checked)\r\n                            cliente.operacoes = Tratamento.suprimirMotivoAlocacaoEstagio(cliente.operacoes);\r\n                        else\r\n                            cliente.operacoes = Tratamento.tratarMotivoAlocacaoEstagio(cliente.operacoes);",
+            "protectedSnippet": "T:System.Windows.Forms.CheckBox",
+            "label": "T:System.Windows.Forms.CheckBox",
+            "line": 172,
+            "column": 24
+          }
+        },
+        {
+          "incidentId": "80801196-9f1d-43e6-a078-c72eeec3cde2",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "if (checkBox1.Checked)\r\n                            cliente.operacoes = Tratamento.suprimirMotivoAlocacaoEstagio(cliente.operacoes);\r\n                        else\r\n                            cliente.operacoes = Tratamento.tratarMotivoAlocacaoEstagio(cliente.operacoes);",
+              "protected": "P:System.Windows.Forms.CheckBox.Checked"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.cs",
+            "snippet": "if (checkBox1.Checked)\r\n                            cliente.operacoes = Tratamento.suprimirMotivoAlocacaoEstagio(cliente.operacoes);\r\n                        else\r\n                            cliente.operacoes = Tratamento.tratarMotivoAlocacaoEstagio(cliente.operacoes);",
+            "protectedSnippet": "P:System.Windows.Forms.CheckBox.Checked",
+            "label": "P:System.Windows.Forms.CheckBox.Checked",
+            "line": 172,
+            "column": 24
+          }
+        },
+        {
+          "incidentId": "5447bea9-4195-4469-b5f4-b343df55eef1",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "MessageBox.Show(\u0022Processo finalizado com sucesso\u0022);",
+              "protected": "T:System.Windows.Forms.MessageBox"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.cs",
+            "snippet": "MessageBox.Show(\u0022Processo finalizado com sucesso\u0022);",
+            "protectedSnippet": "T:System.Windows.Forms.MessageBox",
+            "label": "T:System.Windows.Forms.MessageBox",
+            "line": 90,
+            "column": 16
+          }
+        },
+        {
+          "incidentId": "5d998a98-3c30-4d29-bab5-99e8b38e2332",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "MessageBox.Show(\u0022Processo finalizado com sucesso\u0022);",
+              "protected": "T:System.Windows.Forms.DialogResult"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.cs",
+            "snippet": "MessageBox.Show(\u0022Processo finalizado com sucesso\u0022);",
+            "protectedSnippet": "T:System.Windows.Forms.DialogResult",
+            "label": "T:System.Windows.Forms.DialogResult",
+            "line": 90,
+            "column": 16
+          }
+        },
+        {
+          "incidentId": "bc86b68a-4926-489a-9965-e45d7454975e",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "MessageBox.Show(\u0022Processo finalizado com sucesso\u0022);",
+              "protected": "M:System.Windows.Forms.MessageBox.Show(System.String)"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.cs",
+            "snippet": "MessageBox.Show(\u0022Processo finalizado com sucesso\u0022);",
+            "protectedSnippet": "M:System.Windows.Forms.MessageBox.Show(System.String)",
+            "label": "M:System.Windows.Forms.MessageBox.Show(System.String)",
+            "line": 90,
+            "column": 16
+          }
+        },
+        {
+          "incidentId": "64a796e3-8a5e-4887-9a58-6027490df887",
+          "ruleId": "Api.0003",
+          "description": "Breaking change: XmlSerializer no longer ignores properties marked with ObsoleteAttribute ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "XmlSerializer serializer = new XmlSerializer(typeof(Doc3040));",
+              "protected": "T:System.Xml.Serialization.XmlSerializer"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.cs",
+            "snippet": "XmlSerializer serializer = new XmlSerializer(typeof(Doc3040));",
+            "protectedSnippet": "T:System.Xml.Serialization.XmlSerializer",
+            "label": "T:System.Xml.Serialization.XmlSerializer",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/serialization/10/xmlserializer-obsolete-properties.md",
+                "isCustom": false
+              }
+            ],
+            "line": 78,
+            "column": 16
+          }
+        },
+        {
+          "incidentId": "871cfe05-e8f4-4746-8467-885c7bbfdb79",
+          "ruleId": "Api.0002",
+          "description": "Breaking change: Ambiguous overload resolution affecting StringValues implicit operators ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "infoLog = String.Concat(\u0022Login - \u0022, Environment.UserName, Environment.NewLine,\r\n                                            \u0022Rotina - B9 Arquivo -\u003E Tratamento xml - \u0022, path, Environment.NewLine,\r\n                                            \u0022Data/Hora - \u0022, DateTime.Now.ToString(\u0022dd/MM/yyyy HH:mm:ss\u0022)\r\n                                        );",
+              "protected": "M:System.String.Concat(System.ReadOnlySpan{System.String})"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.cs",
+            "snippet": "infoLog = String.Concat(\u0022Login - \u0022, Environment.UserName, Environment.NewLine,\r\n                                            \u0022Rotina - B9 Arquivo -\u003E Tratamento xml - \u0022, path, Environment.NewLine,\r\n                                            \u0022Data/Hora - \u0022, DateTime.Now.ToString(\u0022dd/MM/yyyy HH:mm:ss\u0022)\r\n                                        );",
+            "protectedSnippet": "M:System.String.Concat(System.ReadOnlySpan{System.String})",
+            "label": "M:System.String.Concat(System.ReadOnlySpan{System.String})",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/core-libraries/9.0/ambiguous-overload.md",
+                "isCustom": false
+              }
+            ],
+            "line": 72,
+            "column": 16
+          }
+        },
+        {
+          "incidentId": "fa1e90cb-4837-4532-9c00-a9f7e360e27d",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "string path = openFileDialog1.FileName.Replace(\u0022openFileDialog1\u0022, \u0022\u0022);",
+              "protected": "T:System.Windows.Forms.OpenFileDialog"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.cs",
+            "snippet": "string path = openFileDialog1.FileName.Replace(\u0022openFileDialog1\u0022, \u0022\u0022);",
+            "protectedSnippet": "T:System.Windows.Forms.OpenFileDialog",
+            "label": "T:System.Windows.Forms.OpenFileDialog",
+            "line": 68,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "1ea69d9a-7aba-4add-ab1f-aa71074466d2",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "string path = openFileDialog1.FileName.Replace(\u0022openFileDialog1\u0022, \u0022\u0022);",
+              "protected": "P:System.Windows.Forms.FileDialog.FileName"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.cs",
+            "snippet": "string path = openFileDialog1.FileName.Replace(\u0022openFileDialog1\u0022, \u0022\u0022);",
+            "protectedSnippet": "P:System.Windows.Forms.FileDialog.FileName",
+            "label": "P:System.Windows.Forms.FileDialog.FileName",
+            "line": 68,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "7e8f1d54-3158-4544-9496-60658665bbf8",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "openFileDialog1.ShowDialog();",
+              "protected": "T:System.Windows.Forms.OpenFileDialog"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.cs",
+            "snippet": "openFileDialog1.ShowDialog();",
+            "protectedSnippet": "T:System.Windows.Forms.OpenFileDialog",
+            "label": "T:System.Windows.Forms.OpenFileDialog",
+            "line": 67,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "30ed974f-e84e-4b56-becd-2565f8fb38ef",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "openFileDialog1.ShowDialog();",
+              "protected": "T:System.Windows.Forms.DialogResult"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.cs",
+            "snippet": "openFileDialog1.ShowDialog();",
+            "protectedSnippet": "T:System.Windows.Forms.DialogResult",
+            "label": "T:System.Windows.Forms.DialogResult",
+            "line": 67,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "f4805513-ef41-40b9-9784-d3cba848e37d",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "openFileDialog1.ShowDialog();",
+              "protected": "M:System.Windows.Forms.CommonDialog.ShowDialog"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.cs",
+            "snippet": "openFileDialog1.ShowDialog();",
+            "protectedSnippet": "M:System.Windows.Forms.CommonDialog.ShowDialog",
+            "label": "M:System.Windows.Forms.CommonDialog.ShowDialog",
+            "line": 67,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "808e9730-b9d6-4be4-ab23-05447dd97180",
+          "ruleId": "Api.0003",
+          "description": "Breaking change: XmlSerializer no longer ignores properties marked with ObsoleteAttribute ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "XmlSerializer serializer = new XmlSerializer(typeof(Doc3040));",
+              "protected": "T:System.Xml.Serialization.XmlSerializer"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.cs",
+            "snippet": "XmlSerializer serializer = new XmlSerializer(typeof(Doc3040));",
+            "protectedSnippet": "T:System.Xml.Serialization.XmlSerializer",
+            "label": "T:System.Xml.Serialization.XmlSerializer",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/serialization/10/xmlserializer-obsolete-properties.md",
+                "isCustom": false
+              }
+            ],
+            "line": 31,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "ad4102ba-c4cd-41ca-934d-768b966c20d2",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "this.Cursor = Cursors.Default;",
+              "protected": "T:System.Windows.Forms.Cursors"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.cs",
+            "snippet": "this.Cursor = Cursors.Default;",
+            "protectedSnippet": "T:System.Windows.Forms.Cursors",
+            "label": "T:System.Windows.Forms.Cursors",
+            "line": 21,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "ed823353-cb97-4ef9-b5ff-edf08d919d04",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "this.Cursor = Cursors.Default;",
+              "protected": "T:System.Windows.Forms.Cursor"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.cs",
+            "snippet": "this.Cursor = Cursors.Default;",
+            "protectedSnippet": "T:System.Windows.Forms.Cursor",
+            "label": "T:System.Windows.Forms.Cursor",
+            "line": 21,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "71496a80-67f9-41b4-bc57-5ab8c5972d82",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "this.Cursor = Cursors.Default;",
+              "protected": "P:System.Windows.Forms.Cursors.Default"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.cs",
+            "snippet": "this.Cursor = Cursors.Default;",
+            "protectedSnippet": "P:System.Windows.Forms.Cursors.Default",
+            "label": "P:System.Windows.Forms.Cursors.Default",
+            "line": 21,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "ff6b280d-4deb-460c-810e-c0da511e874d",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "this.Cursor = Cursors.Default;",
+              "protected": "T:System.Windows.Forms.Cursor"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.cs",
+            "snippet": "this.Cursor = Cursors.Default;",
+            "protectedSnippet": "T:System.Windows.Forms.Cursor",
+            "label": "T:System.Windows.Forms.Cursor",
+            "line": 21,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "786f51ba-69e3-4805-a82b-91a81a8a39c4",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "this.Cursor = Cursors.Default;",
+              "protected": "P:System.Windows.Forms.Control.Cursor"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.cs",
+            "snippet": "this.Cursor = Cursors.Default;",
+            "protectedSnippet": "P:System.Windows.Forms.Control.Cursor",
+            "label": "P:System.Windows.Forms.Control.Cursor",
+            "line": 21,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "8ba3b5d6-48d8-4633-aac0-37a38508ddb3",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "this.Cursor = Cursors.WaitCursor;",
+              "protected": "T:System.Windows.Forms.Cursors"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.cs",
+            "snippet": "this.Cursor = Cursors.WaitCursor;",
+            "protectedSnippet": "T:System.Windows.Forms.Cursors",
+            "label": "T:System.Windows.Forms.Cursors",
+            "line": 18,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "f52fb380-8a10-4f56-827f-6c3cdc00cea8",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "this.Cursor = Cursors.WaitCursor;",
+              "protected": "T:System.Windows.Forms.Cursor"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.cs",
+            "snippet": "this.Cursor = Cursors.WaitCursor;",
+            "protectedSnippet": "T:System.Windows.Forms.Cursor",
+            "label": "T:System.Windows.Forms.Cursor",
+            "line": 18,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "03e85b9a-ff7c-496b-8738-37f76a92f71e",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "this.Cursor = Cursors.WaitCursor;",
+              "protected": "P:System.Windows.Forms.Cursors.WaitCursor"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.cs",
+            "snippet": "this.Cursor = Cursors.WaitCursor;",
+            "protectedSnippet": "P:System.Windows.Forms.Cursors.WaitCursor",
+            "label": "P:System.Windows.Forms.Cursors.WaitCursor",
+            "line": 18,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "6934641c-75aa-4481-9578-c831f24c9f45",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "this.Cursor = Cursors.WaitCursor;",
+              "protected": "T:System.Windows.Forms.Cursor"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.cs",
+            "snippet": "this.Cursor = Cursors.WaitCursor;",
+            "protectedSnippet": "T:System.Windows.Forms.Cursor",
+            "label": "T:System.Windows.Forms.Cursor",
+            "line": 18,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "4f583b1f-7e23-4cfc-8310-6fb8e98958ad",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "this.Cursor = Cursors.WaitCursor;",
+              "protected": "P:System.Windows.Forms.Control.Cursor"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.cs",
+            "snippet": "this.Cursor = Cursors.WaitCursor;",
+            "protectedSnippet": "P:System.Windows.Forms.Control.Cursor",
+            "label": "P:System.Windows.Forms.Control.Cursor",
+            "line": 18,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "fc0b0d2f-d4a7-4336-bf14-2d9b012384db",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "public Form1()\r\n        {\r\n            InitializeComponent();\r\n        }",
+              "protected": "M:System.Windows.Forms.Form.#ctor"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.cs",
+            "snippet": "public Form1()\r\n        {\r\n            InitializeComponent();\r\n        }",
+            "protectedSnippet": "M:System.Windows.Forms.Form.#ctor",
+            "label": "M:System.Windows.Forms.Form.#ctor",
+            "line": 11,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "20424a84-e190-4d46-b9d1-7097291401b3",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "public Form1()\r\n        {\r\n            InitializeComponent();\r\n        }",
+              "protected": "M:System.Windows.Forms.Form.#ctor"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.cs",
+            "snippet": "public Form1()\r\n        {\r\n            InitializeComponent();\r\n        }",
+            "protectedSnippet": "M:System.Windows.Forms.Form.#ctor",
+            "label": "M:System.Windows.Forms.Form.#ctor",
+            "line": 11,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "90b73fa5-e698-489f-b707-d357b6e530de",
+          "ruleId": "Api.0001",
+          "description": "API is unavailable in net8.0 ",
+          "projectPath": "LerXML3040BancoCentral\\LerXML3040BancoCentral.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Form",
+              "protected": "T:System.Windows.Forms.Form"
+            },
+            "kind": "File",
+            "path": "LerXML3040BancoCentral\\Form1.cs",
+            "snippet": "Form",
+            "protectedSnippet": "T:System.Windows.Forms.Form",
+            "label": "T:System.Windows.Forms.Form",
+            "line": 8,
+            "column": 33
+          }
+        }
+      ],
+      "features": [
+        {
+          "featureId": "WinForms",
+          "incidents": [
+            "90b73fa5-e698-489f-b707-d357b6e530de",
+            "20424a84-e190-4d46-b9d1-7097291401b3",
+            "fc0b0d2f-d4a7-4336-bf14-2d9b012384db",
+            "4f583b1f-7e23-4cfc-8310-6fb8e98958ad",
+            "6934641c-75aa-4481-9578-c831f24c9f45",
+            "03e85b9a-ff7c-496b-8738-37f76a92f71e",
+            "f52fb380-8a10-4f56-827f-6c3cdc00cea8",
+            "8ba3b5d6-48d8-4633-aac0-37a38508ddb3",
+            "786f51ba-69e3-4805-a82b-91a81a8a39c4",
+            "ff6b280d-4deb-460c-810e-c0da511e874d",
+            "71496a80-67f9-41b4-bc57-5ab8c5972d82",
+            "ed823353-cb97-4ef9-b5ff-edf08d919d04",
+            "ad4102ba-c4cd-41ca-934d-768b966c20d2",
+            "f4805513-ef41-40b9-9784-d3cba848e37d",
+            "30ed974f-e84e-4b56-becd-2565f8fb38ef",
+            "7e8f1d54-3158-4544-9496-60658665bbf8",
+            "1ea69d9a-7aba-4add-ab1f-aa71074466d2",
+            "fa1e90cb-4837-4532-9c00-a9f7e360e27d",
+            "bc86b68a-4926-489a-9965-e45d7454975e",
+            "5d998a98-3c30-4d29-bab5-99e8b38e2332",
+            "5447bea9-4195-4469-b5f4-b343df55eef1",
+            "80801196-9f1d-43e6-a078-c72eeec3cde2",
+            "bdfe0f3f-bd2f-48f5-a8df-121529f79222",
+            "c6502390-4237-4ebf-8f30-f3c61efed0e4",
+            "bd3b9932-0d38-485e-825f-423ddcbdfadd",
+            "9e3d7e7a-31c5-4b8d-ac08-bea311042c78",
+            "e0ea7eeb-7a11-4166-9b8b-aed45879d91e",
+            "e315e79b-724e-4ab9-b47f-48a0851f74cd",
+            "847fc226-c2bf-4685-b4af-8c069f8a806a",
+            "159a29b9-fee3-4f68-ae1f-ee57d293e1e0",
+            "654b0ae0-cfa5-4c3c-b6f3-adfd02f5defe",
+            "32010d2a-9c6a-428f-a1b4-258df2182adb",
+            "aafeceb0-4947-4885-b3df-efd38d38c002",
+            "5ac9c3b0-411f-4b82-908a-272e71d59bb6",
+            "e54f494f-c7cc-4d7f-b049-4f1b7706b4e9",
+            "1a51bb75-4cc2-49d3-bfab-6287615846e4",
+            "a3f8b839-aed1-427f-9e42-c07ab04be178",
+            "7bf54fae-9e3a-44ab-8b3b-b0eb5167eb86",
+            "fbd67e0c-d781-4d6a-b553-e5c8a35d2254",
+            "acc4b3ec-8fe3-4b63-a647-4427a2b8093b",
+            "04fd1604-5c89-42a9-8f0a-79ee89f8c9f8",
+            "d476e0d5-0315-4eca-91b6-08a846277c3a",
+            "d289cd36-618c-4749-9416-4b20580b0012",
+            "26566e69-34ec-43c3-859f-b51a8c6db1e0",
+            "23e23724-cfda-4adf-8e68-e030e8d6f082",
+            "10c3bff6-ba31-4403-875c-5e3973235b8e",
+            "fd83e443-2af4-45a5-b508-95d25b6512a9",
+            "42f34664-6972-4d20-a0d4-9aa6e1da1fc8",
+            "e919a9c6-d6b6-4736-9848-dbd6b8fc5b6b",
+            "ecfe9be7-43eb-4926-94e2-fa45c32a932c",
+            "a48f8902-50da-4830-812a-ee4d430cfd43",
+            "f4cede91-b23b-402d-a8da-71297a4a9468",
+            "37716e4f-b4e7-478d-a580-0af07a122f0b",
+            "7baec614-be9e-4382-9541-623e72a18137",
+            "c37a2d1b-8a27-49d8-a3be-b730d6c21255",
+            "674a318d-4363-4c0d-ac38-18fc1c0e17de",
+            "b462d820-dec5-442d-9d78-40681d3bcdb5",
+            "353e357a-188c-402a-bbae-6423a489ee19",
+            "7cb8881e-c395-432d-b995-c7ea981ce798",
+            "b4447a84-0c75-4710-b596-e6776dced7d5",
+            "52d56038-b20f-4c49-aac3-52822c301129",
+            "4a032904-a712-4ee5-ae69-d058a67341f3",
+            "94be46fd-5e24-4fcf-b53b-3ce32fa0648f",
+            "52db6b0b-368b-4785-a166-cf40b4daffa7",
+            "38c9fce7-cc33-48e1-a8b2-aafc89b668a6",
+            "1ce7f88a-5476-41ee-a67b-7891a96c91c2",
+            "73803de5-6617-4e33-b425-6c1518b82f7f",
+            "bd2462ac-daaf-487b-9b8d-c377c90cba0e",
+            "77592f5c-77da-4dae-8567-4ea3443f7ee5",
+            "09d38b15-25e3-45c6-8d61-1ba0527343ce",
+            "6d994712-9d8b-444e-b9da-2e95829c6666",
+            "a94ec7a3-7d23-4271-bdf6-fdad46373039",
+            "aa0e64da-2918-4cf9-9552-0a0fb0aa95d7",
+            "c65e38e0-d8f9-4bbe-a523-35c27de33393",
+            "b60f53a5-bc09-4eb6-ac85-39f039de7d91",
+            "5909a477-9c4d-4b44-9171-0373ee7a7667",
+            "935a9c5d-2bee-4d4b-b560-ed3a0bb025fc",
+            "ff66d144-b99a-47f4-9a22-88ae06d2141a",
+            "9327d59e-c378-4d51-bada-70d69c2a3654",
+            "e5e9d659-6ba2-4501-85d1-eea7cb4faab1",
+            "f76c74e6-5374-4102-8947-8bf8c09ed0fb",
+            "4af2ac82-f8f9-48f7-a50d-655c29db481f",
+            "4f28f94b-31c3-44db-b103-a62a94f8a605",
+            "78627caf-f027-4ee2-9d2f-3c8fd49a66ef",
+            "3879a294-39e8-426f-9857-7d8adaba9fb6",
+            "a1948b4e-df9d-46b0-a3bf-203f28cef6de",
+            "e3afe2a6-cb96-41ca-8982-c4c091ad0547",
+            "78bd39f4-c2f4-4b1b-9e29-143ec6edf546",
+            "a40699b4-18b7-4182-bd51-55100effff80",
+            "97966efb-813d-4f3a-8443-af4696c872cd",
+            "e10417b3-9a2b-4e7c-8d6d-d5cd1ab66275",
+            "d0ea056a-15b0-4a21-8815-4e64be93c466",
+            "2960bdd7-d8f2-4e8b-9893-2a2e048dde54",
+            "f15467e1-926a-4c45-b962-6f1efde738a3",
+            "de69b6f0-1fcb-43bb-89c6-bf3d87371c4b",
+            "620642a4-d7dd-4a04-a170-f1ea70ccc110",
+            "a303533e-eaed-427a-a48b-36bda3a53b91",
+            "6ab985d2-78f8-425c-ae15-4694804f16d3",
+            "2a978b7e-46e6-4a4c-b2b9-9c369525b6f3",
+            "c729c8e3-1550-4fd7-bd1b-9948a2a2f890",
+            "288c5bf9-b8d5-4174-820f-cc670c4616f2",
+            "fd9aa2ed-46e0-4219-b1b5-31dfbb1688ff",
+            "b78ca088-ba26-43e3-884d-355d5b08281f",
+            "ed83f28c-8089-4b6b-be57-67162d191e88",
+            "611558da-4e89-4d67-a8bd-e4914543a11c",
+            "fa82013f-e1ae-4c3a-a25b-bed10d7eced4",
+            "925bbd3f-ad58-4092-a10b-27953f95f46c",
+            "1230f0a0-7125-415f-b3e8-7ec4da7f496c",
+            "d67465fe-ef37-4026-912e-eb0d38d021a1",
+            "756d9d4a-211c-4b9c-90d7-4047c71d2ca7",
+            "1f78ca6c-fb6c-457e-8b3f-a838707c7d9f",
+            "475092a8-2adc-42aa-932c-5fcf575922f0",
+            "8b9f3f7e-b5d7-4bcc-834f-235e4e2fa96a",
+            "3a3b3fd5-a0bc-4614-a91f-c714b9219814",
+            "5c42bd77-a126-4141-bee3-e859f8c82390",
+            "b4892c3a-c468-459c-9518-578ec29c54f6",
+            "33d48f6b-1286-4946-b157-603f18124f2a",
+            "da2f450b-7199-4577-ae7a-9e2ad18b0df0",
+            "040edbea-08bf-4c1d-84bd-ee430b9c9491",
+            "e28f3551-1589-45c3-9477-7d881630c9de",
+            "aad5339b-f103-4dbf-908c-89effaea15da",
+            "f0396db1-7e99-4346-b80a-2a251e5162b8",
+            "c5ce8403-3d09-4378-bd14-00bde3206df2",
+            "020668a7-0ab8-4e61-898f-087bab251b89",
+            "fa54df71-3fe6-4976-9fa2-a869c9346d0d",
+            "22cabbb9-f9d7-4ea0-b4c3-ac0d265384ae",
+            "a78569d0-8602-4f02-b673-fd9227f5d2c9",
+            "8ea76f02-c088-4b4c-9fc6-9e63612673ce",
+            "6d7c69bd-6871-4d4e-abb6-1b029df5546d",
+            "585ef6cb-4f45-44ac-a9cf-c6e6c5fe8cf0",
+            "bc398aa7-d5de-4b0e-bfee-5e360284004e",
+            "2b175731-c579-4ea5-b8e9-3f86bb1ebb05",
+            "e9d8498f-3998-406a-acd4-c91c0facef67",
+            "da9daa54-005d-4211-8420-d55ae03a5ed2",
+            "44346342-1957-4e87-8e99-3ab1ba965e31",
+            "5d7799b3-32ec-4da9-885b-2015193ca9a0",
+            "2dac830c-0b5a-4e4c-9e55-0b971199b7ea",
+            "bd844a95-a116-48de-9cb4-d801effc0030",
+            "e7434c8a-1549-45e3-8174-0c05c67b5407",
+            "609fee53-e546-411f-90c2-3396d662af93",
+            "728feeff-3144-4110-882b-0080a584a5af",
+            "d3953706-1542-46bb-b121-98e5b9b82734",
+            "87d176ac-935a-4f8c-abc9-ad8a333ff1f5",
+            "f125c2a7-067b-4338-8213-ac5ef5f90d90",
+            "7a146671-6518-4506-b13d-a0ecb3b1c0f3",
+            "c1583de2-dc65-466b-b93f-1bce2bcb3e12",
+            "7a75c952-3022-4a35-80d5-7b954dea625a",
+            "837cf0b9-d80e-4119-8911-00b8955eb537",
+            "45473ac5-a6d1-4b33-82fb-b04ac346e872",
+            "b45a2014-cce0-45f8-bf2b-b4effa824688",
+            "396f8e0e-69b9-4151-84c9-5e2aef28e934",
+            "faa8b062-53ae-48c9-8b44-f4fe25cb9959",
+            "92f42712-7753-4dcf-ab23-710b7664e7e7",
+            "b493a373-61fb-4bb5-872b-f14f9db2224d",
+            "e9f86588-c891-42ba-9857-f80506852b32",
+            "d1676865-5492-4119-a5a0-af1e3f6f348c",
+            "45d7622c-1caf-412d-a2a8-2eb4921e21d2",
+            "70e81e85-05f5-4d9e-94a3-b386c0827eba",
+            "2eab64c6-b73b-4635-801e-29862295af44"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "Read3040Bacen\\Read3040Bacen.csproj",
+      "startingProject": true,
+      "issues": 2,
+      "storyPoints": 2,
+      "properties": {
+        "appName": "Read3040Bacen",
+        "projectKind": "ClassLibrary",
+        "frameworks": [
+          "net9.0"
+        ],
+        "languages": [
+          "C#"
+        ],
+        "tools": [
+          "MSBuild"
+        ],
+        "isSdkStyle": true,
+        "numberOfFiles": 21,
+        "numberOfCodeFiles": 21,
+        "linesTotal": 5651,
+        "linesOfCode": 5651,
+        "totalApiScanned": 4542,
+        "minLinesOfCodeToChange": 1,
+        "maxLinesOfCodeToChange": 1
+      },
+      "ruleInstances": [
+        {
+          "incidentId": "099e83f8-dd07-44ff-80d3-2715a8c9e43f",
+          "ruleId": "Project.0002",
+          "projectPath": "Read3040Bacen\\Read3040Bacen.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Current target framework: net9.0\nRecommended target framework: net10.0",
+              "protected": "Current target framework: net9.0\nRecommended target framework: net10.0"
+            },
+            "kind": "File",
+            "path": "Read3040Bacen\\Read3040Bacen.csproj",
+            "snippet": "Current target framework: net9.0\nRecommended target framework: net10.0",
+            "protectedSnippet": "Current target framework: net9.0\nRecommended target framework: net10.0",
+            "properties": {
+              "CurrentTargetFramework": "net9.0",
+              "RecommendedTargetFramework": "net10.0"
+            }
+          }
+        },
+        {
+          "incidentId": "080bd6d0-90cf-4f24-929f-a4be18bb92b7",
+          "ruleId": "Api.0002",
+          "description": "Breaking change: Ambiguous overload resolution affecting StringValues implicit operators ",
+          "projectPath": "Read3040Bacen\\Read3040Bacen.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "op.IPOC = String.Concat(cnpjEmpresa, op.Mod, cliente.Tp, cliente.Cd, op.Contrt);",
+              "protected": "M:System.String.Concat(System.ReadOnlySpan{System.String})"
+            },
+            "kind": "File",
+            "path": "Read3040Bacen\\Tratamento.cs",
+            "snippet": "op.IPOC = String.Concat(cnpjEmpresa, op.Mod, cliente.Tp, cliente.Cd, op.Contrt);",
+            "protectedSnippet": "M:System.String.Concat(System.ReadOnlySpan{System.String})",
+            "label": "M:System.String.Concat(System.ReadOnlySpan{System.String})",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://github.com/dotnet/docs/blob/main/docs/core/compatibility/core-libraries/9.0/ambiguous-overload.md",
+                "isCustom": false
+              }
+            ],
+            "line": 806,
+            "column": 20
+          }
+        }
+      ],
+      "features": []
+    }
+  ],
+  "rules": {
+    "Project.0002": {
+      "id": "Project.0002",
+      "isFeature": false,
+      "description": "Project\u0027s target framework(s) needs to be changed to the new target framework that you selected for this upgrade.\n\nDuring upgrade target framework will be adjusted to corresponding platform when applicable. In some cases project would result in multiple target frameworks after the upgrade if it was using features that now have their own platforms in modern .NET frameworks (windows, iOS, Android etc).",
+      "label": "Project\u0027s target framework(s) needs to be changed",
+      "severity": "Mandatory",
+      "effort": 1,
+      "links": [
+        {
+          "title": "Overview of porting from .NET Framework to .NET",
+          "url": "https://go.microsoft.com/fwlink/?linkid=2265227",
+          "isCustom": false
+        },
+        {
+          "title": ".NET project SDKs",
+          "url": "https://go.microsoft.com/fwlink/?linkid=2265226",
+          "isCustom": false
+        }
+      ]
+    },
+    "Api.0002": {
+      "id": "Api.0002",
+      "isFeature": false,
+      "description": "API is source incompatible for selected .NET version: requires code changes to compile successfully when targeting a new version, such as removing obsolete APIs or changing method signatures.",
+      "label": "Source incompatible for selected .NET version",
+      "severity": "Potential",
+      "effort": 1,
+      "links": [
+        {
+          "title": "Breaking changes in .NET",
+          "url": "https://go.microsoft.com/fwlink/?linkid=2262679",
+          "isCustom": false
+        }
+      ]
+    },
+    "Api.0001": {
+      "id": "Api.0001",
+      "isFeature": false,
+      "description": "API is binary incompatible for selected .NET version: affects existing binaries, often requiring recompilation, because the API has changed in a way that prevents older binaries from loading or executing.",
+      "label": "Binary incompatible for selected .NET version",
+      "severity": "Mandatory",
+      "effort": 1,
+      "links": [
+        {
+          "title": "Breaking changes in .NET",
+          "url": "https://go.microsoft.com/fwlink/?linkid=2262679",
+          "isCustom": false
+        }
+      ]
+    },
+    "Api.0003": {
+      "id": "Api.0003",
+      "isFeature": false,
+      "description": "API has a behavioral change in selected .NET version: code and binaries may behave differently at runtime without needing recompilation, but the new behavior might be undesirable and require updates.",
+      "label": "Behavioral change in selected .NET version",
+      "severity": "Potential",
+      "effort": 1
+    },
+    "WinForms": {
+      "id": "WinForms",
+      "isFeature": false,
+      "description": "Windows Forms APIs for building Windows desktop applications with traditional Forms-based UI that are available in .NET on Windows. Enable Windows Desktop support: Option 1 (Recommended): Target net9.0-windows; Option 2: Add \u003CUseWindowsDesktop\u003Etrue\u003C/UseWindowsDesktop\u003E; Option 3 (Legacy): Use Microsoft.NET.Sdk.WindowsDesktop SDK.",
+      "label": "Windows Forms",
+      "severity": "Mandatory",
+      "effort": 1,
+      "links": [
+        {
+          "title": "Windows Forms on .NET",
+          "url": "https://go.microsoft.com/fwlink/?linkid=2341906",
+          "isCustom": false
+        }
+      ]
+    }
+  }
+}

@@ -33,6 +33,7 @@
             openFileDialog2 = new OpenFileDialog();
             textBox1 = new TextBox();
             button1 = new Button();
+            checkBox1 = new CheckBox();
             SuspendLayout();
             // 
             // openFileDialog1
@@ -68,19 +69,32 @@
             button1.TabIndex = 2;
             button1.Text = "...";
             button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click_1;
+            button1.Click += button1_Click;
+            // 
+            // checkBox1
+            // 
+            checkBox1.AutoSize = true;
+            checkBox1.Checked = true;
+            checkBox1.CheckState = CheckState.Checked;
+            checkBox1.Location = new Point(997, 78);
+            checkBox1.Name = "checkBox1";
+            checkBox1.Size = new Size(530, 52);
+            checkBox1.TabIndex = 3;
+            checkBox1.Text = "Suprimir Alocação de estágio";
+            checkBox1.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(20F, 48F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1600, 864);
+            Controls.Add(checkBox1);
             Controls.Add(button1);
             Controls.Add(textBox1);
             Controls.Add(label1);
-            Margin = new Padding(6, 6, 6, 6);
+            Margin = new Padding(6);
             Name = "Form1";
-            Text = "Form1";
+            Text = "4966 - Ajuste de XML";
             ResumeLayout(false);
             PerformLayout();
         }
@@ -92,5 +106,6 @@
         private OpenFileDialog openFileDialog2;
         private TextBox textBox1;
         private Button button1;
+        private CheckBox checkBox1;
     }
 }
