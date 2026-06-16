@@ -1,0 +1,3977 @@
+﻿using Dapper;
+using DocumentFormat.OpenXml.Drawing.Charts;
+using DocumentFormat.OpenXml.Presentation;
+using DocumentFormat.OpenXml.Spreadsheet;
+using DocumentFormat.OpenXml.Wordprocessing;
+using LerXML3040BancoCentral.Model;
+using LerXML3040BancoCentral.Seguranca;
+using System.Data.SqlClient;
+using Microsoft.VisualBasic.ApplicationServices;
+using Read3040Bacen;
+using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace LerXML3040BancoCentral.Repositorios
+{
+    public class NcrRepositorio
+    {
+
+        public string conexaoBD { get; set; }
+        public string server { get; set; }
+
+        public string caminhoDat { get; set; }
+
+        public NcrRepositorio()
+        {
+            setarConexao();
+        }
+
+        private void setarConexao()
+        {
+            Credencial credencial = new Credencial();
+            credencial = obterCredencial();
+            setarServer();
+
+            this.conexaoBD = String.Concat("Server=", this.server, ";",
+                "Database=AB_NCR_RISCO;", 
+                "User Id=", credencial.UserName, ";",
+                "Password=", credencial.Password, ";",
+                "Encrypt=false;",
+                "TrustServerCertificate=true"
+                );
+
+
+            //Server=MyServerName;Database=MyDbName;Trusted_Connection=SSPI;Encrypt=false;TrustServerCertificate=true
+
+        }
+
+        private void setarServer()
+        {
+#if (DEBUG)
+            this.server = "HOMOG";
+#else
+            this.server = "PROD";
+#endif
+
+        }
+
+        private Credencial obterCredencial()
+        {
+#if(DEBUG)
+            this.caminhoDat = String.Concat(ConfigurationManager.AppSettings["diretorioDat"], @"\HMG\cactrlj.dat");
+#else
+            this.caminhoDat = String.Concat(ConfigurationManager.AppSettings["diretorioDat"], @"\PRD\cactrlj.dat");            
+#endif
+
+            return Descriptografar.ObterCredenciais(this.caminhoDat).Where(c => c.CodSistema == "NC").FirstOrDefault();
+
+        }
+
+        public bool tratarContratosPJ541DiasAtraso(DateTime dataVigencia)
+        {
+            bool sucesso = false;
+            var conexao = new SqlConnection(this.conexaoBD);
+
+            try
+            {
+
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@DATAVIGENCIA", dataVigencia);
+
+                if (conexao.State != ConnectionState.Open)
+                    conexao.Open();
+
+                var retorno = conexao.Query("SOF_NC_AJUSTAR_CONTRATOS_PJ_541_DIAS_ATRASO",
+                    parameters,
+                    null,
+                    true,
+                    null,
+                    commandType: CommandType.StoredProcedure
+                    );
+
+                sucesso = true;
+
+            }
+            catch
+            {
+                sucesso = false;
+            }
+            finally
+            {
+                conexao.Close();
+            }
+
+            return sucesso;
+
+        }
+
+        public bool tratarIPOC(DateTime dataVigencia)
+        {
+            bool sucesso = false;
+            var conexao = new SqlConnection(this.conexaoBD);
+
+            try
+            {
+
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@DATAVIGENCIA", dataVigencia);
+
+                if (conexao.State != ConnectionState.Open)
+                    conexao.Open();
+
+                var retorno = conexao.Query("SOF_NC_AJUSTAR_IPOC",
+                    parameters,
+                    null,
+                    true,
+                    null,
+                    commandType: CommandType.StoredProcedure
+                    );
+
+                sucesso = true;
+
+            }
+            catch
+            {
+                sucesso = false;
+            }
+            finally
+            {
+                conexao.Close();
+            }
+
+            return sucesso;
+
+        }
+
+        public bool tratarContratosPrejuizoSemClassificacao4966(DateTime dataVigencia)
+        {
+            bool sucesso = false;
+            var conexao = new SqlConnection(this.conexaoBD);
+
+            try
+            {
+
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@DATAVIGENCIA", dataVigencia);
+
+                if (conexao.State != ConnectionState.Open)
+                    conexao.Open();
+
+                var retorno = conexao.Query("SOF_NC_TRATAR_CONTRATOS_PREJUIZO_SEM_CLASSIFICACAO_4966",
+                    parameters,
+                    null,
+                    true,
+                    null,
+                    commandType: CommandType.StoredProcedure
+                    );
+
+                sucesso = true;
+
+            }
+            catch
+            {
+                sucesso = false;
+            }
+            finally
+            {
+                conexao.Close();
+            }
+
+            return sucesso;
+
+        }
+
+        public bool tratarDuplicadosRegra164(DateTime dataVigencia)
+        {
+            bool sucesso = false;
+            var conexao = new SqlConnection(this.conexaoBD);
+
+            try
+            {
+
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@DATAVIGENCIA", dataVigencia);
+
+                if (conexao.State != ConnectionState.Open)
+                    conexao.Open();
+
+                var retorno = conexao.Query("SOF_NC_TRATAR_DUPLICADOS_REGRA_164_V2",
+                    parameters,
+                    null,
+                    true,
+                    null,
+                    commandType: CommandType.StoredProcedure
+                    );
+
+                sucesso = true;
+
+            }
+            catch
+            {
+                sucesso = false;
+            }
+            finally
+            {
+                conexao.Close();
+            }
+
+            return sucesso;
+
+        }
+
+        public bool tratarGrupoModalidade18(DateTime dataVigencia)
+        {
+            bool sucesso = false;
+            var conexao = new SqlConnection(this.conexaoBD);
+
+            try
+            {
+
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@DATAVIGENCIA", dataVigencia);
+
+                if (conexao.State != ConnectionState.Open)
+                    conexao.Open();
+
+                var retorno = conexao.Query("SOF_NC_TRATAR_GRUPO_MODALIDADE_18_QTDINST",
+                    parameters,
+                    null,
+                    true,
+                    null,
+                    commandType: CommandType.StoredProcedure
+                    );
+
+                sucesso = true;
+
+            }
+            catch
+            {
+                sucesso = false;
+            }
+            finally
+            {
+                conexao.Close();
+            }
+
+            return sucesso;
+
+        }
+
+        public bool tratarIndexador(DateTime dataVigencia)
+        {
+            bool sucesso = false;
+            var conexao = new SqlConnection(this.conexaoBD);
+
+            try
+            {
+
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@DATAVIGENCIA", dataVigencia);
+
+                if (conexao.State != ConnectionState.Open)
+                    conexao.Open();
+
+                var retorno = conexao.Query("SOF_NC_TRATAR_INDEXADOR_OPERACOES",
+                    parameters,
+                    null,
+                    true,
+                    null,
+                    commandType: CommandType.StoredProcedure
+                    );
+
+                sucesso = true;
+
+            }
+            catch
+            {
+                sucesso = false;
+            }
+            finally
+            {
+                conexao.Close();
+            }
+
+            return sucesso;
+
+        }
+
+        public bool tratarInformacaoAdicional1001(DateTime dataVigencia)
+        {
+            bool sucesso = false;
+            var conexao = new SqlConnection(this.conexaoBD);
+
+            try
+            {
+
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@DATAVIGENCIA", dataVigencia);
+                parameters.Add("@CODCOLIGADAENT", 1);
+
+                if (conexao.State != ConnectionState.Open)
+                    conexao.Open();
+
+                var retorno = conexao.Query("SOF_NC_TRATAR_INFOADICIONAL_1001",
+                    parameters,
+                    null,
+                    true,
+                    null,
+                    commandType: CommandType.StoredProcedure
+                    );
+
+                sucesso = true;
+
+            }
+            catch
+            {
+                sucesso = false;
+            }
+            finally
+            {
+                conexao.Close();
+            }
+
+            return sucesso;
+
+        }
+
+        public bool tratarLocalidade(DateTime dataVigencia)
+        {
+            bool sucesso = false;
+            var conexao = new SqlConnection(this.conexaoBD);
+
+            try
+            {
+
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@DATAVIGENCIA", dataVigencia);
+
+                if (conexao.State != ConnectionState.Open)
+                    conexao.Open();
+
+                var retorno = conexao.Query("SOF_NC_TRATAR_LOCALIDADE",
+                    parameters,
+                    null,
+                    true,
+                    null,
+                    commandType: CommandType.StoredProcedure
+                    );
+
+                sucesso = true;
+
+            }
+            catch
+            {
+                sucesso = false;
+            }
+            finally
+            {
+                conexao.Close();
+            }
+
+            return sucesso;
+
+        }
+
+        public bool tratarInformacaoAdicional1701(DateTime dataVigencia)
+        {
+            bool sucesso = false;
+            var conexao = new SqlConnection(this.conexaoBD);
+
+            try
+            {
+
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@DATAVIGENCIA", dataVigencia);
+
+                if (conexao.State != ConnectionState.Open)
+                    conexao.Open();
+
+                var retorno = conexao.Query("SOF_NC_TRATAR_OPERACOES_INFADICIONAL_1701",
+                    parameters,
+                    null,
+                    true,
+                    null,
+                    commandType: CommandType.StoredProcedure
+                    );
+
+                sucesso = true;
+
+            }
+            catch
+            {
+                sucesso = false;
+            }
+            finally
+            {
+                conexao.Close();
+            }
+
+            return sucesso;
+
+        }
+
+        public bool tratarAutorizacaoBacen(DateTime dataVigencia)
+        {
+            bool sucesso = false;
+            var conexao = new SqlConnection(this.conexaoBD);
+
+            try
+            {
+
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@DATAVIGENCIA", dataVigencia);
+
+                if (conexao.State != ConnectionState.Open)
+                    conexao.Open();
+
+                var retorno = conexao.Query("SOF_NC_TRATAR_PERMITEBC_CLIENTE",
+                    parameters,
+                    null,
+                    true,
+                    null,
+                    commandType: CommandType.StoredProcedure
+                    );
+
+                sucesso = true;
+
+            }
+            catch
+            {
+                sucesso = false;
+            }
+            finally
+            {
+                conexao.Close();
+            }
+
+            return sucesso;
+
+        }
+
+        public bool tratarPorteCliente(DateTime dataVigencia)
+        {
+            bool sucesso = false;
+            var conexao = new SqlConnection(this.conexaoBD);
+
+            try
+            {
+
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@DATAVIGENCIA", dataVigencia);
+
+                if (conexao.State != ConnectionState.Open)
+                    conexao.Open();
+
+                var retorno = conexao.Query("SOF_NC_TRATAR_PORTE_CLIENTE",
+                    parameters,
+                    null,
+                    true,
+                    null,
+                    commandType: CommandType.StoredProcedure
+                    );
+
+                sucesso = true;
+
+            }
+            catch
+            {
+                sucesso = false;
+            }
+            finally
+            {
+                conexao.Close();
+            }
+
+            return sucesso;
+
+        }
+
+        public bool tratarRegraQ01(DateTime dataVigencia)
+        {
+            bool sucesso = false;
+            var conexao = new SqlConnection(this.conexaoBD);
+
+            try
+            {
+                
+                    DynamicParameters parameters = new DynamicParameters();
+                    parameters.Add("@DATAVIGENCIA", dataVigencia);
+
+                    if (conexao.State != ConnectionState.Open)
+                        conexao.Open();
+
+                var retorno = conexao.Query("SOF_NC_TRATAR_REGRA_Q01",
+                    parameters,
+                    null,
+                    true,
+                    null,
+                    commandType: CommandType.StoredProcedure
+                    );
+
+                sucesso = true;
+                
+            }
+            catch
+            {
+                sucesso = false;
+            }
+            finally
+            {
+                conexao.Close();
+            }
+
+            return sucesso;
+
+        }
+
+        public bool tratarValoresNegativos(DateTime dataVigencia)
+        {
+            bool sucesso = false;
+            var conexao = new SqlConnection(this.conexaoBD);
+
+            try
+            {
+
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@DATAVIGENCIA", dataVigencia);
+
+                if (conexao.State != ConnectionState.Open)
+                    conexao.Open();
+
+                var retorno = conexao.Query("SOF_NC_TRATAR_VALORES_NEGATIVOS",
+                    parameters,
+                    null,
+                    true,
+                    null,
+                    commandType: CommandType.StoredProcedure
+                    );
+
+                sucesso = true;
+
+            }
+            catch
+            {
+                sucesso = false;
+            }
+            finally
+            {
+                conexao.Close();
+            }
+
+            return sucesso;
+
+        }
+
+        public bool tratarInfoAdicionalLCILCA(DateTime dataVigencia)
+        {
+            bool sucesso = false;
+            var conexao = new SqlConnection(this.conexaoBD);
+
+            try
+            {
+
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@DATAVIGENCIA", dataVigencia);
+                parameters.Add("@CODCOLIGADAENT", 1);
+
+                if (conexao.State != ConnectionState.Open)
+                    conexao.Open();
+
+                var retorno = conexao.Query("SOF_NC_TRATAR_INFOADICIONAL_LCI_LCA",
+                    parameters,
+                    null,
+                    true,
+                    null,
+                    commandType: CommandType.StoredProcedure
+                    );
+
+                sucesso = true;
+
+            }
+            catch
+            {
+                sucesso = false;
+            }
+            finally
+            {
+                conexao.Close();
+            }
+
+            return sucesso;
+
+        }
+
+        public bool tratarRegraQ03(DateTime dataVigencia)
+        {
+            bool sucesso = false;
+            var conexao = new SqlConnection(this.conexaoBD);
+
+            try
+            {
+
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@DATAVIGENCIA", dataVigencia);
+
+                if (conexao.State != ConnectionState.Open)
+                    conexao.Open();
+
+                var retorno = conexao.Query("SOF_NC_TRATAR_REGRA_Q03",
+                    parameters,
+                    null,
+                    true,
+                    null,
+                    commandType: CommandType.StoredProcedure
+                    );
+
+                sucesso = true;
+
+            }
+            catch
+            {
+                sucesso = false;
+            }
+            finally
+            {
+                conexao.Close();
+            }
+
+            return sucesso;
+
+        }
+
+        public bool tratarRegra181(DateTime dataVigencia)
+        {
+            bool sucesso = false;
+            var conexao = new SqlConnection(this.conexaoBD);
+
+            try
+            {
+
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@DATAVIGENCIA", dataVigencia);
+
+                if (conexao.State != ConnectionState.Open)
+                    conexao.Open();
+
+                var retorno = conexao.Query("SOF_NC_TRATAR_REGRA_181",
+                    parameters,
+                    null,
+                    true,
+                    null,
+                    commandType: CommandType.StoredProcedure
+                    );
+
+                sucesso = true;
+
+            }
+            catch
+            {
+                sucesso = false;
+            }
+            finally
+            {
+                conexao.Close();
+            }
+
+            return sucesso;
+
+        }
+
+        public bool manterContratosPJEmPrejuizo(DateTime dataVigencia)
+        {
+            bool sucesso = false;
+            var conexao = new SqlConnection(this.conexaoBD);
+
+            try
+            {
+
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@DATAVIGENCIA", dataVigencia);
+
+                if (conexao.State != ConnectionState.Open)
+                    conexao.Open();
+
+                var retorno = conexao.Query("SOF_NC_MANTER_OPERACOES_PJ_PREJUIZO",
+                    parameters,
+                    null,
+                    true,
+                    null,
+                    commandType: CommandType.StoredProcedure
+                    );
+
+                sucesso = true;
+
+            }
+            catch
+            {
+                sucesso = false;
+            }
+            finally
+            {
+                conexao.Close();
+            }
+
+            return sucesso;
+
+        }
+
+        public List<InfoAdicional> excluirInfoAdicional02(DateTime dataVigencia, string numeroContrato)
+        {
+            bool sucesso = false;
+            var conexao = new SqlConnection(this.conexaoBD);
+            string comandoSQL = String.Empty;
+            List<InfoAdicional> infoAdicional = new List<InfoAdicional>();
+
+            try
+            {
+                comandoSQL = "SELECT O.DatBase, O.NROCONTROLE AS NumeroControle, O.IdOperacao, I.Sequencia, i.CODTIPCESSAO as TipoInfo\r\nFROM\t\tOPERACOES_NC O WITH(NOLOCK) INNER JOIN INFADICIONAISOPE I ON O.DATBASE = I.DATBASE AND O.CODCOLIGADA = I.CODCOLIGADA AND O.NROCONTROLE = I.NROCONTROLE AND O.IDOPERACAO = I.IDOPERACAO ";
+                comandoSQL += "WHERE O.DATBASE = '" + dataVigencia.ToString("yyyyMMdd") + "' ";
+                comandoSQL += "AND O.CONTRATO_ORIGINAL = '" + numeroContrato + "' ";
+                //comandoSQL += "AND I.CODTIPCESSAO LIKE '02%'";
+
+
+                if (conexao.State != ConnectionState.Open)
+                    conexao.Open();
+
+                infoAdicional = conexao.Query<InfoAdicional>(comandoSQL,
+                    null,
+                    null,
+                    true,
+                    null,
+                    commandType: CommandType.Text
+                    ).ToList();
+
+                sucesso = true;
+
+            }
+            catch
+            {
+                sucesso = false;
+            }
+            finally
+            {
+                conexao.Close();
+            }
+
+            return infoAdicional;
+        }
+
+        public bool ajustarContratosParaWO(DateTime dataVigencia, string codSistema, string numeroContrato)
+        {
+            bool sucesso = false;
+            var conexao = new SqlConnection(this.conexaoBD);
+
+            try
+            {
+                string comandoSQL = String.Empty;
+
+                comandoSQL += " IF OBJECT_ID('tempdb..#Contratos') IS NOT NULL DROP TABLE #Contratos ";
+                comandoSQL += " IF OBJECT_ID('tempdb..#Vencimentos') IS NOT NULL DROP TABLE #Vencimentos ";
+                comandoSQL += " SELECT * into		#Contratos FROM OPERACOES_NC WITH(NOLOCK) WHERE DATBASE = '" + dataVigencia.ToString("yyyy-MM-dd") + "'   " +
+                    "AND CONTRATO IN('" + numeroContrato + "')    " +
+                    "AND CODSISTEMA IN('" + codSistema + "')";
+
+                comandoSQL += " SELECT O.CODCOLIGADA, O.DATBASE, O.NROCONTROLE, O.IDOPERACAO, SUM(V.VLRVENCTO) AS TotalVencimentos ";
+                comandoSQL += " INTO	#Vencimentos FROM VENCIMENTOSOPE V INNER JOIN #Contratos O ON ";
+                comandoSQL += " V.DATBASE = O.DATBASE AND V.CODCOLIGADA = O.CODCOLIGADA AND V.NROCONTROLE = O.NROCONTROLE AND V.IDOPERACAO = O.IDOPERACAO ";
+                comandoSQL += " WHERE V.DATBASE = '" + dataVigencia.ToString("yyyy-MM-dd") + "' GROUP BY    O.CODCOLIGADA, O.DATBASE, O.NROCONTROLE, O.IDOPERACAO ";
+
+                comandoSQL += " DELETE  V FROM    VENCIMENTOSOPE V INNER JOIN #Contratos O ON V.DATBASE = O.DATBASE AND V.NROCONTROLE = O.NROCONTROLE  AND V.IDOPERACAO = O.IDOPERACAO WHERE V.DATBASE = '" + dataVigencia.ToString("yyyy-MM-dd") + "' ";
+
+                comandoSQL += " UPDATE O SET INDPREJUIZO = 'S' ";
+                comandoSQL += " FROM OPERACOES_NC O INNER JOIN #Contratos C ON  O.DATBASE = C.DATBASE AND O.CODCOLIGADA = C.CODCOLIGADA AND O.NROCONTROLE = C.NROCONTROLE  AND O.IDOPERACAO = C.IDOPERACAO ";
+                comandoSQL += " AND O.CODSISTEMA = C.CODSISTEMA AND O.CNPJCPFCLI = C.CNPJCPFCLI AND O.DVCNPJCLI = C.DVCNPJCLI AND O.IPOC = C.IPOC ";
+                comandoSQL += " AND O.CONTRATO = C.IPOC AND O.CODMODALIDADE = O.CODMODALIDADE ";
+                comandoSQL += " WHERE O.DATBASE = '" + dataVigencia.ToString("yyyy-MM-dd") + "' ";
+
+                comandoSQL += " INSERT INTO VENCIMENTOSOPE ";
+                comandoSQL += " SELECT  V.DATBASE, V.CODCOLIGADA, V.NROCONTROLE, V.IDOPERACAO, VENC.CODVENCTO, V.TotalVencimentos AS VLRVENCTO ";
+                comandoSQL += " FROM    #Vencimentos V INNER JOIN #Contratos O ";
+                comandoSQL += " ON V.DATBASE = O.DATBASE ";
+                comandoSQL += " AND V.CODCOLIGADA = O.CODCOLIGADA AND V.NROCONTROLE = O.NROCONTROLE AND V.IDOPERACAO = O.IDOPERACAO ";
+                comandoSQL += " INNER JOIN(SELECT CODVENCTO, FAIXA1, FAIXA2 FROM INTER_VENCIMENTOS WHERE   DATVIGENCIA = (SELECT MAX(DATVIGENCIA) FROM INTER_VENCIMENTOS) AND INDVENCTO = 'P') AS VENC ON O.DIASATRASO BETWEEN FAIXA1 AND FAIXA2 ";
+
+
+                comandoSQL += " DROP TABLE #Contratos ";
+                comandoSQL += " DROP TABLE #Vencimentos ";
+
+                if (conexao.State != ConnectionState.Open)
+                    conexao.Open();
+
+                var retorno = conexao.Query(comandoSQL,
+                    null,
+                    null,
+                    true,
+                    null,
+                    commandType: CommandType.Text
+                    );
+
+                sucesso = true;
+
+            }
+            catch
+            {
+                sucesso = false;
+            }
+            finally
+            {
+                conexao.Close();
+            }
+
+
+            return sucesso;
+        }
+        public bool ajustarContratosParaWOQG(DateTime dataVigencia, string codSistema, string numeroContrato)
+        {
+            bool sucesso = false;
+            var conexao = new SqlConnection(this.conexaoBD);
+
+            try
+            {
+                string comandoSQL = String.Empty;
+
+                comandoSQL += " IF OBJECT_ID('tempdb..#Contratos') IS NOT NULL DROP TABLE #Contratos ";
+                comandoSQL += " IF OBJECT_ID('tempdb..#Vencimentos') IS NOT NULL DROP TABLE #Vencimentos ";
+                comandoSQL += " SELECT * into		#Contratos FROM OPERACOES_NC WITH(NOLOCK) WHERE DATBASE = '" + dataVigencia.ToString("yyyy-MM-dd") + "'   ";
+
+                comandoSQL += " AND CODSISTEMA IN('" + codSistema + "')";
+                comandoSQL += " AND CONTRATO IN (";
+
+                comandoSQL += "'0010067720',";
+                comandoSQL += "'0000002376',";
+                comandoSQL += "'0000002400',";
+                comandoSQL += "'0000004623',";
+                comandoSQL += "'0000006159',";
+                comandoSQL += "'0000007969',";
+                comandoSQL += "'0000008232',";
+                comandoSQL += "'0000008259',";
+                comandoSQL += "'0000009930',";
+                comandoSQL += "'0000011293',";
+                comandoSQL += "'0000011955',";
+                comandoSQL += "'0000012030',";
+                comandoSQL += "'0000012818',";
+                comandoSQL += "'0000013745',";
+                comandoSQL += "'0000014322',";
+                comandoSQL += "'0000015128',";
+                comandoSQL += "'0000016272',";
+                comandoSQL += "'0000016566',";
+                comandoSQL += "'0000104754',";
+                comandoSQL += "'0000117795',";
+                comandoSQL += "'0000119119',";
+                comandoSQL += "'0000119283',";
+                comandoSQL += "'0000119984',";
+                comandoSQL += "'0000123232',";
+                comandoSQL += "'0000125804',";
+                comandoSQL += "'0000125995',";
+                comandoSQL += "'0000126028',";
+                comandoSQL += "'0000126576',";
+                comandoSQL += "'0000127237',";
+                comandoSQL += "'0000155977',";
+                comandoSQL += "'0000158810',";
+                comandoSQL += "'0000159000',";
+                comandoSQL += "'0000159689',";
+                comandoSQL += "'0001004874',";
+                comandoSQL += "'0001006869',";
+                comandoSQL += "'0001007091',";
+                comandoSQL += "'0001508697',";
+                comandoSQL += "'0001691203',";
+                comandoSQL += "'0002222193',";
+                comandoSQL += "'0002401560',";
+                comandoSQL += "'0002898138',";
+                comandoSQL += "'0002911142',";
+                comandoSQL += "'0003092285',";
+                comandoSQL += "'0003121633',";
+                comandoSQL += "'0003149350',";
+                comandoSQL += "'0003241612',";
+                comandoSQL += "'0003498141',";
+                comandoSQL += "'0003526480',";
+                comandoSQL += "'0003692568',";
+                comandoSQL += "'0003735933',";
+                comandoSQL += "'0003749209',";
+                comandoSQL += "'0003788654',";
+                comandoSQL += "'0003828443',";
+                comandoSQL += "'0004407298',";
+                comandoSQL += "'0004457759',";
+                comandoSQL += "'0004562595',";
+                comandoSQL += "'0004608277',";
+                comandoSQL += "'0004795018',";
+                comandoSQL += "'0004811803',";
+                comandoSQL += "'0004812672',";
+                comandoSQL += "'0004844841',";
+                comandoSQL += "'0004854340',";
+                comandoSQL += "'0004859911',";
+                comandoSQL += "'0004965380',";
+                comandoSQL += "'0005235547',";
+                comandoSQL += "'0005235555',";
+                comandoSQL += "'0005813320',";
+                comandoSQL += "'0005874671',";
+                comandoSQL += "'0007090619',";
+                comandoSQL += "'0007248514',";
+                comandoSQL += "'0008219470',";
+                comandoSQL += "'0008323234',";
+                comandoSQL += "'0008531791',";
+                comandoSQL += "'0008536572',";
+                comandoSQL += "'0008571750',";
+                comandoSQL += "'0008598993',";
+                comandoSQL += "'0008958426',";
+                comandoSQL += "'0008963349',";
+                comandoSQL += "'0008981550',";
+                comandoSQL += "'0008991628',";
+                comandoSQL += "'0009049284',";
+                comandoSQL += "'0009059638',";
+                comandoSQL += "'0009085922',";
+                comandoSQL += "'0009135113',";
+                comandoSQL += "'0009135180',";
+                comandoSQL += "'0009138775',";
+                comandoSQL += "'0009647734',";
+                comandoSQL += "'0009826795',";
+                comandoSQL += "'0009835352',";
+                comandoSQL += "'0009899067',";
+                comandoSQL += "'0009947380',";
+                comandoSQL += "'0010234618',";
+                comandoSQL += "'0010267850',";
+                comandoSQL += "'0010284658',";
+                comandoSQL += "'0010355628',";
+                comandoSQL += "'0010721012',";
+                comandoSQL += "'0011271991',";
+                comandoSQL += "'000287611200026081111',";
+                comandoSQL += "'000287611200026081129',";
+                comandoSQL += "'FNF/20010804',";
+                comandoSQL += "'PII25957-9R01',";
+                comandoSQL += "'0000004122',";
+                comandoSQL += "'PII26377-7',";
+                comandoSQL += "'PMC019721-4',";
+                comandoSQL += "'PII25721-6',";
+                comandoSQL += "'0000011117',";
+                comandoSQL += "'CNF09565',";
+                comandoSQL += "'CCE20397-1R01',";
+                comandoSQL += "'PMT33306-6',";
+                comandoSQL += "'PMT25807-5R01',";
+                comandoSQL += "'FIN31311-6',";
+                comandoSQL += "'FIN31304-1',";
+                comandoSQL += "'PII23578-4',";
+                comandoSQL += "'PII30097-4',";
+                comandoSQL += "'PII24243-1',";
+                comandoSQL += "'0005857858',";
+                comandoSQL += "'0010424700',";
+                comandoSQL += "'0005982261',";
+                comandoSQL += "'0010267850',";
+                comandoSQL += "'0000002400',";
+                comandoSQL += "'0003469206',";
+                comandoSQL += "'0003432345',";
+                comandoSQL += "'0000125952',";
+                comandoSQL += "'0000126576',";
+                comandoSQL += "'0000118085'";
+
+
+                comandoSQL += " ) ";
+
+
+                comandoSQL += " SELECT O.CODCOLIGADA, O.DATBASE, O.NROCONTROLE, O.IDOPERACAO, SUM(V.VLRVENCTO) AS TotalVencimentos ";
+                comandoSQL += " INTO	#Vencimentos FROM VENCIMENTOSOPE V INNER JOIN #Contratos O ON ";
+                comandoSQL += " V.DATBASE = O.DATBASE AND V.CODCOLIGADA = O.CODCOLIGADA AND V.NROCONTROLE = O.NROCONTROLE AND V.IDOPERACAO = O.IDOPERACAO ";
+                comandoSQL += " WHERE V.DATBASE = '" + dataVigencia.ToString("yyyy-MM-dd") + "' GROUP BY    O.CODCOLIGADA, O.DATBASE, O.NROCONTROLE, O.IDOPERACAO ";
+
+                comandoSQL += " DELETE  V FROM    VENCIMENTOSOPE V INNER JOIN #Contratos O ON V.DATBASE = O.DATBASE AND V.NROCONTROLE = O.NROCONTROLE  AND V.IDOPERACAO = O.IDOPERACAO WHERE V.DATBASE = '" + dataVigencia.ToString("yyyy-MM-dd") + "' ";
+
+                comandoSQL += " UPDATE O SET INDPREJUIZO = 'S' ";
+                comandoSQL += " FROM OPERACOES_NC O INNER JOIN #Contratos C ON  O.DATBASE = C.DATBASE AND O.CODCOLIGADA = C.CODCOLIGADA AND O.NROCONTROLE = C.NROCONTROLE  AND O.IDOPERACAO = C.IDOPERACAO ";
+                comandoSQL += " AND O.CODSISTEMA = C.CODSISTEMA AND O.CNPJCPFCLI = C.CNPJCPFCLI AND O.DVCNPJCLI = C.DVCNPJCLI AND O.IPOC = C.IPOC ";
+                comandoSQL += " AND O.CONTRATO = C.IPOC AND O.CODMODALIDADE = O.CODMODALIDADE ";
+                comandoSQL += " WHERE O.DATBASE = '" + dataVigencia.ToString("yyyy-MM-dd") + "' ";
+
+
+                comandoSQL += " INSERT INTO VENCIMENTOSOPE ";
+                comandoSQL += " SELECT  V.DATBASE, V.CODCOLIGADA, V.NROCONTROLE, V.IDOPERACAO, VENC.CODVENCTO, V.TotalVencimentos AS VLRVENCTO ";
+                comandoSQL += " FROM    #Vencimentos V INNER JOIN #Contratos O ";
+                comandoSQL += " ON V.DATBASE = O.DATBASE ";
+                comandoSQL += " AND V.CODCOLIGADA = O.CODCOLIGADA AND V.NROCONTROLE = O.NROCONTROLE AND V.IDOPERACAO = O.IDOPERACAO ";
+                comandoSQL += " INNER JOIN(SELECT CODVENCTO, FAIXA1, FAIXA2 FROM INTER_VENCIMENTOS WHERE   DATVIGENCIA = (SELECT MAX(DATVIGENCIA) FROM INTER_VENCIMENTOS) AND INDVENCTO = 'P') AS VENC ON O.DIASATRASO BETWEEN FAIXA1 AND FAIXA2 ";
+
+
+                comandoSQL += " DROP TABLE #Contratos ";
+                comandoSQL += " DROP TABLE #Vencimentos ";
+
+                if (conexao.State != ConnectionState.Open)
+                    conexao.Open();
+
+                var retorno = conexao.Query(comandoSQL,
+                    null,
+                    null,
+                    true,
+                    null,
+                    commandType: CommandType.Text
+                    );
+
+                sucesso = true;
+
+            }
+            catch
+            {
+                sucesso = false;
+            }
+            finally
+            {
+                conexao.Close();
+            }
+
+
+            return sucesso;
+        }
+        public bool ajustarContratosWOParaAtivo(DateTime dataVigencia, string codSistema, string numeroContrato)
+        {
+            bool sucesso = false;
+            var conexao = new SqlConnection(this.conexaoBD);
+
+            try
+            {
+                string comandoSQL = String.Empty;
+
+                comandoSQL += " IF OBJECT_ID('tempdb..#Contratos') IS NOT NULL DROP TABLE #Contratos ";
+                comandoSQL += " IF OBJECT_ID('tempdb..#Vencimentos') IS NOT NULL DROP TABLE #Vencimentos ";
+                comandoSQL += " SELECT * into		#Contratos FROM OPERACOES_NC WITH(NOLOCK) WHERE DATBASE = '" + dataVigencia.ToString("yyyy-MM-dd") + "'   " +
+                    "AND CONTRATO IN('" + numeroContrato + "')    " +
+                    "AND CODSISTEMA IN('" + codSistema + "')";
+
+                comandoSQL += " SELECT O.CODCOLIGADA, O.DATBASE, O.NROCONTROLE, O.IDOPERACAO, SUM(V.VLRVENCTO) AS TotalVencimentos ";
+                comandoSQL += " INTO	#Vencimentos FROM VENCIMENTOSOPE V INNER JOIN #Contratos O ON ";
+                comandoSQL += " V.DATBASE = O.DATBASE AND V.CODCOLIGADA = O.CODCOLIGADA AND V.NROCONTROLE = O.NROCONTROLE AND V.IDOPERACAO = O.IDOPERACAO ";
+                comandoSQL += " WHERE V.DATBASE = '" + dataVigencia.ToString("yyyy-MM-dd") + "' GROUP BY    O.CODCOLIGADA, O.DATBASE, O.NROCONTROLE, O.IDOPERACAO ";
+
+                comandoSQL += " DELETE  V FROM    VENCIMENTOSOPE V INNER JOIN #Contratos O ON V.DATBASE = O.DATBASE AND V.NROCONTROLE = O.NROCONTROLE  AND V.IDOPERACAO = O.IDOPERACAO WHERE V.DATBASE = '" + dataVigencia.ToString("yyyy-MM-dd") + "' ";
+
+                comandoSQL += " INSERT INTO VENCIMENTOSOPE ";
+                comandoSQL += " SELECT  V.DATBASE, V.CODCOLIGADA, V.NROCONTROLE, V.IDOPERACAO, CASE WHEN VENC.CODVENCTO IS NULL THEN '199' ELSE VENC.CODVENCTO END AS CODVENCTO, V.TotalVencimentos AS VLRVENCTO ";
+                comandoSQL += " FROM    #Vencimentos V INNER JOIN #Contratos O ";
+                comandoSQL += " ON V.DATBASE = O.DATBASE ";
+                comandoSQL += " AND V.CODCOLIGADA = O.CODCOLIGADA AND V.NROCONTROLE = O.NROCONTROLE AND V.IDOPERACAO = O.IDOPERACAO ";
+                comandoSQL += " LEFT JOIN(SELECT CODVENCTO, FAIXA1, FAIXA2 FROM INTER_VENCIMENTOS WHERE   DATVIGENCIA = (SELECT MAX(DATVIGENCIA) FROM INTER_VENCIMENTOS) AND INDVENCTO = 'V') AS VENC ON O.DIASATRASO BETWEEN FAIXA1 AND FAIXA2 ";
+
+
+                comandoSQL += " DROP TABLE #Contratos ";
+                comandoSQL += " DROP TABLE #Vencimentos ";
+
+                if (conexao.State != ConnectionState.Open)
+                    conexao.Open();
+
+                var retorno = conexao.Query(comandoSQL,
+                    null,
+                    null,
+                    true,
+                    null,
+                    commandType: CommandType.Text
+                    );
+
+                sucesso = true;
+
+            }
+            catch
+            {
+                sucesso = false;
+            }
+            finally
+            {
+                conexao.Close();
+            }
+
+
+            return sucesso;
+        }
+        public bool ajustarContratosWOParaAtivoQG(DateTime dataVigencia, string codSistema, string numeroContrato)
+        {
+            bool sucesso = false;
+            var conexao = new SqlConnection(this.conexaoBD);
+
+            try
+            {
+                string comandoSQL = String.Empty;
+
+                comandoSQL += " IF OBJECT_ID('tempdb..#Contratos') IS NOT NULL DROP TABLE #Contratos ";
+                comandoSQL += " IF OBJECT_ID('tempdb..#Vencimentos') IS NOT NULL DROP TABLE #Vencimentos ";
+                comandoSQL += " SELECT * into		#Contratos FROM OPERACOES_NC WITH(NOLOCK) WHERE DATBASE = '" + dataVigencia.ToString("yyyy-MM-dd") + "'   ";
+                comandoSQL += " AND CODSISTEMA IN('" + codSistema + "')";
+                comandoSQL += " AND CONTRATO IN (";
+
+                comandoSQL += "'CAP36766-1R01',";
+                comandoSQL += "'PII42252-0',";
+                comandoSQL += "'PII24008-9',";
+                comandoSQL += "'PII21699-1R01',";
+                comandoSQL += "'FGF25212-4',";
+                comandoSQL += "'PMT34548-4',";
+                comandoSQL += "'PII22646-0',";
+                comandoSQL += "'PMT31174-9',";
+                comandoSQL += "'PMT40075-8',";
+                comandoSQL += "'PMT37899-0',";
+                comandoSQL += "'PII21948-1',";
+                comandoSQL += "'PMT47432-3',";
+                comandoSQL += "'PAF08578-3',";
+                comandoSQL += "'PMT34406-3',";
+                comandoSQL += "'PII27871-8',";
+                comandoSQL += "'PAF08698-0R01',";
+                comandoSQL += "'PII24717-7',";
+                comandoSQL += "'PII25676-4',";
+                comandoSQL += "'PAF08609-6R01',";
+                comandoSQL += "'PMT37248-7',";
+                comandoSQL += "'PMT34901-3',";
+                comandoSQL += "'PMT31816-8',";
+                comandoSQL += "'PII22066-9',";
+                comandoSQL += "'PMT26500-2',";
+                comandoSQL += "'CNF38478',";
+                comandoSQL += "'PAF07112-8R01',";
+                comandoSQL += "'PAF08949-7R01',";
+                comandoSQL += "'PII28905-4',";
+                comandoSQL += "'PII34367-8',";
+                comandoSQL += "'PII21483-6R0001',";
+                comandoSQL += "'FGF20383-9R01',";
+                comandoSQL += "'FGF38820-1',";
+                comandoSQL += "'PAF06812-6H01',";
+                comandoSQL += "'PII43154-7',";
+                comandoSQL += "'PII39841-7',";
+                comandoSQL += "'PMT25642-4',";
+                comandoSQL += "'CNF45509',";
+                comandoSQL += "'PII28032-3R01',";
+                comandoSQL += "'PMT32020-1',";
+                comandoSQL += "'PII24806-8R01',";
+                comandoSQL += "'PII33770-3',";
+                comandoSQL += "'PII24677-3H01',";
+                comandoSQL += "'PII28977-4R01',";
+                comandoSQL += "'PMT34655-7',";
+                comandoSQL += "'PII23754-0',";
+                comandoSQL += "'PII21336-7',";
+                comandoSQL += "'FGF15792-0',";
+                comandoSQL += "'PII28518-5',";
+                comandoSQL += "'PII34396-7',";
+                comandoSQL += "'PMT45685-1',";
+                comandoSQL += "'PAF06864-8',";
+                comandoSQL += "'CNF41891',";
+                comandoSQL += "'CR96826',";
+                comandoSQL += "'PMT34086-3',";
+                comandoSQL += "'PAF06480-1',";
+                comandoSQL += "'PMT39296-4',";
+                comandoSQL += "'PII38148-8',";
+                comandoSQL += "'FGF35968-4',";
+                comandoSQL += "'PAF09329-9',";
+                comandoSQL += "'PII22010-4R01',";
+                comandoSQL += "'PII24376-1',";
+                comandoSQL += "'PMT31924-9',";
+                comandoSQL += "'CAP41437-0',";
+                comandoSQL += "'PII21256-7',";
+                comandoSQL += "'PMT47182-4',";
+                comandoSQL += "'PII26208-3R01',";
+                comandoSQL += "'PAF06254-0',";
+                comandoSQL += "'CAP28961-6R01',";
+                comandoSQL += "'PII43522-6',";
+                comandoSQL += "'PAF09901-4H01',";
+                comandoSQL += "'PII33462-6',";
+                comandoSQL += "'FGF20284-9',";
+                comandoSQL += "'PII27908-0',";
+                comandoSQL += "'PII25780-2',";
+                comandoSQL += "'PMT40080-6',";
+                comandoSQL += "'CNF0025395-0',";
+                comandoSQL += "'PII23634-3',";
+                comandoSQL += "'CNF41737',";
+                comandoSQL += "'PII22839-1',";
+                comandoSQL += "'PII40983-4',";
+                comandoSQL += "'PMT32737-5',";
+                comandoSQL += "'PII25498-2',";
+                comandoSQL += "'PII24779-8',";
+                comandoSQL += "'PII27434-3',";
+                comandoSQL += "'PMT31186-4',";
+                comandoSQL += "'CNF0012161839',";
+                comandoSQL += "'PII32788-9',";
+                comandoSQL += "'CNF43228',";
+                comandoSQL += "'PII23699-9',";
+                comandoSQL += "'FGF36990-5',";
+                comandoSQL += "'PII21985-3',";
+                comandoSQL += "'PII28935-1',";
+                comandoSQL += "'PII22619-7',";
+                comandoSQL += "'PII22931-4',";
+                comandoSQL += "'PAF08834-9',";
+                comandoSQL += "'PII29928-6H01',";
+                comandoSQL += "'CAP28739-8R01',";
+                comandoSQL += "'PII34373-4',";
+                comandoSQL += "'PII43114-1',";
+                comandoSQL += "'PII26803-1R01',";
+                comandoSQL += "'PII30814-2',";
+                comandoSQL += "'PMT36107-5',";
+                comandoSQL += "'PMT39435-8',";
+                comandoSQL += "'PAF08455-2R01',";
+                comandoSQL += "'CNF97093',";
+                comandoSQL += "'CNF38637',";
+                comandoSQL += "'PII29817-1',";
+                comandoSQL += "'PII29299-1',";
+                comandoSQL += "'PII26530-0',";
+                comandoSQL += "'PAF06513-0',";
+                comandoSQL += "'PMT27636-6',";
+                comandoSQL += "'PAF09426-2',";
+                comandoSQL += "'PII27508-7',";
+                comandoSQL += "'FGF20287-3',";
+                comandoSQL += "'PII41394-1',";
+                comandoSQL += "'PAF09352-9',";
+                comandoSQL += "'PMT20478-9',";
+                comandoSQL += "'PII32177-2',";
+                comandoSQL += "'PII27868-6',";
+                comandoSQL += "'PII38908-7',";
+                comandoSQL += "'PAF06482-7',";
+                comandoSQL += "'FAT025445-2',";
+                comandoSQL += "'PII24744-0H01',";
+                comandoSQL += "'PII26402-1R01',";
+                comandoSQL += "'PII26752-1',";
+                comandoSQL += "'PMT33056-7',";
+                comandoSQL += "'FGF4702-1',";
+                comandoSQL += "'CNF025660-6',";
+                comandoSQL += "'PMT33697-1',";
+                comandoSQL += "'PII27988-2',";
+                comandoSQL += "'PII21675-0',";
+                comandoSQL += "'PMT37621-4',";
+                comandoSQL += "'PMT41017-9',";
+                comandoSQL += "'PII34621-7',";
+                comandoSQL += "'PMT31862-1',";
+                comandoSQL += "'PII25981-7',";
+                comandoSQL += "'CNF44606-1',";
+                comandoSQL += "'CNF41689',";
+                comandoSQL += "'PMT45435-0',";
+                comandoSQL += "'PMT39987-1',";
+                comandoSQL += "'PII28197-7',";
+                comandoSQL += "'PII30107-1',";
+                comandoSQL += "'PII28018-4',";
+                comandoSQL += "'PAF07221-7H02',";
+                comandoSQL += "'PII34230-5',";
+                comandoSQL += "'PII42069-0',";
+                comandoSQL += "'PII37611-5',";
+                comandoSQL += "'PMT33348-9',";
+                comandoSQL += "'PII36325-3',";
+                comandoSQL += "'PMT30952-1 - A',";
+                comandoSQL += "'CAP38272-4R01',";
+                comandoSQL += "'PMT39196-6',";
+                comandoSQL += "'CNF44950',";
+                comandoSQL += "'PII37126-4',";
+                comandoSQL += "'PII42738-1',";
+                comandoSQL += "'PMT38398-0',";
+                comandoSQL += "'PMT36997-2',";
+                comandoSQL += "'PII32458-7',";
+                comandoSQL += "'PMTGCH96863-A',";
+                comandoSQL += "'PMT30780-5',";
+                comandoSQL += "'PMT36139-9',";
+                comandoSQL += "'PMT39646-1',";
+                comandoSQL += "'PAF06436-4',";
+                comandoSQL += "'PMT36129-0',";
+                comandoSQL += "'PII23979-5',";
+                comandoSQL += "'CNF0000126826',";
+                comandoSQL += "'PMT38584-4',";
+                comandoSQL += "'CNF37488',";
+                comandoSQL += "'PII40964-4',";
+                comandoSQL += "'PII28259-5',";
+                comandoSQL += "'PMT34540-9R01',";
+                comandoSQL += "'PMT37592-8',";
+                comandoSQL += "'PMT37596-1',";
+                comandoSQL += "'PII28597-0',";
+                comandoSQL += "'PII46956-6',";
+                comandoSQL += "'PII27236-3',";
+                comandoSQL += "'PMT25508-9',";
+                comandoSQL += "'FGF19868-6',";
+                comandoSQL += "'FGF19453-3',";
+                comandoSQL += "'PMT36246-1',";
+                comandoSQL += "'PII30243-2',";
+                comandoSQL += "'FGF20498-7',";
+                comandoSQL += "'PII30133-5',";
+                comandoSQL += "'PII26508-8',";
+                comandoSQL += "'PII21957-2',";
+                comandoSQL += "'PII42979-2',";
+                comandoSQL += "'PII29016-7',";
+                comandoSQL += "'PII26063-1',";
+                comandoSQL += "'PII29991-2',";
+                comandoSQL += "'PII24830-6R01',";
+                comandoSQL += "'PII27598-9',";
+                comandoSQL += "'PII41480-8',";
+                comandoSQL += "'PII26997-4',";
+                comandoSQL += "'FGF20575-2',";
+                comandoSQL += "'PMT40511-1',";
+                comandoSQL += "'PAF09088-1H03',";
+                comandoSQL += "'CNF47438',";
+                comandoSQL += "'PMT46343-3',";
+                comandoSQL += "'PII29071-1',";
+                comandoSQL += "'PII47546-3',";
+                comandoSQL += "'PMT39974-7',";
+                comandoSQL += "'PII24759-0',";
+                comandoSQL += "'PII33820-6',";
+                comandoSQL += "'PII32240-6',";
+                comandoSQL += "'PII38914-3',";
+                comandoSQL += "'PII33034-2',";
+                comandoSQL += "'PII32620-1',";
+                comandoSQL += "'PMT31494-1',";
+                comandoSQL += "'PII26121-6',";
+                comandoSQL += "'PII28968-3',";
+                comandoSQL += "'AGR32105-2R01',";
+                comandoSQL += "'PII29091-9',";
+                comandoSQL += "'PII44230-3',";
+                comandoSQL += "'PMT28262-7R01',";
+                comandoSQL += "'PII34197-9R01',";
+                comandoSQL += "'PII29586-1',";
+                comandoSQL += "'PMT41570-7',";
+                comandoSQL += "'PMT37056-3',";
+                comandoSQL += "'PMT33586-5',";
+                comandoSQL += "'PII32908-2',";
+                comandoSQL += "'PII36189-4',";
+                comandoSQL += "'PII24815-9',";
+                comandoSQL += "'PII26276-1',";
+                comandoSQL += "'FGF37601-6',";
+                comandoSQL += "'PMT21833-3',";
+                comandoSQL += "'CNF0011642108',";
+                comandoSQL += "'PII41514-5',";
+                comandoSQL += "'PII29359-2',";
+                comandoSQL += "'PII22671-6R01',";
+                comandoSQL += "'GNC25208-4',";
+                comandoSQL += "'PMT26986-7R01',";
+                comandoSQL += "'PMT30642-7',";
+                comandoSQL += "'PII27715-8',";
+                comandoSQL += "'PII32355-4',";
+                comandoSQL += "'PMT39947-4',";
+                comandoSQL += "'PII27511-9',";
+                comandoSQL += "'PII24843-0',";
+                comandoSQL += "'PMT047393-8',";
+                comandoSQL += "'PAF08567-6H01',";
+                comandoSQL += "'PII22018-0',";
+                comandoSQL += "'PII24110-1',";
+                comandoSQL += "'PMT38282-3',";
+                comandoSQL += "'PMT38169-4',";
+                comandoSQL += "'PII33812-3',";
+                comandoSQL += "'PII21603-0',";
+                comandoSQL += "'PII27246-2',";
+                comandoSQL += "'PAF06989-5',";
+                comandoSQL += "'PII33819-1',";
+                comandoSQL += "'PMT32092-1',";
+                comandoSQL += "'PII23565-1',";
+                comandoSQL += "'PII27408-9',";
+                comandoSQL += "'PII27624-1',";
+                comandoSQL += "'PII21276-5',";
+                comandoSQL += "'PMT30158-4R01',";
+                comandoSQL += "'PAF06566-0',";
+                comandoSQL += "'PAF06299-7R01',";
+                comandoSQL += "'PII28411-0',";
+                comandoSQL += "'PII27323-8R01',";
+                comandoSQL += "'PMT33040-9',";
+                comandoSQL += "'PII25565-9R01',";
+                comandoSQL += "'PII25026-0',";
+                comandoSQL += "'PII32531-0',";
+                comandoSQL += "'PII23921-4R001',";
+                comandoSQL += "'PMT34597-1R01',";
+                comandoSQL += "'PAF06946-4',";
+                comandoSQL += "'PMT36163-7',";
+                comandoSQL += "'PMT33145-8',";
+                comandoSQL += "'PMT38897-2',";
+                comandoSQL += "'CAP31734-1R03',";
+                comandoSQL += "'PMT39889-9',";
+                comandoSQL += "'PII22389-6H01',";
+                comandoSQL += "'PII24710-0',";
+                comandoSQL += "'PII25907-3',";
+                comandoSQL += "'PMT37303-8',";
+                comandoSQL += "'FGF19240-3H01',";
+                comandoSQL += "'PMT23499-2R03',";
+                comandoSQL += "'PMT33057-5',";
+                comandoSQL += "'PII24819-1',";
+                comandoSQL += "'CNF0125072',";
+                comandoSQL += "'PII25683-9',";
+                comandoSQL += "'PII26760-3',";
+                comandoSQL += "'PII24946-2',";
+                comandoSQL += "'CNF38738',";
+                comandoSQL += "'CNF0012139426',";
+                comandoSQL += "'PMT28802-1',";
+                comandoSQL += "'CNF46357',";
+                comandoSQL += "'PII42771-1',";
+                comandoSQL += "'PII39441-4',";
+                comandoSQL += "'PII26187-0',";
+                comandoSQL += "'PII26191-0R01',";
+                comandoSQL += "'PII24789-7',";
+                comandoSQL += "'PMT31623-6',";
+                comandoSQL += "'PII27537-6',";
+                comandoSQL += "'PII26769-7',";
+                comandoSQL += "'PII29968-2',";
+                comandoSQL += "'PII29345-1',";
+                comandoSQL += "'PII23226-8',";
+                comandoSQL += "'CNF0031215-1',";
+                comandoSQL += "'PII27541-6',";
+                comandoSQL += "'CNF41128',";
+                comandoSQL += "'PII24696-3',";
+                comandoSQL += "'PII34057-4',";
+                comandoSQL += "'PMT40428-0',";
+                comandoSQL += "'PMT043364-2',";
+                comandoSQL += "'PII29958-3',";
+                comandoSQL += "'PII26499-0',";
+                comandoSQL += "'PII28433-4H01',";
+                comandoSQL += "'PMT44067-1',";
+                comandoSQL += "'PII25962-7R01',";
+                comandoSQL += "'PII41357-0',";
+                comandoSQL += "'PII39596-9',";
+                comandoSQL += "'PMT29178-6',";
+                comandoSQL += "'PII27458-4',";
+                comandoSQL += "'PII34361-9',";
+                comandoSQL += "'PII24897-8',";
+                comandoSQL += "'PAF06861-3H03',";
+                comandoSQL += "'PII35980-7',";
+                comandoSQL += "'PII21884-7',";
+                comandoSQL += "'FGF38563-8',";
+                comandoSQL += "'PII25044-1',";
+                comandoSQL += "'PII29187-7',";
+                comandoSQL += "'PII26791-9',";
+                comandoSQL += "'PII31020-2',";
+                comandoSQL += "'PII30001-3',";
+                comandoSQL += "'PII43526-9',";
+                comandoSQL += "'PII29425-1',";
+                comandoSQL += "'PII38647-1',";
+                comandoSQL += "'PII21233-4',";
+                comandoSQL += "'PII24229-1',";
+                comandoSQL += "'PII34914-7',";
+                comandoSQL += "'PII23742-4',";
+                comandoSQL += "'PII28178-7',";
+                comandoSQL += "'PMT37820-2',";
+                comandoSQL += "'PII29875-9R01',";
+                comandoSQL += "'PII28021-6R01',";
+                comandoSQL += "'FGF42709-2',";
+                comandoSQL += "'PII28415-2',";
+                comandoSQL += "'PMT31706-1',";
+                comandoSQL += "'PMT33143-1',";
+                comandoSQL += "'PII26205-9',";
+                comandoSQL += "'PII21872-1',";
+                comandoSQL += "'PII25408-1H01',";
+                comandoSQL += "'PMT33645-9',";
+                comandoSQL += "'PMT34464-1',";
+                comandoSQL += "'CNF41705',";
+                comandoSQL += "'PMT42664-8',";
+                comandoSQL += "'PMT40002-0',";
+                comandoSQL += "'PMT37670-1',";
+                comandoSQL += "'PAF06590-8R01.',";
+                comandoSQL += "'FGF36981-4',";
+                comandoSQL += "'PII38433-2',";
+                comandoSQL += "'FGF39324-2',";
+                comandoSQL += "'PII41382-6',";
+                comandoSQL += "'PMT30879-8',";
+                comandoSQL += "'PII33423-8',";
+                comandoSQL += "'PII28380-7',";
+                comandoSQL += "'PII24178-1',";
+                comandoSQL += "'PII21507-4',";
+                comandoSQL += "'CNF46748',";
+                comandoSQL += "'PMT32724-1',";
+                comandoSQL += "'FGF15337-3R01',";
+                comandoSQL += "'PII21445-6',";
+                comandoSQL += "'PII24383-5',";
+                comandoSQL += "'PII26159-9R01',";
+                comandoSQL += "'PII29234-5',";
+                comandoSQL += "'PII27632-3',";
+                comandoSQL += "'PMT33418-0',";
+                comandoSQL += "'PII26560-7',";
+                comandoSQL += "'PII24113-5',";
+                comandoSQL += "'PII29310-2',";
+                comandoSQL += "'PII32397-7R01',";
+                comandoSQL += "'CNF0010283546',";
+                comandoSQL += "'PMT38863-2',";
+                comandoSQL += "'PMT37911-0',";
+                comandoSQL += "'CNF42728',";
+                comandoSQL += "'PMT26812-2',";
+                comandoSQL += "'PII38910-1',";
+                comandoSQL += "'PMT38694-1',";
+                comandoSQL += "'PII21724-4',";
+                comandoSQL += "'CNFPMT21092-4',";
+                comandoSQL += "'PII29677-9',";
+                comandoSQL += "'PII28428-6',";
+                comandoSQL += "'PII22856-5',";
+                comandoSQL += "'PMT30684-0',";
+                comandoSQL += "'PII30091-5',";
+                comandoSQL += "'PII22342-2',";
+                comandoSQL += "'PII38834-3',";
+                comandoSQL += "'PII26202-4',";
+                comandoSQL += "'PII28363-3',";
+                comandoSQL += "'PMT33983-3',";
+                comandoSQL += "'PMT38149-6',";
+                comandoSQL += "'PII30529-8',";
+                comandoSQL += "'PII28638-1',";
+                comandoSQL += "'PII29039-0',";
+                comandoSQL += "'PII34807-4',";
+                comandoSQL += "'PII29637-2',";
+                comandoSQL += "'PAF09315-7R01',";
+                comandoSQL += "'PMT38988-0',";
+                comandoSQL += "'PII21287-2R01',";
+                comandoSQL += "'PII30044-4',";
+                comandoSQL += "'PAF07239-1H01',";
+                comandoSQL += "'PII28785-1R01.',";
+                comandoSQL += "'PII27986-6',";
+                comandoSQL += "'PII24177-2',";
+                comandoSQL += "'PII27523-4',";
+                comandoSQL += "'PMT36747-1',";
+                comandoSQL += "'PII25938-9',";
+                comandoSQL += "'PMT34201-6',";
+                comandoSQL += "'PII34297-7',";
+                comandoSQL += "'PII29285-9',";
+                comandoSQL += "'PII27965-0',";
+                comandoSQL += "'PII34447-8',";
+                comandoSQL += "'PII32704-3R01',";
+                comandoSQL += "'CNF0016742-3R',";
+                comandoSQL += "'CNF42338',";
+                comandoSQL += "'PMT38344-1',";
+                comandoSQL += "'PMT32665-8',";
+                comandoSQL += "'PII43517-8',";
+                comandoSQL += "'PII24447-0R01',";
+                comandoSQL += "'PMT37613-1R01',";
+                comandoSQL += "'PII28170-1',";
+                comandoSQL += "'CNF41554',";
+                comandoSQL += "'PMT36968-3',";
+                comandoSQL += "'PMT40662-3',";
+                comandoSQL += "'CNFCNF20924-1',";
+                comandoSQL += "'PII27472-3',";
+                comandoSQL += "'PII26824-8',";
+                comandoSQL += "'PII41485-9',";
+                comandoSQL += "'CNF0011591333',";
+                comandoSQL += "'FAT021180-7',";
+                comandoSQL += "'PII28176-1',";
+                comandoSQL += "'PII26286-0',";
+                comandoSQL += "'PII28856-0',";
+                comandoSQL += "'PII29929-4',";
+                comandoSQL += "'PII39133-7',";
+                comandoSQL += "'PMT043374-1',";
+                comandoSQL += "'PII31064-1',";
+                comandoSQL += "'PMT34365-1',";
+                comandoSQL += "'PMT34215-8',";
+                comandoSQL += "'PMT38439-1',";
+                comandoSQL += "'PMT37898-1',";
+                comandoSQL += "'PII34290-0',";
+                comandoSQL += "'PII29332-7',";
+                comandoSQL += "'FGF42647-4',";
+                comandoSQL += "'PII33308-2',";
+                comandoSQL += "'CNF31441-1',";
+                comandoSQL += "'PII24091-3',";
+                comandoSQL += "'PMT37734-6',";
+                comandoSQL += "'PII29440-8',";
+                comandoSQL += "'PII41014-4',";
+                comandoSQL += "'PII30946-4',";
+                comandoSQL += "'PII35959-3R01',";
+                comandoSQL += "'PMT41957-9',";
+                comandoSQL += "'PII21845-9',";
+                comandoSQL += "'PMT21851-5',";
+                comandoSQL += "'PII38805-4',";
+                comandoSQL += "'PII39606-5',";
+                comandoSQL += "'PMT39754-2',";
+                comandoSQL += "'CNF0005653152',";
+                comandoSQL += "'CNF0011807883',";
+                comandoSQL += "'PMT42266-1',";
+                comandoSQL += "'PII21651-9',";
+                comandoSQL += "'PMT34362-7',";
+                comandoSQL += "'PMT39812-8',";
+                comandoSQL += "'PII27306-4',";
+                comandoSQL += "'PII38727-1',";
+                comandoSQL += "'PMT39776-7',";
+                comandoSQL += "'PII32918-1',";
+                comandoSQL += "'PII42087-1',";
+                comandoSQL += "'PII31358-0',";
+                comandoSQL += "'PII39176-8',";
+                comandoSQL += "'PII32728-4',";
+                comandoSQL += "'PMT48587-7',";
+                comandoSQL += "'PII34376-9R01',";
+                comandoSQL += "'PMT37467-3',";
+                comandoSQL += "'CNF96893R01',";
+                comandoSQL += "'PII22494-2',";
+                comandoSQL += "'CNF43830',";
+                comandoSQL += "'PII28162-9',";
+                comandoSQL += "'PII30965-4',";
+                comandoSQL += "'CNF40370',";
+                comandoSQL += "'PII34659-0',";
+                comandoSQL += "'PMT33047-6R01',";
+                comandoSQL += "'PMT34903-0',";
+                comandoSQL += "'CNF43222',";
+                comandoSQL += "'CNF43227',";
+                comandoSQL += "'PMT31208-6',";
+                comandoSQL += "'PII22885-4',";
+                comandoSQL += "'PMT36559-0',";
+                comandoSQL += "'PII29035-7',";
+                comandoSQL += "'PMT37913-6',";
+                comandoSQL += "'PMT41647-5',";
+                comandoSQL += "'CNF43692',";
+                comandoSQL += "'PII34391-6R01',";
+                comandoSQL += "'PII38673-5',";
+                comandoSQL += "'PMT33302-3',";
+                comandoSQL += "'PMT29368-3R01',";
+                comandoSQL += "'PII33033-4R01',";
+                comandoSQL += "'PII29214-7',";
+                comandoSQL += "'PMT18870-1',";
+                comandoSQL += "'PII22419-1',";
+                comandoSQL += "'PII27887-6',";
+                comandoSQL += "'PII40800-9',";
+                comandoSQL += "'PAF07030-1R01',";
+                comandoSQL += "'PMT39244-2',";
+                comandoSQL += "'PII42094-6',";
+                comandoSQL += "'PII32189-8',";
+                comandoSQL += "'PMT26707-6',";
+                comandoSQL += "'FGF42189-6',";
+                comandoSQL += "'PII29127-2',";
+                comandoSQL += "'PII24128-5',";
+                comandoSQL += "'PII27817-2',";
+                comandoSQL += "'PII30978-8',";
+                comandoSQL += "'PII29323-6',";
+                comandoSQL += "'PMT26846-2',";
+                comandoSQL += "'CNF43556',";
+                comandoSQL += "'PII28195-1',";
+                comandoSQL += "'PII29162-8',";
+                comandoSQL += "'FGF42361-9',";
+                comandoSQL += "'PII27158-0',";
+                comandoSQL += "'PMT34336-2R01',";
+                comandoSQL += "'PII33729-1',";
+                comandoSQL += "'PII28194-2',";
+                comandoSQL += "'PMT38339-3',";
+                comandoSQL += "'PMT31068-4',";
+                comandoSQL += "'PII21243-3',";
+                comandoSQL += "'PII30523-9',";
+                comandoSQL += "'PII44154-6',";
+                comandoSQL += "'PMT39808-8',";
+                comandoSQL += "'CAP31914-0',";
+                comandoSQL += "'PII25876-1',";
+                comandoSQL += "'PII38531-4',";
+                comandoSQL += "'PII33419-8',";
+                comandoSQL += "'PMT40614-4',";
+                comandoSQL += "'PMT40354-6',";
+                comandoSQL += "'PII40635-1',";
+                comandoSQL += "'PMT36463-1',";
+                comandoSQL += "'PII22277-2',";
+                comandoSQL += "'PMT33051-6',";
+                comandoSQL += "'PII32927-2',";
+                comandoSQL += "'PMT40149-1',";
+                comandoSQL += "'PII38742-8',";
+                comandoSQL += "'PII38693-3',";
+                comandoSQL += "'PII29655-4',";
+                comandoSQL += "'PII38851-7',";
+                comandoSQL += "'PII23184-8',";
+                comandoSQL += "'PII28125-7',";
+                comandoSQL += "'PMT44424-3',";
+                comandoSQL += "'PII32878-8',";
+                comandoSQL += "'PII29456-6',";
+                comandoSQL += "'CNF39174',";
+                comandoSQL += "'FAT025366-1',";
+                comandoSQL += "'PII32794-5',";
+                comandoSQL += "'PII27727-3',";
+                comandoSQL += "'PII26228-1',";
+                comandoSQL += "'PMT27617-6',";
+                comandoSQL += "'PMT27877-7',";
+                comandoSQL += "'PMT36839-6',";
+                comandoSQL += "'CNF42464',";
+                comandoSQL += "'PMT34774-5',";
+                comandoSQL += "'PII40895-1',";
+                comandoSQL += "'PAF07348-1R02',";
+                comandoSQL += "'PII24758-1',";
+                comandoSQL += "'PII34040-8',";
+                comandoSQL += "'PMT37655-4',";
+                comandoSQL += "'CNF43893',";
+                comandoSQL += "'CNF47096',";
+                comandoSQL += "'PII23508-1R02',";
+                comandoSQL += "'PII27802-2',";
+                comandoSQL += "'PII38852-5',";
+                comandoSQL += "'CNF42700',";
+                comandoSQL += "'FAT024932-1',";
+                comandoSQL += "'PII43521-8',";
+                comandoSQL += "'PII28270-0R001',";
+                comandoSQL += "'PII29233-7',";
+                comandoSQL += "'CNF37969',";
+                comandoSQL += "'PMT36691-9',";
+                comandoSQL += "'PMT29579-7',";
+                comandoSQL += "'PII29932-6R01',";
+                comandoSQL += "'PII38721-1',";
+                comandoSQL += "'PMT29944-1',";
+                comandoSQL += "'PII28223-9',";
+                comandoSQL += "'PII28717-3R01',";
+                comandoSQL += "'PII27604-2',";
+                comandoSQL += "'PII27814-8',";
+                comandoSQL += "'PII28766-1R01',";
+                comandoSQL += "'PII39030-4R01',";
+                comandoSQL += "'PMT42692-9',";
+                comandoSQL += "'PII26529-4',";
+                comandoSQL += "'PII30130-1',";
+                comandoSQL += "'PMT39233-5',";
+                comandoSQL += "'PII43516-0',";
+                comandoSQL += "'PII25633-3',";
+                comandoSQL += "'PII29319-6',";
+                comandoSQL += "'PII21915-0',";
+                comandoSQL += "'PMT20398-9',";
+                comandoSQL += "'PMT42103-4',";
+                comandoSQL += "'PII27562-2',";
+                comandoSQL += "'PII27410-2',";
+                comandoSQL += "'PII29566-3',";
+                comandoSQL += "'PII41851-1',";
+                comandoSQL += "'PMT34029-3',";
+                comandoSQL += "'CNF42516',";
+                comandoSQL += "'PMT36549-1',";
+                comandoSQL += "'PII28333-6',";
+                comandoSQL += "'PMT41312-2',";
+                comandoSQL += "'PAF09078-1',";
+                comandoSQL += "'PII22238-4',";
+                comandoSQL += "'PII29276-8',";
+                comandoSQL += "'PII26788-7R01',";
+                comandoSQL += "'PII41029-4',";
+                comandoSQL += "'PII36011-7',";
+                comandoSQL += "'PII23668-3',";
+                comandoSQL += "'PII21245-0R01',";
+                comandoSQL += "'PII24753-1',";
+                comandoSQL += "'PMT36034-0',";
+                comandoSQL += "'PII34068-1',";
+                comandoSQL += "'PII27407-1',";
+                comandoSQL += "'PII30530-3',";
+                comandoSQL += "'PII23122-7',";
+                comandoSQL += "'PII23899-5',";
+                comandoSQL += "'CNF47375',";
+                comandoSQL += "'CNF29144-6',";
+                comandoSQL += "'PMT33608-7',";
+                comandoSQL += "'CNF0000006150',";
+                comandoSQL += "'PII32674-9',";
+                comandoSQL += "'FGF20760-9',";
+                comandoSQL += "'FGF20354-0R01',";
+                comandoSQL += "'PII39307-9',";
+                comandoSQL += "'CNF41340',";
+                comandoSQL += "'PII34466-8',";
+                comandoSQL += "'PII38681-8',";
+                comandoSQL += "'CNF42746',";
+                comandoSQL += "'PMT37387-3',";
+                comandoSQL += "'PMT37612-3',";
+                comandoSQL += "'PMT33940-2',";
+                comandoSQL += "'PII42390-8',";
+                comandoSQL += "'PII32809-2',";
+                comandoSQL += "'PMT36142-1',";
+                comandoSQL += "'PII40995-0',";
+                comandoSQL += "'PII40949-7',";
+                comandoSQL += "'CNF39137',";
+                comandoSQL += "'CNF40291',";
+                comandoSQL += "'PMT043121-5',";
+                comandoSQL += "'PAF09549-3R02',";
+                comandoSQL += "'PII21807-9',";
+                comandoSQL += "'PMT28489-9',";
+                comandoSQL += "'PII33227-4',";
+                comandoSQL += "'PMT33236-5',";
+                comandoSQL += "'PMT40779-8',";
+                comandoSQL += "'PMT39207-1',";
+                comandoSQL += "'PMT28048-1R01',";
+                comandoSQL += "'PII38991-1',";
+                comandoSQL += "'PII24226-7',";
+                comandoSQL += "'PII47137-0',";
+                comandoSQL += "'PII34126-7',";
+                comandoSQL += "'PMT41356-1',";
+                comandoSQL += "'PII39634-6',";
+                comandoSQL += "'PII42389-2',";
+                comandoSQL += "'PII22141-8',";
+                comandoSQL += "'PII29366-7',";
+                comandoSQL += "'CNF34248-0',";
+                comandoSQL += "'PII24478-5',";
+                comandoSQL += "'CAP36226-3R01',";
+                comandoSQL += "'CNF45065',";
+                comandoSQL += "'PII41255-5',";
+                comandoSQL += "'PAF07334-9',";
+                comandoSQL += "'CR96798',";
+                comandoSQL += "'PMT36779-4',";
+                comandoSQL += "'CAP36407-0',";
+                comandoSQL += "'PMT42320-4',";
+                comandoSQL += "'PMT27909-8R01',";
+                comandoSQL += "'PII21330-8',";
+                comandoSQL += "'PII24527-0',";
+                comandoSQL += "'PII38882-2',";
+                comandoSQL += "'PMT16595-7',";
+                comandoSQL += "'PMT38082-7',";
+                comandoSQL += "'PAF06851-4',";
+                comandoSQL += "'PII28421-9',";
+                comandoSQL += "'PII41531-9',";
+                comandoSQL += "'PMT27103-3',";
+                comandoSQL += "'PAF08960-1',";
+                comandoSQL += "'CNF45013',";
+                comandoSQL += "'PMT44380-7',";
+                comandoSQL += "'PII42275-2',";
+                comandoSQL += "'PII33154-9',";
+                comandoSQL += "'PII29704-9',";
+                comandoSQL += "'PII38813-7',";
+                comandoSQL += "'PMT40347-1',";
+                comandoSQL += "'PII43525-1',";
+                comandoSQL += "'PMT27102-5R01',";
+                comandoSQL += "'PII39815-2',";
+                comandoSQL += "'PMT40502-1',";
+                comandoSQL += "'CAP18786-1R03',";
+                comandoSQL += "'FGF41681-2',";
+                comandoSQL += "'PMT25010-1R01',";
+                comandoSQL += "'PII26950-1',";
+                comandoSQL += "'PII26515-2',";
+                comandoSQL += "'PMT31978-7',";
+                comandoSQL += "'PII27514-3',";
+                comandoSQL += "'PMT27808-1R01',";
+                comandoSQL += "'PMT28105-9',";
+                comandoSQL += "'PII26029-3',";
+                comandoSQL += "'CAP40244-9',";
+                comandoSQL += "'CCE29769-4',";
+                comandoSQL += "'CNF38098',";
+                comandoSQL += "'PII22191-3R01',";
+                comandoSQL += "'PMT47447-3',";
+                comandoSQL += "'PMT47406-9',";
+                comandoSQL += "'PII28200-6',";
+                comandoSQL += "'PII23196-3R01',";
+                comandoSQL += "'PII40790-2',";
+                comandoSQL += "'PMT32329-0',";
+                comandoSQL += "'CAP34938-8R01',";
+                comandoSQL += "'CCE37657-1R01',";
+                comandoSQL += "'PMT32457-9',";
+                comandoSQL += "'PII27494-8',";
+                comandoSQL += "'PII27846-1',";
+                comandoSQL += "'PII28005-1',";
+                comandoSQL += "'PMT42398-3',";
+                comandoSQL += "'PAF06323-2R01',";
+                comandoSQL += "'PMT29311-1',";
+                comandoSQL += "'PAF08424-7H01',";
+                comandoSQL += "'PII42432-8',";
+                comandoSQL += "'PMT39462-1',";
+                comandoSQL += "'PII33551-7',";
+                comandoSQL += "'PII29300-3R01',";
+                comandoSQL += "'PII29255-1',";
+                comandoSQL += "'PMT41536-0R01',";
+                comandoSQL += "'PII27491-3',";
+                comandoSQL += "'CNF0012233368',";
+                comandoSQL += "'CNF44795-1',";
+                comandoSQL += "'PMT34481-5',";
+                comandoSQL += "'PII23352-1R02',";
+                comandoSQL += "'PMT28595-3',";
+                comandoSQL += "'PII30096-6',";
+                comandoSQL += "'PII28789-3'";
+                comandoSQL += " ) ";
+
+                comandoSQL += " SELECT O.CODCOLIGADA, O.DATBASE, O.NROCONTROLE, O.IDOPERACAO, SUM(V.VLRVENCTO) AS TotalVencimentos ";
+                comandoSQL += " INTO	#Vencimentos FROM VENCIMENTOSOPE V INNER JOIN #Contratos O ON ";
+                comandoSQL += " V.DATBASE = O.DATBASE AND V.CODCOLIGADA = O.CODCOLIGADA AND V.NROCONTROLE = O.NROCONTROLE AND V.IDOPERACAO = O.IDOPERACAO ";
+                comandoSQL += " WHERE V.DATBASE = '" + dataVigencia.ToString("yyyy-MM-dd") + "' GROUP BY    O.CODCOLIGADA, O.DATBASE, O.NROCONTROLE, O.IDOPERACAO ";
+
+                comandoSQL += " DELETE  V FROM    VENCIMENTOSOPE V INNER JOIN #Contratos O ON V.DATBASE = O.DATBASE AND V.NROCONTROLE = O.NROCONTROLE  AND V.IDOPERACAO = O.IDOPERACAO WHERE V.DATBASE = '" + dataVigencia.ToString("yyyy-MM-dd") + "' ";
+
+
+                comandoSQL += " INSERT INTO VENCIMENTOSOPE ";
+                comandoSQL += " SELECT  V.DATBASE, V.CODCOLIGADA, V.NROCONTROLE, V.IDOPERACAO, CASE WHEN VENC.CODVENCTO IS NULL THEN '199' ELSE VENC.CODVENCTO END AS CODVENCTO, V.TotalVencimentos AS VLRVENCTO ";
+                comandoSQL += " FROM    #Vencimentos V INNER JOIN #Contratos O ";
+                comandoSQL += " ON V.DATBASE = O.DATBASE ";
+                comandoSQL += " AND V.CODCOLIGADA = O.CODCOLIGADA AND V.NROCONTROLE = O.NROCONTROLE AND V.IDOPERACAO = O.IDOPERACAO ";
+                comandoSQL += " LEFT JOIN(SELECT CODVENCTO, FAIXA1, FAIXA2 FROM INTER_VENCIMENTOS WHERE   DATVIGENCIA = (SELECT MAX(DATVIGENCIA) FROM INTER_VENCIMENTOS) AND INDVENCTO = 'V') AS VENC ON O.DIASATRASO BETWEEN FAIXA1 AND FAIXA2 ";
+
+                comandoSQL += " DROP TABLE #Contratos ";
+                comandoSQL += " DROP TABLE #Vencimentos ";
+
+                if (conexao.State != ConnectionState.Open)
+                    conexao.Open();
+
+                var retorno = conexao.Query(comandoSQL,
+                    null,
+                    null,
+                    true,
+                    null,
+                    commandType: CommandType.Text
+                    );
+
+                sucesso = true;
+
+            }
+            catch
+            {
+                sucesso = false;
+            }
+            finally
+            {
+                conexao.Close();
+            }
+
+
+            return sucesso;
+        }
+        public bool atualizarIndPrejuizoParaWOQG(DateTime dataVigencia, string codSistema, string numeroContrato)
+        {
+            bool sucesso = false;
+            var conexao = new SqlConnection(this.conexaoBD);
+
+            try
+            {
+                string comandoSQL = String.Empty;
+
+                comandoSQL += " UPDATE OPERACOES_NC SET INDPREJUIZO = 'S' ";
+                comandoSQL += " WHERE DATBASE = '"+ dataVigencia.ToString("yyyy-MM-dd") + "' ";
+                comandoSQL += " AND CODSISTEMA ='" + codSistema + "' ";
+                comandoSQL += " AND CONTRATO IN (";
+                comandoSQL += "'0010067720',";
+                comandoSQL += "'0000002376',";
+                comandoSQL += "'0000002400',";
+                comandoSQL += "'0000004623',";
+                comandoSQL += "'0000006159',";
+                comandoSQL += "'0000007969',";
+                comandoSQL += "'0000008232',";
+                comandoSQL += "'0000008259',";
+                comandoSQL += "'0000009930',";
+                comandoSQL += "'0000011293',";
+                comandoSQL += "'0000011955',";
+                comandoSQL += "'0000012030',";
+                comandoSQL += "'0000012818',";
+                comandoSQL += "'0000013745',";
+                comandoSQL += "'0000014322',";
+                comandoSQL += "'0000015128',";
+                comandoSQL += "'0000016272',";
+                comandoSQL += "'0000016566',";
+                comandoSQL += "'0000104754',";
+                comandoSQL += "'0000117795',";
+                comandoSQL += "'0000119119',";
+                comandoSQL += "'0000119283',";
+                comandoSQL += "'0000119984',";
+                comandoSQL += "'0000123232',";
+                comandoSQL += "'0000125804',";
+                comandoSQL += "'0000125995',";
+                comandoSQL += "'0000126028',";
+                comandoSQL += "'0000126576',";
+                comandoSQL += "'0000127237',";
+                comandoSQL += "'0000155977',";
+                comandoSQL += "'0000158810',";
+                comandoSQL += "'0000159000',";
+                comandoSQL += "'0000159689',";
+                comandoSQL += "'0001004874',";
+                comandoSQL += "'0001006869',";
+                comandoSQL += "'0001007091',";
+                comandoSQL += "'0001508697',";
+                comandoSQL += "'0001691203',";
+                comandoSQL += "'0002222193',";
+                comandoSQL += "'0002401560',";
+                comandoSQL += "'0002898138',";
+                comandoSQL += "'0002911142',";
+                comandoSQL += "'0003092285',";
+                comandoSQL += "'0003121633',";
+                comandoSQL += "'0003149350',";
+                comandoSQL += "'0003241612',";
+                comandoSQL += "'0003498141',";
+                comandoSQL += "'0003526480',";
+                comandoSQL += "'0003692568',";
+                comandoSQL += "'0003735933',";
+                comandoSQL += "'0003749209',";
+                comandoSQL += "'0003788654',";
+                comandoSQL += "'0003828443',";
+                comandoSQL += "'0004407298',";
+                comandoSQL += "'0004457759',";
+                comandoSQL += "'0004562595',";
+                comandoSQL += "'0004608277',";
+                comandoSQL += "'0004795018',";
+                comandoSQL += "'0004811803',";
+                comandoSQL += "'0004812672',";
+                comandoSQL += "'0004844841',";
+                comandoSQL += "'0004854340',";
+                comandoSQL += "'0004859911',";
+                comandoSQL += "'0004965380',";
+                comandoSQL += "'0005235547',";
+                comandoSQL += "'0005235555',";
+                comandoSQL += "'0005813320',";
+                comandoSQL += "'0005874671',";
+                comandoSQL += "'0007090619',";
+                comandoSQL += "'0007248514',";
+                comandoSQL += "'0008219470',";
+                comandoSQL += "'0008323234',";
+                comandoSQL += "'0008531791',";
+                comandoSQL += "'0008536572',";
+                comandoSQL += "'0008571750',";
+                comandoSQL += "'0008598993',";
+                comandoSQL += "'0008958426',";
+                comandoSQL += "'0008963349',";
+                comandoSQL += "'0008981550',";
+                comandoSQL += "'0008991628',";
+                comandoSQL += "'0009049284',";
+                comandoSQL += "'0009059638',";
+                comandoSQL += "'0009085922',";
+                comandoSQL += "'0009135113',";
+                comandoSQL += "'0009135180',";
+                comandoSQL += "'0009138775',";
+                comandoSQL += "'0009647734',";
+                comandoSQL += "'0009826795',";
+                comandoSQL += "'0009835352',";
+                comandoSQL += "'0009899067',";
+                comandoSQL += "'0009947380',";
+                comandoSQL += "'0010234618',";
+                comandoSQL += "'0010267850',";
+                comandoSQL += "'0010284658',";
+                comandoSQL += "'0010355628',";
+                comandoSQL += "'0010721012',";
+                comandoSQL += "'0011271991',";
+                comandoSQL += "'000287611200026081111',";
+                comandoSQL += "'000287611200026081129',";
+                comandoSQL += "'FNF/20010804',";
+                comandoSQL += "'FNJ201806/03',";
+                comandoSQL += "'FNJ202006/003',";
+                comandoSQL += "'FIBRA_300310_00',";
+                comandoSQL += "'FNJ2/20030206',";
+                comandoSQL += "'PII25957-9R01',";
+                comandoSQL += "'0000004122',";
+                comandoSQL += "'PII26377-7',";
+                comandoSQL += "'PMC019721-4',";
+                comandoSQL += "'PII25721-6',";
+                comandoSQL += "'0000011117',";
+                comandoSQL += "'CNF09565',";
+                comandoSQL += "'CCE20397-1R01',";
+                comandoSQL += "'PMT33306-6',";
+                comandoSQL += "'PMT25807-5R01',";
+                comandoSQL += "'FIN31311-6',";
+                comandoSQL += "'FIN31304-1',";
+                comandoSQL += "'PII23578-4',";
+                comandoSQL += "'PII30097-4',";
+                comandoSQL += "'PII24243-1',";
+                comandoSQL += "'0005857858',";
+                comandoSQL += "'0010424700',";
+                comandoSQL += "'0005982261',";
+                comandoSQL += "'0010267850',";
+                comandoSQL += "'0000002400',";
+                comandoSQL += "'0003469206',";
+                comandoSQL += "'0003432345',";
+                comandoSQL += "'0000125952',";
+                comandoSQL += "'0000126576',";
+                comandoSQL += "'0000118085'";
+
+
+
+
+
+                comandoSQL += " ) ";
+
+                if (conexao.State != ConnectionState.Open)
+                    conexao.Open();
+
+                var retorno = conexao.Query(comandoSQL,
+                    null,
+                    null,
+                    true,
+                    null,
+                    commandType: CommandType.Text
+                    );
+
+                sucesso = true;
+
+            }
+            catch
+            {
+                sucesso = false;
+            }
+            finally
+            {
+                conexao.Close();
+            }
+
+
+            return sucesso;
+        }
+        public bool atualizarIndPrejuizoParaWO(DateTime dataVigencia, string codSistema, string numeroContrato)
+        {
+            bool sucesso = false;
+            var conexao = new SqlConnection(this.conexaoBD);
+
+            try
+            {
+                string comandoSQL = String.Empty;
+
+                comandoSQL += " UPDATE OPERACOES_NC SET INDPREJUIZO = 'S' ";
+                comandoSQL += " WHERE DATBASE = '"+ dataVigencia.ToString("yyyy-MM-dd") + "' ";
+                comandoSQL += " AND CODSISTEMA ='" + codSistema + "' ";
+                comandoSQL += " AND CONTRATO = '" + numeroContrato + "' ";
+
+                if (conexao.State != ConnectionState.Open)
+                    conexao.Open();
+
+                var retorno = conexao.Query(comandoSQL,
+                    null,
+                    null,
+                    true,
+                    null,
+                    commandType: CommandType.Text
+                    );
+
+                sucesso = true;
+
+            }
+            catch
+            {
+                sucesso = false;
+            }
+            finally
+            {
+                conexao.Close();
+            }
+
+
+            return sucesso;
+        }
+        public bool atualizarIndPrejuizoParaAtivo(DateTime dataVigencia, string codSistema, string numeroContrato)
+        {
+            bool sucesso = false;
+            var conexao = new SqlConnection(this.conexaoBD);
+
+            try
+            {
+                string comandoSQL = String.Empty;
+
+                comandoSQL += " UPDATE OPERACOES_NC SET INDPREJUIZO = 'N' ";
+                comandoSQL += " WHERE DATBASE = '"+ dataVigencia.ToString("yyyy-MM-dd") + "' ";
+                comandoSQL += " AND CODSISTEMA ='" + codSistema + "' ";
+                comandoSQL += " AND CONTRATO = '" + numeroContrato + "' ";
+
+                if (conexao.State != ConnectionState.Open)
+                    conexao.Open();
+
+                var retorno = conexao.Query(comandoSQL,
+                    null,
+                    null,
+                    true,
+                    null,
+                    commandType: CommandType.Text
+                    );
+
+                sucesso = true;
+
+            }
+            catch
+            {
+                sucesso = false;
+            }
+            finally
+            {
+                conexao.Close();
+            }
+
+
+            return sucesso;
+        }
+
+        public bool atualizarIndPrejuizoParaAtivoQG(DateTime dataVigencia, string codSistema, string numeroContrato)
+        {
+            bool sucesso = false;
+            var conexao = new SqlConnection(this.conexaoBD);
+
+            try
+            {
+                string comandoSQL = String.Empty;
+
+                comandoSQL += " UPDATE OPERACOES_NC SET INDPREJUIZO = 'N' ";
+                comandoSQL += " WHERE DATBASE = '"+ dataVigencia.ToString("yyyy-MM-dd") + "' ";
+                comandoSQL += " AND CODSISTEMA ='" + codSistema + "' ";
+                comandoSQL += " AND CONTRATO IN (";
+                comandoSQL += "'CAP36766-1R01',";
+                comandoSQL += "'PII42252-0',";
+                comandoSQL += "'PII24008-9',";
+                comandoSQL += "'PII21699-1R01',";
+                comandoSQL += "'FGF25212-4',";
+                comandoSQL += "'PMT34548-4',";
+                comandoSQL += "'PII22646-0',";
+                comandoSQL += "'PMT31174-9',";
+                comandoSQL += "'PMT40075-8',";
+                comandoSQL += "'PMT37899-0',";
+                comandoSQL += "'PII21948-1',";
+                comandoSQL += "'PMT47432-3',";
+                comandoSQL += "'PAF08578-3',";
+                comandoSQL += "'PMT34406-3',";
+                comandoSQL += "'PII27871-8',";
+                comandoSQL += "'PAF08698-0R01',";
+                comandoSQL += "'PII24717-7',";
+                comandoSQL += "'PII25676-4',";
+                comandoSQL += "'PAF08609-6R01',";
+                comandoSQL += "'PMT37248-7',";
+                comandoSQL += "'PMT34901-3',";
+                comandoSQL += "'PMT31816-8',";
+                comandoSQL += "'PII22066-9',";
+                comandoSQL += "'PMT26500-2',";
+                comandoSQL += "'CNF38478',";
+                comandoSQL += "'PAF07112-8R01',";
+                comandoSQL += "'PAF08949-7R01',";
+                comandoSQL += "'PII28905-4',";
+                comandoSQL += "'PII34367-8',";
+                comandoSQL += "'PII21483-6R0001',";
+                comandoSQL += "'FGF20383-9R01',";
+                comandoSQL += "'FGF38820-1',";
+                comandoSQL += "'PAF06812-6H01',";
+                comandoSQL += "'PII43154-7',";
+                comandoSQL += "'PII39841-7',";
+                comandoSQL += "'PMT25642-4',";
+                comandoSQL += "'CNF45509',";
+                comandoSQL += "'PII28032-3R01',";
+                comandoSQL += "'PMT32020-1',";
+                comandoSQL += "'PII24806-8R01',";
+                comandoSQL += "'PII33770-3',";
+                comandoSQL += "'PII24677-3H01',";
+                comandoSQL += "'PII28977-4R01',";
+                comandoSQL += "'PMT34655-7',";
+                comandoSQL += "'PII23754-0',";
+                comandoSQL += "'PII21336-7',";
+                comandoSQL += "'FGF15792-0',";
+                comandoSQL += "'PII28518-5',";
+                comandoSQL += "'PII34396-7',";
+                comandoSQL += "'PMT45685-1',";
+                comandoSQL += "'PAF06864-8',";
+                comandoSQL += "'CNF41891',";
+                comandoSQL += "'CR96826',";
+                comandoSQL += "'PMT34086-3',";
+                comandoSQL += "'PAF06480-1',";
+                comandoSQL += "'PMT39296-4',";
+                comandoSQL += "'PII38148-8',";
+                comandoSQL += "'FGF35968-4',";
+                comandoSQL += "'PAF09329-9',";
+                comandoSQL += "'PII22010-4R01',";
+                comandoSQL += "'PII24376-1',";
+                comandoSQL += "'PMT31924-9',";
+                comandoSQL += "'CAP41437-0',";
+                comandoSQL += "'PII21256-7',";
+                comandoSQL += "'PMT47182-4',";
+                comandoSQL += "'PII26208-3R01',";
+                comandoSQL += "'PAF06254-0',";
+                comandoSQL += "'CAP28961-6R01',";
+                comandoSQL += "'PII43522-6',";
+                comandoSQL += "'PAF09901-4H01',";
+                comandoSQL += "'PII33462-6',";
+                comandoSQL += "'FGF20284-9',";
+                comandoSQL += "'PII27908-0',";
+                comandoSQL += "'PII25780-2',";
+                comandoSQL += "'PMT40080-6',";
+                comandoSQL += "'CNF0025395-0',";
+                comandoSQL += "'PII23634-3',";
+                comandoSQL += "'CNF41737',";
+                comandoSQL += "'PII22839-1',";
+                comandoSQL += "'PII40983-4',";
+                comandoSQL += "'PMT32737-5',";
+                comandoSQL += "'PII25498-2',";
+                comandoSQL += "'PII24779-8',";
+                comandoSQL += "'PII27434-3',";
+                comandoSQL += "'PMT31186-4',";
+                comandoSQL += "'CNF0012161839',";
+                comandoSQL += "'PII32788-9',";
+                comandoSQL += "'CNF43228',";
+                comandoSQL += "'PII23699-9',";
+                comandoSQL += "'FGF36990-5',";
+                comandoSQL += "'PII21985-3',";
+                comandoSQL += "'PII28935-1',";
+                comandoSQL += "'PII22619-7',";
+                comandoSQL += "'PII22931-4',";
+                comandoSQL += "'PAF08834-9',";
+                comandoSQL += "'PII29928-6H01',";
+                comandoSQL += "'CAP28739-8R01',";
+                comandoSQL += "'PII34373-4',";
+                comandoSQL += "'PII43114-1',";
+                comandoSQL += "'PII26803-1R01',";
+                comandoSQL += "'PII30814-2',";
+                comandoSQL += "'PMT36107-5',";
+                comandoSQL += "'PMT39435-8',";
+                comandoSQL += "'PAF08455-2R01',";
+                comandoSQL += "'CNF97093',";
+                comandoSQL += "'CNF38637',";
+                comandoSQL += "'PII29817-1',";
+                comandoSQL += "'PII29299-1',";
+                comandoSQL += "'PII26530-0',";
+                comandoSQL += "'PAF06513-0',";
+                comandoSQL += "'PMT27636-6',";
+                comandoSQL += "'PAF09426-2',";
+                comandoSQL += "'PII27508-7',";
+                comandoSQL += "'FGF20287-3',";
+                comandoSQL += "'PII41394-1',";
+                comandoSQL += "'PAF09352-9',";
+                comandoSQL += "'PMT20478-9',";
+                comandoSQL += "'PII32177-2',";
+                comandoSQL += "'PII27868-6',";
+                comandoSQL += "'PII38908-7',";
+                comandoSQL += "'PAF06482-7',";
+                comandoSQL += "'FAT025445-2',";
+                comandoSQL += "'PII24744-0H01',";
+                comandoSQL += "'PII26402-1R01',";
+                comandoSQL += "'PII26752-1',";
+                comandoSQL += "'PMT33056-7',";
+                comandoSQL += "'FGF4702-1',";
+                comandoSQL += "'CNF025660-6',";
+                comandoSQL += "'PMT33697-1',";
+                comandoSQL += "'PII27988-2',";
+                comandoSQL += "'PII21675-0',";
+                comandoSQL += "'PMT37621-4',";
+                comandoSQL += "'PMT41017-9',";
+                comandoSQL += "'PII34621-7',";
+                comandoSQL += "'PMT31862-1',";
+                comandoSQL += "'PII25981-7',";
+                comandoSQL += "'CNF44606-1',";
+                comandoSQL += "'CNF41689',";
+                comandoSQL += "'PMT45435-0',";
+                comandoSQL += "'PMT39987-1',";
+                comandoSQL += "'PII28197-7',";
+                comandoSQL += "'PII30107-1',";
+                comandoSQL += "'PII28018-4',";
+                comandoSQL += "'PAF07221-7H02',";
+                comandoSQL += "'PII34230-5',";
+                comandoSQL += "'PII42069-0',";
+                comandoSQL += "'PII37611-5',";
+                comandoSQL += "'PMT33348-9',";
+                comandoSQL += "'PII36325-3',";
+                comandoSQL += "'PMT30952-1 - A',";
+                comandoSQL += "'CAP38272-4R01',";
+                comandoSQL += "'PMT39196-6',";
+                comandoSQL += "'CNF44950',";
+                comandoSQL += "'PII37126-4',";
+                comandoSQL += "'PII42738-1',";
+                comandoSQL += "'PMT38398-0',";
+                comandoSQL += "'PMT36997-2',";
+                comandoSQL += "'PII32458-7',";
+                comandoSQL += "'PMTGCH96863-A',";
+                comandoSQL += "'PMT30780-5',";
+                comandoSQL += "'PMT36139-9',";
+                comandoSQL += "'PMT39646-1',";
+                comandoSQL += "'PAF06436-4',";
+                comandoSQL += "'PMT36129-0',";
+                comandoSQL += "'PII23979-5',";
+                comandoSQL += "'CNF0000126826',";
+                comandoSQL += "'PMT38584-4',";
+                comandoSQL += "'CNF37488',";
+                comandoSQL += "'PII40964-4',";
+                comandoSQL += "'PII28259-5',";
+                comandoSQL += "'PMT34540-9R01',";
+                comandoSQL += "'PMT37592-8',";
+                comandoSQL += "'PMT37596-1',";
+                comandoSQL += "'PII28597-0',";
+                comandoSQL += "'PII46956-6',";
+                comandoSQL += "'PII27236-3',";
+                comandoSQL += "'PMT25508-9',";
+                comandoSQL += "'FGF19868-6',";
+                comandoSQL += "'FGF19453-3',";
+                comandoSQL += "'PMT36246-1',";
+                comandoSQL += "'PII30243-2',";
+                comandoSQL += "'FGF20498-7',";
+                comandoSQL += "'PII30133-5',";
+                comandoSQL += "'PII26508-8',";
+                comandoSQL += "'PII21957-2',";
+                comandoSQL += "'PII42979-2',";
+                comandoSQL += "'PII29016-7',";
+                comandoSQL += "'PII26063-1',";
+                comandoSQL += "'PII29991-2',";
+                comandoSQL += "'PII24830-6R01',";
+                comandoSQL += "'PII27598-9',";
+                comandoSQL += "'PII41480-8',";
+                comandoSQL += "'PII26997-4',";
+                comandoSQL += "'FGF20575-2',";
+                comandoSQL += "'PMT40511-1',";
+                comandoSQL += "'PAF09088-1H03',";
+                comandoSQL += "'CNF47438',";
+                comandoSQL += "'PMT46343-3',";
+                comandoSQL += "'PII29071-1',";
+                comandoSQL += "'PII47546-3',";
+                comandoSQL += "'PMT39974-7',";
+                comandoSQL += "'PII24759-0',";
+                comandoSQL += "'PII33820-6',";
+                comandoSQL += "'PII32240-6',";
+                comandoSQL += "'PII38914-3',";
+                comandoSQL += "'PII33034-2',";
+                comandoSQL += "'PII32620-1',";
+                comandoSQL += "'PMT31494-1',";
+                comandoSQL += "'PII26121-6',";
+                comandoSQL += "'PII28968-3',";
+                comandoSQL += "'AGR32105-2R01',";
+                comandoSQL += "'PII29091-9',";
+                comandoSQL += "'PII44230-3',";
+                comandoSQL += "'PMT28262-7R01',";
+                comandoSQL += "'PII34197-9R01',";
+                comandoSQL += "'PII29586-1',";
+                comandoSQL += "'PMT41570-7',";
+                comandoSQL += "'PMT37056-3',";
+                comandoSQL += "'PMT33586-5',";
+                comandoSQL += "'PII32908-2',";
+                comandoSQL += "'PII36189-4',";
+                comandoSQL += "'PII24815-9',";
+                comandoSQL += "'PII26276-1',";
+                comandoSQL += "'FGF37601-6',";
+                comandoSQL += "'PMT21833-3',";
+                comandoSQL += "'CNF0011642108',";
+                comandoSQL += "'PII41514-5',";
+                comandoSQL += "'PII29359-2',";
+                comandoSQL += "'PII22671-6R01',";
+                comandoSQL += "'GNC25208-4',";
+                comandoSQL += "'PMT26986-7R01',";
+                comandoSQL += "'PMT30642-7',";
+                comandoSQL += "'PII27715-8',";
+                comandoSQL += "'PII32355-4',";
+                comandoSQL += "'PMT39947-4',";
+                comandoSQL += "'PII27511-9',";
+                comandoSQL += "'PII24843-0',";
+                comandoSQL += "'PMT047393-8',";
+                comandoSQL += "'PAF08567-6H01',";
+                comandoSQL += "'PII22018-0',";
+                comandoSQL += "'PII24110-1',";
+                comandoSQL += "'PMT38282-3',";
+                comandoSQL += "'PMT38169-4',";
+                comandoSQL += "'PII33812-3',";
+                comandoSQL += "'PII21603-0',";
+                comandoSQL += "'PII27246-2',";
+                comandoSQL += "'PAF06989-5',";
+                comandoSQL += "'PII33819-1',";
+                comandoSQL += "'PMT32092-1',";
+                comandoSQL += "'PII23565-1',";
+                comandoSQL += "'PII27408-9',";
+                comandoSQL += "'PII27624-1',";
+                comandoSQL += "'PII21276-5',";
+                comandoSQL += "'PMT30158-4R01',";
+                comandoSQL += "'PAF06566-0',";
+                comandoSQL += "'PAF06299-7R01',";
+                comandoSQL += "'PII28411-0',";
+                comandoSQL += "'PII27323-8R01',";
+                comandoSQL += "'PMT33040-9',";
+                comandoSQL += "'PII25565-9R01',";
+                comandoSQL += "'PII25026-0',";
+                comandoSQL += "'PII32531-0',";
+                comandoSQL += "'PII23921-4R001',";
+                comandoSQL += "'PMT34597-1R01',";
+                comandoSQL += "'PAF06946-4',";
+                comandoSQL += "'PMT36163-7',";
+                comandoSQL += "'PMT33145-8',";
+                comandoSQL += "'PMT38897-2',";
+                comandoSQL += "'CAP31734-1R03',";
+                comandoSQL += "'PMT39889-9',";
+                comandoSQL += "'PII22389-6H01',";
+                comandoSQL += "'PII24710-0',";
+                comandoSQL += "'PII25907-3',";
+                comandoSQL += "'PMT37303-8',";
+                comandoSQL += "'FGF19240-3H01',";
+                comandoSQL += "'PMT23499-2R03',";
+                comandoSQL += "'PMT33057-5',";
+                comandoSQL += "'PII24819-1',";
+                comandoSQL += "'CNF0125072',";
+                comandoSQL += "'PII25683-9',";
+                comandoSQL += "'PII26760-3',";
+                comandoSQL += "'PII24946-2',";
+                comandoSQL += "'CNF38738',";
+                comandoSQL += "'CNF0012139426',";
+                comandoSQL += "'PMT28802-1',";
+                comandoSQL += "'CNF46357',";
+                comandoSQL += "'PII42771-1',";
+                comandoSQL += "'PII39441-4',";
+                comandoSQL += "'PII26187-0',";
+                comandoSQL += "'PII26191-0R01',";
+                comandoSQL += "'PII24789-7',";
+                comandoSQL += "'PMT31623-6',";
+                comandoSQL += "'PII27537-6',";
+                comandoSQL += "'PII26769-7',";
+                comandoSQL += "'PII29968-2',";
+                comandoSQL += "'PII29345-1',";
+                comandoSQL += "'PII23226-8',";
+                comandoSQL += "'CNF0031215-1',";
+                comandoSQL += "'PII27541-6',";
+                comandoSQL += "'CNF41128',";
+                comandoSQL += "'PII24696-3',";
+                comandoSQL += "'PII34057-4',";
+                comandoSQL += "'PMT40428-0',";
+                comandoSQL += "'PMT043364-2',";
+                comandoSQL += "'PII29958-3',";
+                comandoSQL += "'PII26499-0',";
+                comandoSQL += "'PII28433-4H01',";
+                comandoSQL += "'PMT44067-1',";
+                comandoSQL += "'PII25962-7R01',";
+                comandoSQL += "'PII41357-0',";
+                comandoSQL += "'PII39596-9',";
+                comandoSQL += "'PMT29178-6',";
+                comandoSQL += "'PII27458-4',";
+                comandoSQL += "'PII34361-9',";
+                comandoSQL += "'PII24897-8',";
+                comandoSQL += "'PAF06861-3H03',";
+                comandoSQL += "'PII35980-7',";
+                comandoSQL += "'PII21884-7',";
+                comandoSQL += "'FGF38563-8',";
+                comandoSQL += "'PII25044-1',";
+                comandoSQL += "'PII29187-7',";
+                comandoSQL += "'PII26791-9',";
+                comandoSQL += "'PII31020-2',";
+                comandoSQL += "'PII30001-3',";
+                comandoSQL += "'PII43526-9',";
+                comandoSQL += "'PII29425-1',";
+                comandoSQL += "'PII38647-1',";
+                comandoSQL += "'PII21233-4',";
+                comandoSQL += "'PII24229-1',";
+                comandoSQL += "'PII34914-7',";
+                comandoSQL += "'PII23742-4',";
+                comandoSQL += "'PII28178-7',";
+                comandoSQL += "'PMT37820-2',";
+                comandoSQL += "'PII29875-9R01',";
+                comandoSQL += "'PII28021-6R01',";
+                comandoSQL += "'FGF42709-2',";
+                comandoSQL += "'PII28415-2',";
+                comandoSQL += "'PMT31706-1',";
+                comandoSQL += "'PMT33143-1',";
+                comandoSQL += "'PII26205-9',";
+                comandoSQL += "'PII21872-1',";
+                comandoSQL += "'PII25408-1H01',";
+                comandoSQL += "'PMT33645-9',";
+                comandoSQL += "'PMT34464-1',";
+                comandoSQL += "'CNF41705',";
+                comandoSQL += "'PMT42664-8',";
+                comandoSQL += "'PMT40002-0',";
+                comandoSQL += "'PMT37670-1',";
+                comandoSQL += "'PAF06590-8R01.',";
+                comandoSQL += "'FGF36981-4',";
+                comandoSQL += "'PII38433-2',";
+                comandoSQL += "'FGF39324-2',";
+                comandoSQL += "'PII41382-6',";
+                comandoSQL += "'PMT30879-8',";
+                comandoSQL += "'PII33423-8',";
+                comandoSQL += "'PII28380-7',";
+                comandoSQL += "'PII24178-1',";
+                comandoSQL += "'PII21507-4',";
+                comandoSQL += "'CNF46748',";
+                comandoSQL += "'PMT32724-1',";
+                comandoSQL += "'FGF15337-3R01',";
+                comandoSQL += "'PII21445-6',";
+                comandoSQL += "'PII24383-5',";
+                comandoSQL += "'PII26159-9R01',";
+                comandoSQL += "'PII29234-5',";
+                comandoSQL += "'PII27632-3',";
+                comandoSQL += "'PMT33418-0',";
+                comandoSQL += "'PII26560-7',";
+                comandoSQL += "'PII24113-5',";
+                comandoSQL += "'PII29310-2',";
+                comandoSQL += "'PII32397-7R01',";
+                comandoSQL += "'CNF0010283546',";
+                comandoSQL += "'PMT38863-2',";
+                comandoSQL += "'PMT37911-0',";
+                comandoSQL += "'CNF42728',";
+                comandoSQL += "'PMT26812-2',";
+                comandoSQL += "'PII38910-1',";
+                comandoSQL += "'PMT38694-1',";
+                comandoSQL += "'PII21724-4',";
+                comandoSQL += "'CNFPMT21092-4',";
+                comandoSQL += "'PII29677-9',";
+                comandoSQL += "'PII28428-6',";
+                comandoSQL += "'PII22856-5',";
+                comandoSQL += "'PMT30684-0',";
+                comandoSQL += "'PII30091-5',";
+                comandoSQL += "'PII22342-2',";
+                comandoSQL += "'PII38834-3',";
+                comandoSQL += "'PII26202-4',";
+                comandoSQL += "'PII28363-3',";
+                comandoSQL += "'PMT33983-3',";
+                comandoSQL += "'PMT38149-6',";
+                comandoSQL += "'PII30529-8',";
+                comandoSQL += "'PII28638-1',";
+                comandoSQL += "'PII29039-0',";
+                comandoSQL += "'PII34807-4',";
+                comandoSQL += "'PII29637-2',";
+                comandoSQL += "'PAF09315-7R01',";
+                comandoSQL += "'PMT38988-0',";
+                comandoSQL += "'PII21287-2R01',";
+                comandoSQL += "'PII30044-4',";
+                comandoSQL += "'PAF07239-1H01',";
+                comandoSQL += "'PII28785-1R01.',";
+                comandoSQL += "'PII27986-6',";
+                comandoSQL += "'PII24177-2',";
+                comandoSQL += "'PII27523-4',";
+                comandoSQL += "'PMT36747-1',";
+                comandoSQL += "'PII25938-9',";
+                comandoSQL += "'PMT34201-6',";
+                comandoSQL += "'PII34297-7',";
+                comandoSQL += "'PII29285-9',";
+                comandoSQL += "'PII27965-0',";
+                comandoSQL += "'PII34447-8',";
+                comandoSQL += "'PII32704-3R01',";
+                comandoSQL += "'CNF0016742-3R',";
+                comandoSQL += "'CNF42338',";
+                comandoSQL += "'PMT38344-1',";
+                comandoSQL += "'PMT32665-8',";
+                comandoSQL += "'PII43517-8',";
+                comandoSQL += "'PII24447-0R01',";
+                comandoSQL += "'PMT37613-1R01',";
+                comandoSQL += "'PII28170-1',";
+                comandoSQL += "'CNF41554',";
+                comandoSQL += "'PMT36968-3',";
+                comandoSQL += "'PMT40662-3',";
+                comandoSQL += "'CNFCNF20924-1',";
+                comandoSQL += "'PII27472-3',";
+                comandoSQL += "'PII26824-8',";
+                comandoSQL += "'PII41485-9',";
+                comandoSQL += "'CNF0011591333',";
+                comandoSQL += "'FAT021180-7',";
+                comandoSQL += "'PII28176-1',";
+                comandoSQL += "'PII26286-0',";
+                comandoSQL += "'PII28856-0',";
+                comandoSQL += "'PII29929-4',";
+                comandoSQL += "'PII39133-7',";
+                comandoSQL += "'PMT043374-1',";
+                comandoSQL += "'PII31064-1',";
+                comandoSQL += "'PMT34365-1',";
+                comandoSQL += "'PMT34215-8',";
+                comandoSQL += "'PMT38439-1',";
+                comandoSQL += "'PMT37898-1',";
+                comandoSQL += "'PII34290-0',";
+                comandoSQL += "'PII29332-7',";
+                comandoSQL += "'FGF42647-4',";
+                comandoSQL += "'PII33308-2',";
+                comandoSQL += "'CNF31441-1',";
+                comandoSQL += "'PII24091-3',";
+                comandoSQL += "'PMT37734-6',";
+                comandoSQL += "'PII29440-8',";
+                comandoSQL += "'PII41014-4',";
+                comandoSQL += "'PII30946-4',";
+                comandoSQL += "'PII35959-3R01',";
+                comandoSQL += "'PMT41957-9',";
+                comandoSQL += "'PII21845-9',";
+                comandoSQL += "'PMT21851-5',";
+                comandoSQL += "'PII38805-4',";
+                comandoSQL += "'PII39606-5',";
+                comandoSQL += "'PMT39754-2',";
+                comandoSQL += "'CNF0005653152',";
+                comandoSQL += "'CNF0011807883',";
+                comandoSQL += "'PMT42266-1',";
+                comandoSQL += "'PII21651-9',";
+                comandoSQL += "'PMT34362-7',";
+                comandoSQL += "'PMT39812-8',";
+                comandoSQL += "'PII27306-4',";
+                comandoSQL += "'PII38727-1',";
+                comandoSQL += "'PMT39776-7',";
+                comandoSQL += "'PII32918-1',";
+                comandoSQL += "'PII42087-1',";
+                comandoSQL += "'PII31358-0',";
+                comandoSQL += "'PII39176-8',";
+                comandoSQL += "'PII32728-4',";
+                comandoSQL += "'PMT48587-7',";
+                comandoSQL += "'PII34376-9R01',";
+                comandoSQL += "'PMT37467-3',";
+                comandoSQL += "'CNF96893R01',";
+                comandoSQL += "'PII22494-2',";
+                comandoSQL += "'CNF43830',";
+                comandoSQL += "'PII28162-9',";
+                comandoSQL += "'PII30965-4',";
+                comandoSQL += "'CNF40370',";
+                comandoSQL += "'PII34659-0',";
+                comandoSQL += "'PMT33047-6R01',";
+                comandoSQL += "'PMT34903-0',";
+                comandoSQL += "'CNF43222',";
+                comandoSQL += "'CNF43227',";
+                comandoSQL += "'PMT31208-6',";
+                comandoSQL += "'PII22885-4',";
+                comandoSQL += "'PMT36559-0',";
+                comandoSQL += "'PII29035-7',";
+                comandoSQL += "'PMT37913-6',";
+                comandoSQL += "'PMT41647-5',";
+                comandoSQL += "'CNF43692',";
+                comandoSQL += "'PII34391-6R01',";
+                comandoSQL += "'PII38673-5',";
+                comandoSQL += "'PMT33302-3',";
+                comandoSQL += "'PMT29368-3R01',";
+                comandoSQL += "'PII33033-4R01',";
+                comandoSQL += "'PII29214-7',";
+                comandoSQL += "'PMT18870-1',";
+                comandoSQL += "'PII22419-1',";
+                comandoSQL += "'PII27887-6',";
+                comandoSQL += "'PII40800-9',";
+                comandoSQL += "'PAF07030-1R01',";
+                comandoSQL += "'PMT39244-2',";
+                comandoSQL += "'PII42094-6',";
+                comandoSQL += "'PII32189-8',";
+                comandoSQL += "'PMT26707-6',";
+                comandoSQL += "'FGF42189-6',";
+                comandoSQL += "'PII29127-2',";
+                comandoSQL += "'PII24128-5',";
+                comandoSQL += "'PII27817-2',";
+                comandoSQL += "'PII30978-8',";
+                comandoSQL += "'PII29323-6',";
+                comandoSQL += "'PMT26846-2',";
+                comandoSQL += "'CNF43556',";
+                comandoSQL += "'PII28195-1',";
+                comandoSQL += "'PII29162-8',";
+                comandoSQL += "'FGF42361-9',";
+                comandoSQL += "'PII27158-0',";
+                comandoSQL += "'PMT34336-2R01',";
+                comandoSQL += "'PII33729-1',";
+                comandoSQL += "'PII28194-2',";
+                comandoSQL += "'PMT38339-3',";
+                comandoSQL += "'PMT31068-4',";
+                comandoSQL += "'PII21243-3',";
+                comandoSQL += "'PII30523-9',";
+                comandoSQL += "'PII44154-6',";
+                comandoSQL += "'PMT39808-8',";
+                comandoSQL += "'CAP31914-0',";
+                comandoSQL += "'PII25876-1',";
+                comandoSQL += "'PII38531-4',";
+                comandoSQL += "'PII33419-8',";
+                comandoSQL += "'PMT40614-4',";
+                comandoSQL += "'PMT40354-6',";
+                comandoSQL += "'PII40635-1',";
+                comandoSQL += "'PMT36463-1',";
+                comandoSQL += "'PII22277-2',";
+                comandoSQL += "'PMT33051-6',";
+                comandoSQL += "'PII32927-2',";
+                comandoSQL += "'PMT40149-1',";
+                comandoSQL += "'PII38742-8',";
+                comandoSQL += "'PII38693-3',";
+                comandoSQL += "'PII29655-4',";
+                comandoSQL += "'PII38851-7',";
+                comandoSQL += "'PII23184-8',";
+                comandoSQL += "'PII28125-7',";
+                comandoSQL += "'PMT44424-3',";
+                comandoSQL += "'PII32878-8',";
+                comandoSQL += "'PII29456-6',";
+                comandoSQL += "'CNF39174',";
+                comandoSQL += "'FAT025366-1',";
+                comandoSQL += "'PII32794-5',";
+                comandoSQL += "'PII27727-3',";
+                comandoSQL += "'PII26228-1',";
+                comandoSQL += "'PMT27617-6',";
+                comandoSQL += "'PMT27877-7',";
+                comandoSQL += "'PMT36839-6',";
+                comandoSQL += "'CNF42464',";
+                comandoSQL += "'PMT34774-5',";
+                comandoSQL += "'PII40895-1',";
+                comandoSQL += "'PAF07348-1R02',";
+                comandoSQL += "'PII24758-1',";
+                comandoSQL += "'PII34040-8',";
+                comandoSQL += "'PMT37655-4',";
+                comandoSQL += "'CNF43893',";
+                comandoSQL += "'CNF47096',";
+                comandoSQL += "'PII23508-1R02',";
+                comandoSQL += "'PII27802-2',";
+                comandoSQL += "'PII38852-5',";
+                comandoSQL += "'CNF42700',";
+                comandoSQL += "'FAT024932-1',";
+                comandoSQL += "'PII43521-8',";
+                comandoSQL += "'PII28270-0R001',";
+                comandoSQL += "'PII29233-7',";
+                comandoSQL += "'CNF37969',";
+                comandoSQL += "'PMT36691-9',";
+                comandoSQL += "'PMT29579-7',";
+                comandoSQL += "'PII29932-6R01',";
+                comandoSQL += "'PII38721-1',";
+                comandoSQL += "'PMT29944-1',";
+                comandoSQL += "'PII28223-9',";
+                comandoSQL += "'PII28717-3R01',";
+                comandoSQL += "'PII27604-2',";
+                comandoSQL += "'PII27814-8',";
+                comandoSQL += "'PII28766-1R01',";
+                comandoSQL += "'PII39030-4R01',";
+                comandoSQL += "'PMT42692-9',";
+                comandoSQL += "'PII26529-4',";
+                comandoSQL += "'PII30130-1',";
+                comandoSQL += "'PMT39233-5',";
+                comandoSQL += "'PII43516-0',";
+                comandoSQL += "'PII25633-3',";
+                comandoSQL += "'PII29319-6',";
+                comandoSQL += "'PII21915-0',";
+                comandoSQL += "'PMT20398-9',";
+                comandoSQL += "'PMT42103-4',";
+                comandoSQL += "'PII27562-2',";
+                comandoSQL += "'PII27410-2',";
+                comandoSQL += "'PII29566-3',";
+                comandoSQL += "'PII41851-1',";
+                comandoSQL += "'PMT34029-3',";
+                comandoSQL += "'CNF42516',";
+                comandoSQL += "'PMT36549-1',";
+                comandoSQL += "'PII28333-6',";
+                comandoSQL += "'PMT41312-2',";
+                comandoSQL += "'PAF09078-1',";
+                comandoSQL += "'PII22238-4',";
+                comandoSQL += "'PII29276-8',";
+                comandoSQL += "'PII26788-7R01',";
+                comandoSQL += "'PII41029-4',";
+                comandoSQL += "'PII36011-7',";
+                comandoSQL += "'PII23668-3',";
+                comandoSQL += "'PII21245-0R01',";
+                comandoSQL += "'PII24753-1',";
+                comandoSQL += "'PMT36034-0',";
+                comandoSQL += "'PII34068-1',";
+                comandoSQL += "'PII27407-1',";
+                comandoSQL += "'PII30530-3',";
+                comandoSQL += "'PII23122-7',";
+                comandoSQL += "'PII23899-5',";
+                comandoSQL += "'CNF47375',";
+                comandoSQL += "'CNF29144-6',";
+                comandoSQL += "'PMT33608-7',";
+                comandoSQL += "'CNF0000006150',";
+                comandoSQL += "'PII32674-9',";
+                comandoSQL += "'FGF20760-9',";
+                comandoSQL += "'FGF20354-0R01',";
+                comandoSQL += "'PII39307-9',";
+                comandoSQL += "'CNF41340',";
+                comandoSQL += "'PII34466-8',";
+                comandoSQL += "'PII38681-8',";
+                comandoSQL += "'CNF42746',";
+                comandoSQL += "'PMT37387-3',";
+                comandoSQL += "'PMT37612-3',";
+                comandoSQL += "'PMT33940-2',";
+                comandoSQL += "'PII42390-8',";
+                comandoSQL += "'PII32809-2',";
+                comandoSQL += "'PMT36142-1',";
+                comandoSQL += "'PII40995-0',";
+                comandoSQL += "'PII40949-7',";
+                comandoSQL += "'CNF39137',";
+                comandoSQL += "'CNF40291',";
+                comandoSQL += "'PMT043121-5',";
+                comandoSQL += "'PAF09549-3R02',";
+                comandoSQL += "'PII21807-9',";
+                comandoSQL += "'PMT28489-9',";
+                comandoSQL += "'PII33227-4',";
+                comandoSQL += "'PMT33236-5',";
+                comandoSQL += "'PMT40779-8',";
+                comandoSQL += "'PMT39207-1',";
+                comandoSQL += "'PMT28048-1R01',";
+                comandoSQL += "'PII38991-1',";
+                comandoSQL += "'PII24226-7',";
+                comandoSQL += "'PII47137-0',";
+                comandoSQL += "'PII34126-7',";
+                comandoSQL += "'PMT41356-1',";
+                comandoSQL += "'PII39634-6',";
+                comandoSQL += "'PII42389-2',";
+                comandoSQL += "'PII22141-8',";
+                comandoSQL += "'PII29366-7',";
+                comandoSQL += "'CNF34248-0',";
+                comandoSQL += "'PII24478-5',";
+                comandoSQL += "'CAP36226-3R01',";
+                comandoSQL += "'CNF45065',";
+                comandoSQL += "'PII41255-5',";
+                comandoSQL += "'PAF07334-9',";
+                comandoSQL += "'CR96798',";
+                comandoSQL += "'PMT36779-4',";
+                comandoSQL += "'CAP36407-0',";
+                comandoSQL += "'PMT42320-4',";
+                comandoSQL += "'PMT27909-8R01',";
+                comandoSQL += "'PII21330-8',";
+                comandoSQL += "'PII24527-0',";
+                comandoSQL += "'PII38882-2',";
+                comandoSQL += "'PMT16595-7',";
+                comandoSQL += "'PMT38082-7',";
+                comandoSQL += "'PAF06851-4',";
+                comandoSQL += "'PII28421-9',";
+                comandoSQL += "'PII41531-9',";
+                comandoSQL += "'PMT27103-3',";
+                comandoSQL += "'PAF08960-1',";
+                comandoSQL += "'CNF45013',";
+                comandoSQL += "'PMT44380-7',";
+                comandoSQL += "'PII42275-2',";
+                comandoSQL += "'PII33154-9',";
+                comandoSQL += "'PII29704-9',";
+                comandoSQL += "'PII38813-7',";
+                comandoSQL += "'PMT40347-1',";
+                comandoSQL += "'PII43525-1',";
+                comandoSQL += "'PMT27102-5R01',";
+                comandoSQL += "'PII39815-2',";
+                comandoSQL += "'PMT40502-1',";
+                comandoSQL += "'CAP18786-1R03',";
+                comandoSQL += "'FGF41681-2',";
+                comandoSQL += "'PMT25010-1R01',";
+                comandoSQL += "'PII26950-1',";
+                comandoSQL += "'PII26515-2',";
+                comandoSQL += "'PMT31978-7',";
+                comandoSQL += "'PII27514-3',";
+                comandoSQL += "'PMT27808-1R01',";
+                comandoSQL += "'PMT28105-9',";
+                comandoSQL += "'PII26029-3',";
+                comandoSQL += "'CAP40244-9',";
+                comandoSQL += "'CCE29769-4',";
+                comandoSQL += "'CNF38098',";
+                comandoSQL += "'PII22191-3R01',";
+                comandoSQL += "'PMT47447-3',";
+                comandoSQL += "'PMT47406-9',";
+                comandoSQL += "'PII28200-6',";
+                comandoSQL += "'PII23196-3R01',";
+                comandoSQL += "'PII40790-2',";
+                comandoSQL += "'PMT32329-0',";
+                comandoSQL += "'CAP34938-8R01',";
+                comandoSQL += "'CCE37657-1R01',";
+                comandoSQL += "'PMT32457-9',";
+                comandoSQL += "'PII27494-8',";
+                comandoSQL += "'PII27846-1',";
+                comandoSQL += "'PII28005-1',";
+                comandoSQL += "'PMT42398-3',";
+                comandoSQL += "'PAF06323-2R01',";
+                comandoSQL += "'PMT29311-1',";
+                comandoSQL += "'PAF08424-7H01',";
+                comandoSQL += "'PII42432-8',";
+                comandoSQL += "'PMT39462-1',";
+                comandoSQL += "'PII33551-7',";
+                comandoSQL += "'PII29300-3R01',";
+                comandoSQL += "'PII29255-1',";
+                comandoSQL += "'PMT41536-0R01',";
+                comandoSQL += "'PII27491-3',";
+                comandoSQL += "'CNF0012233368',";
+                comandoSQL += "'CNF44795-1',";
+                comandoSQL += "'PMT34481-5',";
+                comandoSQL += "'PII23352-1R02',";
+                comandoSQL += "'PMT28595-3',";
+                comandoSQL += "'PII30096-6',";
+                comandoSQL += "'PII28789-3'";
+                comandoSQL += " ) ";
+
+                if (conexao.State != ConnectionState.Open)
+                    conexao.Open();
+
+                var retorno = conexao.Query(comandoSQL,
+                    null,
+                    null,
+                    true,
+                    null,
+                    commandType: CommandType.Text
+                    );
+
+                sucesso = true;
+
+            }
+            catch
+            {
+                sucesso = false;
+            }
+            finally
+            {
+                conexao.Close();
+            }
+
+
+            return sucesso;
+        }
+
+        public bool ajustarCarteira(DateTime dataVigencia)
+        {
+            bool sucesso = false;
+            var conexao = new SqlConnection(this.conexaoBD);
+
+            try
+            {
+                string comandoSQL = String.Empty;
+                comandoSQL += " UPDATE  O ";
+                comandoSQL += " SET CARTPROVMIN =   CASE    WHEN DIASATRASO <= 60 THEN 'C1' ";
+                comandoSQL += " WHEN DIASATRASO BETWEEN 61 AND 89 THEN 'C2'";
+                comandoSQL += " ELSE 'C3' END ";
+                comandoSQL += " FROM OPERACOES_NC O ";
+                comandoSQL += " WHERE O.DATBASE = '" + dataVigencia.ToString("yyyy-MM-dd") + "' ";
+                comandoSQL += " AND(CARTPROVMIN IS NULL OR LEN(RTRIM(LTRIM(CARTPROVMIN))) = 0)";
+
+                if (conexao.State != ConnectionState.Open)
+                    conexao.Open();
+
+                var retorno = conexao.Query(comandoSQL,
+                    null,
+                    null,
+                    true,
+                    null,
+                    commandType: CommandType.Text
+                    );
+
+                sucesso = true;
+
+            }
+            catch
+            {
+                sucesso = false;
+            }
+            finally
+            {
+                conexao.Close();
+            }
+
+
+            return sucesso;
+        }
+
+        public bool ajustarEstagio(DateTime dataVigencia)
+        {
+            bool sucesso = false;
+            var conexao = new SqlConnection(this.conexaoBD);
+
+            try
+            {
+                string comandoSQL = String.Empty;
+                comandoSQL += " UPDATE  O ";
+                comandoSQL += " SET ESTINSTFIN =   CASE    WHEN DIASATRASO <= 60 THEN '1' ";
+                comandoSQL += " WHEN DIASATRASO BETWEEN 61 AND 89 THEN '2'";
+                comandoSQL += " ELSE '3' END ";
+                comandoSQL += " FROM OPERACOES_NC O ";
+                comandoSQL += " WHERE O.DATBASE = '" + dataVigencia.ToString("yyyy-MM-dd") + "' ";
+                comandoSQL += " AND (ESTINSTFIN IS NULL OR LEN(RTRIM(LTRIM(ESTINSTFIN))) = 0)";
+
+                if (conexao.State != ConnectionState.Open)
+                    conexao.Open();
+
+                var retorno = conexao.Query(comandoSQL,
+                    null,
+                    null,
+                    true,
+                    null,
+                    commandType: CommandType.Text
+                    );
+
+                sucesso = true;
+
+            }
+            catch
+            {
+                sucesso = false;
+            }
+            finally
+            {
+                conexao.Close();
+            }
+
+
+            return sucesso;
+        }
+
+        public bool ajustarRendimentoMes(DateTime dataVigencia)
+        {
+            bool sucesso = false;
+            var conexao = new SqlConnection(this.conexaoBD);
+
+            try
+            {
+                string comandoSQL = String.Empty;
+                comandoSQL += " UPDATE  O ";
+                comandoSQL += " SET RENDMES = 0.00 ";
+                comandoSQL += " FROM OPERACOES_NC O ";
+                comandoSQL += " WHERE O.DATBASE = '" + dataVigencia.ToString("yyyy-MM-dd") + "' ";
+                comandoSQL += " AND RENDMES IS NULL ";
+
+                if (conexao.State != ConnectionState.Open)
+                    conexao.Open();
+
+                var retorno = conexao.Query(comandoSQL,
+                    null,
+                    null,
+                    true,
+                    null,
+                    commandType: CommandType.Text
+                    );
+
+                sucesso = true;
+
+            }
+            catch
+            {
+                sucesso = false;
+            }
+            finally
+            {
+                conexao.Close();
+            }
+
+
+            return sucesso;
+        }
+
+        public bool excluirOcorrencia(DateTime dataVigencia, int codigoOcorrencia)
+        {
+            bool sucesso = false;
+            var conexao = new SqlConnection(this.conexaoBD);
+
+            try
+            {
+                string comandoSQL = String.Empty;
+                comandoSQL += " DELETE FROM OCORRENCIAS WHERE DATBASE = '" + dataVigencia.ToString("yyyy-MM-dd") + "' " + " AND CODERRO = " + codigoOcorrencia;
+
+                if (conexao.State != ConnectionState.Open)
+                    conexao.Open();
+
+                var retorno = conexao.Query(comandoSQL,
+                    null,
+                    null,
+                    true,
+                    null,
+                    commandType: CommandType.Text
+                    );
+
+                sucesso = true;
+
+            }
+            catch
+            {
+                sucesso = false;
+            }
+            finally
+            {
+                conexao.Close();
+            }
+
+
+            return sucesso;
+        }
+
+        public bool ajustarValorContabil(DateTime dataVigencia)
+        {
+            bool sucesso = false;
+            var conexao = new SqlConnection(this.conexaoBD);
+
+            try
+            {
+                string comandoSQL = String.Empty;
+                comandoSQL += " IF OBJECT_ID('tempdb..#Vencimentos') IS NOT NULL DROP TABLE #Vencimentos ";
+                comandoSQL += " SELECT O.CODCOLIGADA, O.DATBASE, O.NROCONTROLE, O.IDOPERACAO, SUM(V.VLRVENCTO) AS TotalVencimentos ";
+                comandoSQL += " INTO	#Vencimentos FROM VENCIMENTOSOPE V INNER JOIN OPERACOES_NC O WITH(NOLOCK) ON ";
+                comandoSQL += " V.DATBASE = O.DATBASE AND V.CODCOLIGADA = O.CODCOLIGADA AND V.NROCONTROLE = O.NROCONTROLE AND V.IDOPERACAO = O.IDOPERACAO ";
+                comandoSQL += " WHERE V.DATBASE = '" + dataVigencia.ToString("yyyy-MM-dd") + "' ";
+                comandoSQL += " AND (O.VLRCONTBR IS NULL OR VLRCONTBR = 0.00) ";
+                comandoSQL += " GROUP BY O.CODCOLIGADA, O.DATBASE, O.NROCONTROLE, O.IDOPERACAO ";
+
+
+                comandoSQL += " UPDATE O SET VLRCONTBR = C.TotalVencimentos ";
+                comandoSQL += " FROM OPERACOES_NC O INNER JOIN #Vencimentos C ON O.DATBASE = C.DATBASE AND O.CODCOLIGADA = C.CODCOLIGADA AND O.NROCONTROLE = C.NROCONTROLE  AND O.IDOPERACAO = C.IDOPERACAO ";
+                comandoSQL += " WHERE O.DATBASE = '" + dataVigencia.ToString("yyyy-MM-dd") + "' ";
+
+                comandoSQL += " DROP TABLE #Vencimentos ";
+
+                if (conexao.State != ConnectionState.Open)
+                    conexao.Open();
+
+                var retorno = conexao.Query(comandoSQL,
+                    null,
+                    null,
+                    true,
+                    null,
+                    commandType: CommandType.Text
+                    );
+
+                sucesso = true;
+
+            }
+            catch
+            {
+                sucesso = false;
+            }
+            finally
+            {
+                conexao.Close();
+            }
+
+
+            return sucesso;
+
+        }
+
+        public bool ajustarValorJusto(DateTime dataVigencia)
+        {
+            bool sucesso = false;
+            var conexao = new SqlConnection(this.conexaoBD);
+
+            try
+            {
+                string comandoSQL = String.Empty;
+                comandoSQL += " IF OBJECT_ID('tempdb..#Vencimentos') IS NOT NULL DROP TABLE #Vencimentos ";
+                comandoSQL += " SELECT O.CODCOLIGADA, O.DATBASE, O.NROCONTROLE, O.IDOPERACAO, SUM(V.VLRVENCTO) AS TotalVencimentos ";
+                comandoSQL += " INTO	#Vencimentos FROM VENCIMENTOSOPE V INNER JOIN OPERACOES_NC O WITH(NOLOCK) ON ";
+                comandoSQL += " V.DATBASE = O.DATBASE AND V.CODCOLIGADA = O.CODCOLIGADA AND V.NROCONTROLE = O.NROCONTROLE AND V.IDOPERACAO = O.IDOPERACAO ";
+                comandoSQL += " WHERE V.DATBASE = '" + dataVigencia.ToString("yyyy-MM-dd") + "' ";
+                comandoSQL += " AND (O.VLRJUSTO IS NULL OR VLRJUSTO = 0.00) ";
+                comandoSQL += " GROUP BY O.CODCOLIGADA, O.DATBASE, O.NROCONTROLE, O.IDOPERACAO ";
+
+
+                comandoSQL += " UPDATE O SET VLRJUSTO = C.TotalVencimentos ";
+                comandoSQL += " FROM OPERACOES_NC O INNER JOIN #Vencimentos C ON O.DATBASE = C.DATBASE AND O.CODCOLIGADA = C.CODCOLIGADA AND O.NROCONTROLE = C.NROCONTROLE  AND O.IDOPERACAO = C.IDOPERACAO ";
+                comandoSQL += " WHERE O.DATBASE = '" + dataVigencia.ToString("yyyy-MM-dd") + "' ";
+
+                comandoSQL += " DROP TABLE #Vencimentos ";
+
+                if (conexao.State != ConnectionState.Open)
+                    conexao.Open();
+
+                var retorno = conexao.Query(comandoSQL,
+                    null,
+                    null,
+                    true,
+                    null,
+                    commandType: CommandType.Text
+                    );
+
+                sucesso = true;
+
+            }
+            catch
+            {
+                sucesso = false;
+            }
+            finally
+            {
+                conexao.Close();
+            }
+
+
+            return sucesso;
+
+        }
+
+        public bool ajustarCasosPontuaisBndes(DateTime dataVigencia, string codSistema)
+        {
+            bool sucesso = false;
+            var conexao = new SqlConnection(this.conexaoBD);
+
+            try
+            {
+                string comandoSQL = String.Empty;
+                comandoSQL += " UPDATE O SET CEP = '01418100', CODLOCALIDADE = '10058', CODAGENCIAORI = '00019' "+
+                " FROM OPERACOES_NC O " +
+                " WHERE   DATBASE = '" + dataVigencia.ToString("yyyy-MM-dd") + "' " +
+                " AND(LEN(RTRIM(LTRIM(CEP))) = 0 OR CEP IS NULL OR CEP = '0' ) AND CODSISTEMA = '120' " +
+
+
+                " UPDATE O SET CODINDEXADOR_BC = '31' " +
+                " FROM OPERACOES_NC O " +
+                " WHERE   DATBASE = '" + dataVigencia.ToString("yyyy-MM-dd") + "' " +
+                " AND(PERCINDEXADOR > 0 AND(CODINDEXADOR_BC IS NULL OR LEN(RTRIM(LTRIM(CODINDEXADOR_BC))) = 0)) AND     CODSISTEMA = '120' " +
+
+                " UPDATE  O SET     CODINDEXADOR_BC = '11' " +
+                " FROM    OPERACOES_NC O " +
+                " WHERE   DATBASE = '" + dataVigencia.ToString("yyyy-MM-dd") + "' " +
+                " AND (PERCINDEXADOR <= 0 OR CODINDEXADOR_BC IS NULL OR CODINDEXADOR_BC = '00') AND     CODSISTEMA = '120' ";
+
+                if (conexao.State != ConnectionState.Open)
+                    conexao.Open();
+
+                var retorno = conexao.Query(comandoSQL,
+                    null,
+                    null,
+                    true,
+                    null,
+                    commandType: CommandType.Text
+                    );
+
+                sucesso = true;
+
+            }
+            catch
+            {
+                sucesso = false;
+            }
+            finally
+            {
+                conexao.Close();
+            }
+
+
+            return sucesso;
+
+        }
+
+        public bool excluirOcorrencias179(DateTime dataVigencia, string codSistema)
+        {
+            bool sucesso = false;
+            var conexao = new SqlConnection(this.conexaoBD);
+
+            try
+            {
+                string comandoSQL = String.Empty;
+                comandoSQL += " DELETE FROM OCORRENCIAS " +
+                " WHERE   DATBASE = '" + dataVigencia.ToString("yyyy-MM-dd") + "' " +
+                " AND CODERRO = 179 ";                
+
+                if (conexao.State != ConnectionState.Open)
+                    conexao.Open();
+
+                var retorno = conexao.Query(comandoSQL,
+                    null,
+                    null,
+                    true,
+                    null,
+                    commandType: CommandType.Text
+                    );
+
+                sucesso = true;
+
+            }
+            catch
+            {
+                sucesso = false;
+            }
+            finally
+            {
+                conexao.Close();
+            }
+
+
+            return sucesso;
+
+        }
+
+        private bool excluirOcorrencia109(DateTime dataVigencia)
+        {
+            bool sucesso = false;
+            var conexao = new SqlConnection(this.conexaoBD);
+
+            try
+            {
+                string comandoSQL = String.Empty;
+                comandoSQL += " DELETE FROM OCORRENCIAS " +
+                " WHERE   DATBASE = '" + dataVigencia.ToString("yyyy-MM-dd") + "' " +
+                " AND CODERRO = 164 ";
+
+                if (conexao.State != ConnectionState.Open)
+                    conexao.Open();
+
+                var retorno = conexao.Query(comandoSQL,
+                    null,
+                    null,
+                    true,
+                    null,
+                    commandType: CommandType.Text
+                    );
+
+                sucesso = true;
+
+            }
+            catch
+            {
+                sucesso = false;
+            }
+            finally
+            {
+                conexao.Close();
+            }
+
+
+            return sucesso;
+
+        }
+
+        public bool excluirOcorrencias109(DateTime dataVigencia, string codSistema)
+        {
+            bool sucesso = false;
+            var conexao = new SqlConnection(this.conexaoBD);
+
+            try
+            {
+                string comandoSQL = String.Empty;
+                comandoSQL += " DELETE FROM OCORRENCIAS " +
+                " WHERE   DATBASE = '20251031' AND CODERRO IN (109, 234, 139, 190) ";
+
+                if (conexao.State != ConnectionState.Open)
+                    conexao.Open();
+
+                var retorno = conexao.Query(comandoSQL,
+                    null,
+                    null,
+                    true,
+                    null,
+                    commandType: CommandType.Text
+                    );
+
+                sucesso = true;
+
+            }
+            catch
+            {
+                sucesso = false;
+            }
+            finally
+            {
+                conexao.Close();
+            }
+
+
+            return sucesso;
+
+        }
+
+        public bool excluirOcorrencias111(DateTime dataVigencia, string codSistema)
+        {
+            bool sucesso = false;
+            var conexao = new SqlConnection(this.conexaoBD);
+
+            try
+            {
+                string comandoSQL = String.Empty;
+                comandoSQL += " DELETE FROM OCORRENCIAS " +
+                " WHERE   DATBASE = '" + dataVigencia.ToString("yyyy-MM-dd") + "' " +
+                " AND CODERRO = 111 ";
+
+                if (conexao.State != ConnectionState.Open)
+                    conexao.Open();
+
+                var retorno = conexao.Query(comandoSQL,
+                    null,
+                    null,
+                    true,
+                    null,
+                    commandType: CommandType.Text
+                    );
+
+                sucesso = true;
+
+            }
+            catch
+            {
+                sucesso = false;
+            }
+            finally
+            {
+                conexao.Close();
+            }
+
+
+            return sucesso;
+
+        }
+
+        private bool tratarPorteClientePF(DateTime dataVigencia)
+        {
+            bool sucesso = false;
+            var conexao = new SqlConnection(this.conexaoBD);
+
+            try
+            {
+                string comandoSQL = String.Empty;
+
+                comandoSQL = " UPDATE C " +
+                " SET CODPORTE = CASE WHEN (FATURAMENTO IS NULL OR FATURAMENTO <= 1.00) THEN '1' " +
+                                        " WHEN FATURAMENTO <= 1508.00 THEN '2' " +
+                                        " WHEN FATURAMENTO BETWEEN 1508.00 AND (1508.00 * 2) THEN '3' " +
+                                        " WHEN FATURAMENTO BETWEEN (1508.00 * 2) AND (1508.00 * 3) THEN '4' " +
+                                        " WHEN FATURAMENTO BETWEEN (1508.00 * 3) AND (1508.00 * 5) THEN '5' " +
+                                        " WHEN FATURAMENTO BETWEEN (1508.00 * 5) AND (1508.00 * 10) THEN '6' " +
+                                        " WHEN FATURAMENTO BETWEEN (1508.00 * 10) AND (1508.00 * 20) THEN '7' " +
+                                    " ELSE '8' END " +
+                " FROM    CLIENTES C " +
+                " WHERE DATBASE = '"+ dataVigencia.ToString("yyyy-MM-dd") + "' " +
+                " AND CODPESSOA IN ('1', '3', '5') " +
+                " AND (CODPORTE IS NULL OR CODPORTE NOT IN ('0', '1', '2', '3', '4', '5', '6', '7', '8')) ";
+
+                if (conexao.State != ConnectionState.Open)
+                    conexao.Open();
+
+                var retorno = conexao.Query(comandoSQL,
+                    null,
+                    null,
+                    true,
+                    null,
+                    commandType: CommandType.Text
+                    );
+
+                sucesso = true;
+
+            }
+            catch
+            {
+                sucesso = false;
+            }
+            finally
+            {
+                conexao.Close();
+            }
+
+
+            return sucesso;
+        }
+
+        private bool tratarPorteClientePJ(DateTime dataVigencia)
+        {
+            bool sucesso = false;
+            var conexao = new SqlConnection(this.conexaoBD);
+
+            try
+            {
+                string comandoSQL = String.Empty;
+                comandoSQL = " UPDATE C " +
+        " SET CODPORTE = CASE WHEN(FATURAMENTO IS NULL) THEN '0' " +
+                                " WHEN FATURAMENTO <= 360000 THEN '1' " +
+                                " WHEN FATURAMENTO <= 480000 THEN '2' " +
+                                " WHEN FATURAMENTO <= 300000000 THEN '3' " +
+                            " ELSE '4' END " +
+        " FROM    CLIENTES C " +
+        " WHERE DATBASE = '"+ dataVigencia.ToString("yyyy-MM-dd") + "' " +
+        " AND CODPESSOA IN ('2', '4', '6') " +
+        " AND (CODPORTE IS NULL OR CODPORTE NOT IN ('0', '1', '2', '3')) " +
+        " AND CODPESSOA IN ('1', '3', '5') " +
+        " AND (CODPORTE IS NULL OR CODPORTE NOT IN ('0', '1', '2', '3', '4', '5', '6', '7', '8')) ";
+
+                if (conexao.State != ConnectionState.Open)
+                    conexao.Open();
+
+                var retorno = conexao.Query(comandoSQL,
+                    null,
+                    null,
+                    true,
+                    null,
+                    commandType: CommandType.Text
+                    );
+
+                sucesso = true;
+
+            }
+            catch
+            {
+                sucesso = false;
+            }
+            finally
+            {
+                conexao.Close();
+            }
+
+
+            return sucesso;
+        }
+        public bool tratarPorteClienteV2(DateTime dataVigencia)
+        {
+            return (tratarPorteClientePF(dataVigencia) && tratarPorteClientePJ(dataVigencia));
+        }
+
+        public bool tratarLocalidadeV2(DateTime dataVigencia)
+        {
+            bool sucesso = false;
+            var conexao = new SqlConnection(this.conexaoBD);
+
+            try
+            {
+                string comandoSQL = String.Empty;
+                comandoSQL = " UPDATE O " +
+                " SET CEP = '01418100', CODAGENCIAORI = '00019', CODLOCALIDADE = '10058' ";
+                comandoSQL += " FROM OPERACOES_NC O ";
+                comandoSQL += " WHERE O.DATBASE = '" + dataVigencia.ToString("yyyy-MM-dd") + "' ";
+                comandoSQL += " AND (CEP IS NULL OR LEN(RTRIM(LTRIM(CEP))) = 0) ";
+
+                if (conexao.State != ConnectionState.Open)
+                    conexao.Open();
+
+                var retorno = conexao.Query(comandoSQL,
+                    null,
+                    null,
+                    true,
+                    null,
+                    commandType: CommandType.Text
+                    );
+
+                sucesso = true;
+
+            }
+            catch
+            {
+                sucesso = false;
+            }
+            finally
+            {
+                conexao.Close();
+            }
+
+
+            return sucesso;
+        }
+
+        public bool tratarOrigemRecurso(DateTime dataVigencia)
+        {
+            return (tratarOrigemRecursoBNDES(dataVigencia) && tratarOrigemRecursoOutrosSistemas(dataVigencia) && excluirOcorrencia109(dataVigencia));
+        }
+
+        private bool tratarOrigemRecursoBNDES(DateTime dataVigencia)
+        {
+            bool sucesso = false;
+            var conexao = new SqlConnection(this.conexaoBD);
+
+            try
+            {
+                string comandoSQL = String.Empty;
+                comandoSQL += " UPDATE O " +
+                " SET CODRECURSO = '0299' " +
+                " FROM OPERACOES_NC O " +
+                " WHERE O.DATBASE = '" + dataVigencia.ToString("yyyy-MM-dd") + "' " +
+                " AND(CODRECURSO IS NULL OR CODRECURSO = '0000' OR LEN(LTRIM(RTRIM(CODRECURSO))) = 0) " +
+                " AND CODSISTEMA = '120' ";                
+
+                if (conexao.State != ConnectionState.Open)
+                    conexao.Open();
+
+                var retorno = conexao.Query(comandoSQL,
+                    null,
+                    null,
+                    true,
+                    null,
+                    commandType: CommandType.Text
+                    );
+
+                sucesso = true;
+
+            }
+            catch
+            {
+                sucesso = false;
+            }
+            finally
+            {
+                conexao.Close();
+            }
+
+
+            return sucesso;
+        }
+
+        private bool tratarOrigemRecursoOutrosSistemas(DateTime dataVigencia)
+        {
+            bool sucesso = false;
+            var conexao = new SqlConnection(this.conexaoBD);
+
+            try
+            {
+                string comandoSQL = String.Empty;
+                comandoSQL += " UPDATE O " +
+                " SET CODRECURSO = '0199' " +
+                " FROM OPERACOES_NC O " +
+                " WHERE O.DATBASE = '" + dataVigencia.ToString("yyyy-MM-dd") + "' " +
+                " AND(CODRECURSO IS NULL OR CODRECURSO = '0000' OR LEN(LTRIM(RTRIM(CODRECURSO))) = 0) " +
+                " AND CODSISTEMA != '120' ";                
+
+                if (conexao.State != ConnectionState.Open)
+                    conexao.Open();
+
+                var retorno = conexao.Query(comandoSQL,
+                    null,
+                    null,
+                    true,
+                    null,
+                    commandType: CommandType.Text
+                    );
+
+                sucesso = true;
+
+            }
+            catch
+            {
+                sucesso = false;
+            }
+            finally
+            {
+                conexao.Close();
+            }
+
+
+            return sucesso;
+        }
+
+        private bool excluirOcorrencia183(DateTime dataVigencia)
+        {
+            bool sucesso = false;
+            var conexao = new SqlConnection(this.conexaoBD);
+
+            try
+            {
+                string comandoSQL = String.Empty;
+                comandoSQL += " DELETE FROM OCORRENCIAS " +
+                " WHERE   DATBASE = '" + dataVigencia.ToString("yyyy-MM-dd") + "' " +
+                " AND CODERRO = 183 ";
+
+                if (conexao.State != ConnectionState.Open)
+                    conexao.Open();
+
+                var retorno = conexao.Query(comandoSQL,
+                    null,
+                    null,
+                    true,
+                    null,
+                    commandType: CommandType.Text
+                    );
+
+                sucesso = true;
+
+            }
+            catch
+            {
+                sucesso = false;
+            }
+            finally
+            {
+                conexao.Close();
+            }
+
+
+            return sucesso;
+        }
+
+        public bool excluirOcorrencia164(DateTime dataVigencia)
+        {
+            bool sucesso = false;
+            var conexao = new SqlConnection(this.conexaoBD);
+
+            try
+            {
+                string comandoSQL = String.Empty;
+                comandoSQL += " DELETE FROM OCORRENCIAS WHERE DATBASE = '" + dataVigencia.ToString("yyyy-MM-dd") + "' " + " AND CODERRO IN (164, 137, 109) ";
+
+                if (conexao.State != ConnectionState.Open)
+                    conexao.Open();
+
+                var retorno = conexao.Query(comandoSQL,
+                    null,
+                    null,
+                    true,
+                    null,
+                    commandType: CommandType.Text
+                    );
+
+                sucesso = true;
+
+            }
+            catch
+            {
+                sucesso = false;
+            }
+            finally
+            {
+                conexao.Close();
+            }
+
+
+            return sucesso;
+        }
+
+        public bool tratarOcorrencias109(DateTime dataVigencia)
+        {
+            bool sucesso = false;
+            var conexao = new SqlConnection(this.conexaoBD);
+
+            try
+            {
+                string comandoSQL = String.Empty;
+                comandoSQL += " DELETE FROM OCORRENCIAS WHERE DATBASE = '" + dataVigencia.ToString("yyyy-MM-dd") + "' " + " AND CODERRO = 109 ";
+
+                if (conexao.State != ConnectionState.Open)
+                    conexao.Open();
+
+                var retorno = conexao.Query(comandoSQL,
+                    null,
+                    null,
+                    true,
+                    null,
+                    commandType: CommandType.Text
+                    );
+
+                sucesso = true;
+
+            }
+            catch
+            {
+                sucesso = false;
+            }
+            finally
+            {
+                conexao.Close();
+            }
+
+
+            return sucesso;
+        }
+
+
+        private bool excluirRegistrosInfoAdicionalOcorrencia183(DateTime dataVigencia)
+        {
+            bool sucesso = false;
+            var conexao = new SqlConnection(this.conexaoBD);
+
+            try
+            {
+                string comandoSQL = String.Empty;
+                comandoSQL = " IF OBJECT_ID('tempdb..#ContratosRenegociados') IS NOT NULL DROP TABLE #ContratosRenegociados " +
+                " SELECT      DATBASE, CODCOLIGADA, NROCONTROLE, IDOPERACAO, SEQUENCIA, CODTIPCESSAO AS TPINFADD, NROCESSAO AS IPOCNOVO " +
+                " INTO		#ContratosRenegociados " +
+                " FROM INFADICIONAISOPE I " +
+                " WHERE   I.DATBASE = '" + dataVigencia.ToString("yyyy-MM-dd") + "' " +
+                " AND         CODTIPCESSAO = '0316' " +
+
+                " DELETE  I " +
+                " FROM		#ContratosRenegociados I INNER JOIN OPERACOES_NC O WITH(NOLOCK) " +
+                " ON O.DATBASE = I.DATBASE " +
+                " AND O.CODCOLIGADA = I.CODCOLIGADA " +
+                " AND O.NROCONTROLE = I.NROCONTROLE " +
+                " AND O.IPOC = I.IPOCNOVO " +
+
+                " DELETE I " +
+                " FROM INFADICIONAISOPE I INNER JOIN #ContratosRenegociados CR " +
+                                " ON  I.DATBASE = CR.DATBASE " +
+                                " AND I.CODCOLIGADA = CR.CODCOLIGADA " +
+                                " AND I.NROCONTROLE = CR.NROCONTROLE " +
+                                " AND I.IDOPERACAO = CR.IDOPERACAO " +
+                                    " WHERE   I.DATBASE = '" + dataVigencia.ToString("yyyy-MM-dd") + "' " +
+                                    " AND         CODTIPCESSAO = '0316' "; 
+
+
+                if (conexao.State != ConnectionState.Open)
+                    conexao.Open();
+
+                var retorno = conexao.Query(comandoSQL,
+                    null,
+                    null,
+                    true,
+                    null,
+                    commandType: CommandType.Text
+                    );
+
+                sucesso = true;
+
+            }
+            catch
+            {
+                sucesso = false;
+            }
+            finally
+            {
+                conexao.Close();
+            }
+
+
+            return sucesso;
+        }
+
+        public bool tratarOcorrencia183(DateTime dataVigencia)
+        {
+            return (excluirOcorrencia183(dataVigencia) && (excluirRegistrosInfoAdicionalOcorrencia183(dataVigencia)));
+        }
+
+        public bool tratarOcorrencia116(DateTime dataVigencia)
+        {
+            bool sucesso = false;
+            var conexao = new SqlConnection(this.conexaoBD);
+
+            try
+            {
+                string comandoSQL = String.Empty;
+                comandoSQL += " DELETE FROM OCORRENCIAS WHERE DATBASE = '" + dataVigencia.ToString("yyyy-MM-dd") + "' AND CODERRO = 116 ";
+                comandoSQL += " UPDATE OPERACOES_NC SET DATCONTRATO = '" + dataVigencia.ToString("yyyy-MM-dd") + "' ";
+                comandoSQL += " WHERE DATBASE = '" + dataVigencia.ToString("yyyy-MM-dd") + "' ";
+                comandoSQL += " AND DATCONTRATO > '" + dataVigencia.ToString("yyyy-MM-dd") + "' ";
+
+                if (conexao.State != ConnectionState.Open)
+                    conexao.Open();
+
+                var retorno = conexao.Query(comandoSQL,
+                    null,
+                    null,
+                    true,
+                    null,
+                    commandType: CommandType.Text
+                    );
+
+                sucesso = true;
+
+            }
+            catch
+            {
+                sucesso = false;
+            }
+            finally
+            {
+                conexao.Close();
+            }
+
+
+            return sucesso;
+        }
+
+        public bool tratarOcorrencias109ContasCorrentes(DateTime dataVigencia)
+        {
+            bool sucesso = false;
+            var conexao = new SqlConnection(this.conexaoBD);
+
+            try
+            {
+                string comandoSQL = String.Empty;
+                
+
+                if (conexao.State != ConnectionState.Open)
+                    conexao.Open();
+
+                var retorno = conexao.Query(comandoSQL,
+                    null,
+                    null,
+                    true,
+                    null,
+                    commandType: CommandType.Text
+                    );
+
+                sucesso = true;
+
+            }
+            catch
+            {
+                sucesso = false;
+            }
+            finally
+            {
+                conexao.Close();
+            }
+
+
+            return sucesso;
+        }
+
+
+        public bool tratarMotivoAlocacaoEstagio(DateTime dataVigencia, int codOcorrencia)
+        {
+            bool sucesso = false;
+            var conexao = new SqlConnection(this.conexaoBD);
+
+            try
+            {
+                string comandoSQL = String.Empty;
+
+                comandoSQL = " IF OBJECT_ID('tempdb..#Contratos') IS NOT NULL DROP TABLE #Contratos ";
+                comandoSQL += " DECLARE @SEQUENCIA INT ";
+                comandoSQL += " SELECT @SEQUENCIA = MAX(SEQUENCIA) FROM OPERACOES_ESTAGIO WITH(NOLOCK) ";
+                comandoSQL += " SET @SEQUENCIA = @SEQUENCIA + 1 ";
+                comandoSQL += " SELECT ";
+                comandoSQL += " ROW_NUMBER() OVER(ORDER BY O.CODCOLIGADA, O.CODSISTEMA, O.CODMODALIDADE, O.ESTINSTFIN, O.CONTRATO_ORIGINAL) AS Sequencia, ";
+            comandoSQL += " O.CODCOLIGADA AS CodigoColigada, ";
+            comandoSQL += " O.CODSISTEMA AS CodigoSistema, ";
+            comandoSQL += " O.DATBASE AS DataVigencia, ";
+            comandoSQL += " O.NROCONTROLE AS NumeroControle, ";
+            comandoSQL += " O.IDOPERACAO AS IdOperacao, ";
+            comandoSQL += " O.CONTRATO_ORIGINAL AS NumeroContrato, ";
+            comandoSQL += " O.CODMODALIDADE AS CodigoModalidade, ";
+            comandoSQL += " O.DIASATRASO AS DiasAtraso, ";
+            comandoSQL += " O.ESTINSTFIN AS Estagio, ";
+            comandoSQL += " CASE WHEN O.DATCONTRATO < '20250101' THEN '20250101' ";
+                comandoSQL += " ELSE O.DATCONTRATO END AS DataAlocacaoEstagio,  ";
+            comandoSQL += " CASE    WHEN CAST(O.ESTINSTFIN AS INT) <= 2 THEN O.ESTINSTFIN + '01'  ";
+                    comandoSQL += " WHEN CAST(O.ESTINSTFIN AS INT) > 3 AND O.DIASATRASO <= 90 THEN '301'  ";
+            comandoSQL += " ELSE '302' END AS MotivoAlocacaoEstagio,  ";
+            comandoSQL += " INDSAIDA AS Saida,  ";
+            comandoSQL += " INDPREJUIZO AS Prejuizo  ";
+comandoSQL += " INTO		#Contratos  ";
+comandoSQL += " FROM OPERACOES_NC O WITH(NOLOCK)  ";
+comandoSQL += " WHERE O.DATBASE = '" + dataVigencia.ToString("yyyy-MM-dd") + "' ";
+comandoSQL += " AND(INDSAIDA = 'S'  ";
+                comandoSQL += " OR      INDPREJUIZO = 'S' ) ";
+                comandoSQL += " UPDATE O ";
+                comandoSQL += " SET Sequencia = Sequencia + @SEQUENCIA ";
+                comandoSQL += " FROM	#Contratos O ";
+
+                comandoSQL += " DELETE OE ";
+                comandoSQL += " FROM OPERACOES_ESTAGIO OE INNER JOIN #Contratos O ";
+                comandoSQL += " ON  OE.DATBASE = O.DataVigencia ";
+                comandoSQL += " AND OE.CODCOLIGADA = O.CodigoColigada ";
+                comandoSQL += " AND OE.NROCONTROLE = O.NumeroControle ";
+                comandoSQL += " AND OE.IDOPERACAO = O.IDOPERACAO ";
+                comandoSQL += " WHERE OE.DATBASE = '" + dataVigencia.ToString("yyyy-MM-dd") + "' ";
+
+                comandoSQL += " DELETE O ";
+                comandoSQL += " FROM OCORRENCIAS O ";
+                comandoSQL += " WHERE DATBASE = '" + dataVigencia.ToString("yyyy-MM-dd") + "' ";
+                comandoSQL += " AND CODERRO = " + codOcorrencia.ToString();
+
+                comandoSQL += " INSERT INTO    OPERACOES_ESTAGIO ";
+                comandoSQL += " SELECT      DataVigencia, ";
+                comandoSQL += " CodigoColigada, ";
+                comandoSQL += " NumeroControle, ";
+                comandoSQL += " IdOperacao, ";
+                comandoSQL += " Sequencia, ";
+                comandoSQL += " MotivoAlocacaoEstagio, ";
+                comandoSQL += " DataAlocacaoEstagio ";
+                comandoSQL += " FROM		#Contratos ";
+                comandoSQL += " ORDER BY    Sequencia ";                
+
+                if (conexao.State != ConnectionState.Open)
+                    conexao.Open();
+
+                var retorno = conexao.Query(comandoSQL,
+                    null,
+                    null,
+                    true,
+                    null,
+                    commandType: CommandType.Text
+                    );
+
+                sucesso = true;
+
+            }
+            catch
+            {
+                sucesso = false;
+            }
+            finally
+            {
+                conexao.Close();
+            }
+
+
+            return sucesso;
+        }
+
+    }
+}
